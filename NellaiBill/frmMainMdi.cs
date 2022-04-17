@@ -64,7 +64,8 @@ namespace NellaiBill
             }
             else
             {
-                CommonFormControls(new OPBilling());
+                //CommonFormControls(new OPBilling());
+                CommonFormControls(new DonorRegistration());
             }
             if (configResponseModel.IsAccounts == "NO")
             {
@@ -443,6 +444,11 @@ namespace NellaiBill
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CommonFormControls(new frmSettings());
+        }
+
+        private void donorRegistrationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new DonorRegistration());
         }
     }
 }

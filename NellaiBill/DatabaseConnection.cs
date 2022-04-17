@@ -22,7 +22,7 @@ namespace NellaiBill
         public string xReportPath = "";
         int xGBatch = 0;
         public MySqlConnection connection;
-         public string conString = @"Data Source=localhost;port=3306;Initial Catalog=hms_lhs;User Id=root;password=";
+         public string conString = @"Data Source=localhost;port=3306;Initial Catalog=hms_lhs;;Convert Zero Datetime=True;CharSet=utf8;User Id=root;password=";
        // public string conString = @"Data Source=ns1069.ifastnet.com;port=3306;Initial Catalog=hellotam_nellaibill;User Id=hellotam_saleem;password=hellotamila;Convert Zero Datetime=True;CharSet=utf8;";
         /*public string conString =
         @"Data Source=" + xHostName + ";" +
@@ -236,7 +236,6 @@ namespace NellaiBill
                     xGridView.AllowUserToAddRows = false;
                     //xGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                     //xGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkMagenta;
-
                     xGridView.RowHeadersVisible = false;
 
                 }
@@ -882,5 +881,38 @@ namespace NellaiBill
         //    }
         //    return model;
         //}
+
+        public DonorRegistrationResponseModel GetDonorRegistrationBasedOnQry(string xQry)
+        {
+            DonorRegistrationResponseModel donorRegistrationResponseModel = new DonorRegistrationResponseModel();
+            using (connection = new MySqlConnection(conString))
+            {
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    donorRegistrationResponseModel = new DonorRegistrationResponseModel()
+                    {
+                        Id = reader.GetInt32(0),
+                        Name = reader.GetString("Name"),
+                        AddressLine1=reader.GetString("Address1"),
+                        AddressLine2 = reader.GetString("Address2"),
+                        PhoneNo1 = reader.GetString("phone_no1"),
+                        PhoneNo2 = reader.GetString("phone_no2"),
+                        LandlineNo1 = reader.GetString("landline_no1"),
+                        LandlineNo2 = reader.GetString("landline_no2"),
+                        EmailId1 = reader.GetString("email_id1"),
+                        EmailId2 = reader.GetString("email_id2"),
+                    };
+                }
+                connection.Close();
+            }
+            return donorRegistrationResponseModel;
+        }
     }
+
+
 }

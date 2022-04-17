@@ -265,7 +265,8 @@ namespace NellaiBill.Transaction
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            string xFilterSearch = "patient_name Like '%" + txtSearch.Text + "%' OR uhid LIKE '%" + txtSearch.Text + "%' OR patient_mobileno LIKE '%" + txtSearch.Text + "%' OR patient_address LIKE '%" + txtSearch.Text + "%'";
+            // string xFilterSearch = "patient_name Like '%" + txtSearch.Text + "%' OR uhid LIKE '%" + txtSearch.Text + "%' OR patient_mobileno LIKE '%" + txtSearch.Text + "%' OR patient_address LIKE '%" + txtSearch.Text + "%'";
+            string xFilterSearch = "NAME Like '%" + txtSearch.Text + "%'";
             (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format(xFilterSearch);
         }
 
