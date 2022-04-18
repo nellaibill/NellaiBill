@@ -443,6 +443,12 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Donor\ImportantDates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Donor\ImportantDates.Designer.cs">
+      <DependentUpon>ImportantDates.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalClass.cs" />
     <Compile Include="Master\CaseTypeMaster.cs">
       <SubType>Form</SubType>
@@ -462,10 +468,10 @@
     <Compile Include="Master\DoctorRegistration.Designer.cs">
       <DependentUpon>DoctorRegistration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Master\DonorRegistration.cs">
+    <Compile Include="Donor\DonorRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Master\DonorRegistration.Designer.cs">
+    <Compile Include="Donor\DonorRegistration.Designer.cs">
       <DependentUpon>DonorRegistration.cs</DependentUpon>
     </Compile>
     <Compile Include="Master\frmForgetPassword.cs">
@@ -1079,6 +1085,9 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Donor\ImportantDates.resx">
+      <DependentUpon>ImportantDates.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMainMdi.resx">
       <DependentUpon>frmMainMdi.cs</DependentUpon>
     </EmbeddedResource>
@@ -1091,7 +1100,7 @@
     <EmbeddedResource Include="Master\DoctorRegistration.resx">
       <DependentUpon>DoctorRegistration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Master\DonorRegistration.resx">
+    <EmbeddedResource Include="Donor\DonorRegistration.resx">
       <DependentUpon>DonorRegistration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Master\frmForgetPassword.resx">

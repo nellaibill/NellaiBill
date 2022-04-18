@@ -36,6 +36,10 @@ namespace NellaiBill.Master
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.mbtnOtherDetails = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.mbtnDonationDetails = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.mbtnFDDetails = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.mbtnImportantDates = new MaterialSkin.Controls.MaterialRaisedButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.chkSREmail = new System.Windows.Forms.CheckBox();
             this.chkSRVisitor = new System.Windows.Forms.CheckBox();
@@ -49,6 +53,9 @@ namespace NellaiBill.Master
             this.chkSupportFS = new System.Windows.Forms.CheckBox();
             this.chkSupportCS = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkDonorWelfare = new System.Windows.Forms.CheckBox();
+            this.chkDonorThings = new System.Windows.Forms.CheckBox();
+            this.ptxtPanCard = new PlaceholderTextBox.PlaceholderTextBox();
             this.chkDonorEndowment = new System.Windows.Forms.CheckBox();
             this.chkDonorAnnual = new System.Windows.Forms.CheckBox();
             this.txtRelatedFiles = new System.Windows.Forms.TextBox();
@@ -80,17 +87,10 @@ namespace NellaiBill.Master
             this.txtAddressLine1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.mbtnImportantDates = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.mbtnFDDetails = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.mbtnDonationDetails = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.mbtnOtherDetails = new MaterialSkin.Controls.MaterialRaisedButton();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
-            this.ptxtPanCard = new PlaceholderTextBox.PlaceholderTextBox();
-            this.chkDonorWelfare = new System.Windows.Forms.CheckBox();
-            this.chkDonorThings = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -221,6 +221,59 @@ namespace NellaiBill.Master
             this.groupBox1.Size = new System.Drawing.Size(1592, 389);
             this.groupBox1.TabIndex = 96;
             this.groupBox1.TabStop = false;
+            // 
+            // mbtnOtherDetails
+            // 
+            this.mbtnOtherDetails.Depth = 0;
+            this.mbtnOtherDetails.Location = new System.Drawing.Point(1305, 321);
+            this.mbtnOtherDetails.Margin = new System.Windows.Forms.Padding(4);
+            this.mbtnOtherDetails.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbtnOtherDetails.Name = "mbtnOtherDetails";
+            this.mbtnOtherDetails.Primary = true;
+            this.mbtnOtherDetails.Size = new System.Drawing.Size(166, 49);
+            this.mbtnOtherDetails.TabIndex = 173;
+            this.mbtnOtherDetails.Text = "Other Details";
+            this.mbtnOtherDetails.UseVisualStyleBackColor = true;
+            // 
+            // mbtnDonationDetails
+            // 
+            this.mbtnDonationDetails.Depth = 0;
+            this.mbtnDonationDetails.Location = new System.Drawing.Point(1131, 321);
+            this.mbtnDonationDetails.Margin = new System.Windows.Forms.Padding(4);
+            this.mbtnDonationDetails.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbtnDonationDetails.Name = "mbtnDonationDetails";
+            this.mbtnDonationDetails.Primary = true;
+            this.mbtnDonationDetails.Size = new System.Drawing.Size(166, 49);
+            this.mbtnDonationDetails.TabIndex = 172;
+            this.mbtnDonationDetails.Text = "Donation Details";
+            this.mbtnDonationDetails.UseVisualStyleBackColor = true;
+            // 
+            // mbtnFDDetails
+            // 
+            this.mbtnFDDetails.Depth = 0;
+            this.mbtnFDDetails.Location = new System.Drawing.Point(946, 321);
+            this.mbtnFDDetails.Margin = new System.Windows.Forms.Padding(4);
+            this.mbtnFDDetails.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbtnFDDetails.Name = "mbtnFDDetails";
+            this.mbtnFDDetails.Primary = true;
+            this.mbtnFDDetails.Size = new System.Drawing.Size(166, 49);
+            this.mbtnFDDetails.TabIndex = 171;
+            this.mbtnFDDetails.Text = "FD Details";
+            this.mbtnFDDetails.UseVisualStyleBackColor = true;
+            // 
+            // mbtnImportantDates
+            // 
+            this.mbtnImportantDates.Depth = 0;
+            this.mbtnImportantDates.Location = new System.Drawing.Point(761, 321);
+            this.mbtnImportantDates.Margin = new System.Windows.Forms.Padding(4);
+            this.mbtnImportantDates.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbtnImportantDates.Name = "mbtnImportantDates";
+            this.mbtnImportantDates.Primary = true;
+            this.mbtnImportantDates.Size = new System.Drawing.Size(166, 49);
+            this.mbtnImportantDates.TabIndex = 170;
+            this.mbtnImportantDates.Text = "Important Dates";
+            this.mbtnImportantDates.UseVisualStyleBackColor = true;
+            this.mbtnImportantDates.Click += new System.EventHandler(this.mbtnImportantDates_Click);
             // 
             // groupBox4
             // 
@@ -366,6 +419,33 @@ namespace NellaiBill.Master
             this.groupBox2.TabIndex = 167;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Donor";
+            // 
+            // chkDonorWelfare
+            // 
+            this.chkDonorWelfare.AutoSize = true;
+            this.chkDonorWelfare.Location = new System.Drawing.Point(605, 27);
+            this.chkDonorWelfare.Name = "chkDonorWelfare";
+            this.chkDonorWelfare.Size = new System.Drawing.Size(102, 29);
+            this.chkDonorWelfare.TabIndex = 6;
+            this.chkDonorWelfare.Text = "Welfare";
+            this.chkDonorWelfare.UseVisualStyleBackColor = true;
+            // 
+            // chkDonorThings
+            // 
+            this.chkDonorThings.AutoSize = true;
+            this.chkDonorThings.Location = new System.Drawing.Point(486, 27);
+            this.chkDonorThings.Name = "chkDonorThings";
+            this.chkDonorThings.Size = new System.Drawing.Size(94, 29);
+            this.chkDonorThings.TabIndex = 5;
+            this.chkDonorThings.Text = "Things";
+            this.chkDonorThings.UseVisualStyleBackColor = true;
+            // 
+            // ptxtPanCard
+            // 
+            this.ptxtPanCard.Location = new System.Drawing.Point(255, 27);
+            this.ptxtPanCard.Name = "ptxtPanCard";
+            this.ptxtPanCard.Size = new System.Drawing.Size(205, 30);
+            this.ptxtPanCard.TabIndex = 4;
             // 
             // chkDonorEndowment
             // 
@@ -696,58 +776,6 @@ namespace NellaiBill.Master
             this.panel3.Size = new System.Drawing.Size(1595, 52);
             this.panel3.TabIndex = 95;
             // 
-            // mbtnImportantDates
-            // 
-            this.mbtnImportantDates.Depth = 0;
-            this.mbtnImportantDates.Location = new System.Drawing.Point(761, 321);
-            this.mbtnImportantDates.Margin = new System.Windows.Forms.Padding(4);
-            this.mbtnImportantDates.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbtnImportantDates.Name = "mbtnImportantDates";
-            this.mbtnImportantDates.Primary = true;
-            this.mbtnImportantDates.Size = new System.Drawing.Size(166, 49);
-            this.mbtnImportantDates.TabIndex = 170;
-            this.mbtnImportantDates.Text = "Important Dates";
-            this.mbtnImportantDates.UseVisualStyleBackColor = true;
-            // 
-            // mbtnFDDetails
-            // 
-            this.mbtnFDDetails.Depth = 0;
-            this.mbtnFDDetails.Location = new System.Drawing.Point(946, 321);
-            this.mbtnFDDetails.Margin = new System.Windows.Forms.Padding(4);
-            this.mbtnFDDetails.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbtnFDDetails.Name = "mbtnFDDetails";
-            this.mbtnFDDetails.Primary = true;
-            this.mbtnFDDetails.Size = new System.Drawing.Size(166, 49);
-            this.mbtnFDDetails.TabIndex = 171;
-            this.mbtnFDDetails.Text = "FD Details";
-            this.mbtnFDDetails.UseVisualStyleBackColor = true;
-            // 
-            // mbtnDonationDetails
-            // 
-            this.mbtnDonationDetails.Depth = 0;
-            this.mbtnDonationDetails.Location = new System.Drawing.Point(1131, 321);
-            this.mbtnDonationDetails.Margin = new System.Windows.Forms.Padding(4);
-            this.mbtnDonationDetails.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbtnDonationDetails.Name = "mbtnDonationDetails";
-            this.mbtnDonationDetails.Primary = true;
-            this.mbtnDonationDetails.Size = new System.Drawing.Size(166, 49);
-            this.mbtnDonationDetails.TabIndex = 172;
-            this.mbtnDonationDetails.Text = "Donation Details";
-            this.mbtnDonationDetails.UseVisualStyleBackColor = true;
-            // 
-            // mbtnOtherDetails
-            // 
-            this.mbtnOtherDetails.Depth = 0;
-            this.mbtnOtherDetails.Location = new System.Drawing.Point(1305, 321);
-            this.mbtnOtherDetails.Margin = new System.Windows.Forms.Padding(4);
-            this.mbtnOtherDetails.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbtnOtherDetails.Name = "mbtnOtherDetails";
-            this.mbtnOtherDetails.Primary = true;
-            this.mbtnOtherDetails.Size = new System.Drawing.Size(166, 49);
-            this.mbtnOtherDetails.TabIndex = 173;
-            this.mbtnOtherDetails.Text = "Other Details";
-            this.mbtnOtherDetails.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.DarkMagenta;
@@ -792,33 +820,6 @@ namespace NellaiBill.Master
             this.lblSearch.Size = new System.Drawing.Size(53, 17);
             this.lblSearch.TabIndex = 140;
             this.lblSearch.Text = "Search";
-            // 
-            // ptxtPanCard
-            // 
-            this.ptxtPanCard.Location = new System.Drawing.Point(255, 27);
-            this.ptxtPanCard.Name = "ptxtPanCard";
-            this.ptxtPanCard.Size = new System.Drawing.Size(205, 30);
-            this.ptxtPanCard.TabIndex = 4;
-            // 
-            // chkDonorWelfare
-            // 
-            this.chkDonorWelfare.AutoSize = true;
-            this.chkDonorWelfare.Location = new System.Drawing.Point(605, 27);
-            this.chkDonorWelfare.Name = "chkDonorWelfare";
-            this.chkDonorWelfare.Size = new System.Drawing.Size(102, 29);
-            this.chkDonorWelfare.TabIndex = 6;
-            this.chkDonorWelfare.Text = "Welfare";
-            this.chkDonorWelfare.UseVisualStyleBackColor = true;
-            // 
-            // chkDonorThings
-            // 
-            this.chkDonorThings.AutoSize = true;
-            this.chkDonorThings.Location = new System.Drawing.Point(486, 27);
-            this.chkDonorThings.Name = "chkDonorThings";
-            this.chkDonorThings.Size = new System.Drawing.Size(94, 29);
-            this.chkDonorThings.TabIndex = 5;
-            this.chkDonorThings.Text = "Things";
-            this.chkDonorThings.UseVisualStyleBackColor = true;
             // 
             // DonorRegistration
             // 

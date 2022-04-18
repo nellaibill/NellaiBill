@@ -1,4 +1,5 @@
-﻿using NellaiBill.Models;
+﻿using NellaiBill.Donor;
+using NellaiBill.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,7 +43,7 @@ namespace NellaiBill.Master
                     " donor_name = '" + txtName.Text + "', " +
                     " address_line1 = '" + txtAddressLine1.Text + "', " +
                     " address_line2 = '" + txtAddressLine2.Text + "' " +
-                    " where  id= " + xDonorId + "";
+                    " where  p_donor_id= " + xDonorId + "";
             }
             xDb.DataProcess(xQry);
             MessageBox.Show("Saved/Updated");
@@ -53,7 +54,7 @@ namespace NellaiBill.Master
       
         private void LoadGrid()
         {
-            string xQry = "select id as Id,donor_name as Name," +
+            string xQry = "select p_donor_id as Id,donor_name as Name," +
                 "address_line1 as Address1," +
                 "address_line2 as Address2, " +
                 "phone_no1, " +
@@ -107,9 +108,8 @@ namespace NellaiBill.Master
             ptxtPanCard.Enabled = false;
             mBtnNew.Enabled = false;
             mbtnImportantDates.Enabled = false;
+            mbtnDonationDetails.Enabled = false;
             mbtnFDDetails.Enabled = false;
-            mbtnDonationDetails.Enabled = false;
-            mbtnDonationDetails.Enabled = false;
             mbtnOtherDetails.Enabled = false;
         }
 
@@ -123,12 +123,16 @@ namespace NellaiBill.Master
         {
             xDonorId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             mBtnNew.Enabled = true;
+            mbtnImportantDates.Enabled = true;
+            mbtnDonationDetails.Enabled = true;
+            mbtnFDDetails.Enabled = true;
+            mbtnOtherDetails.Enabled = true;
             DataFetch(xDonorId);
             btnSaveUpdate.Text = "UPDATE";
         }
         private void DataFetch(int xDonorId)
         {
-            string xQry = "select id as Id,donor_name as Name," +
+            string xQry = "select p_donor_id as Id,donor_name as Name," +
                "address_line1 as Address1," +
                "address_line2 as Address2, " +
                "phone_no1, " +
@@ -141,14 +145,14 @@ namespace NellaiBill.Master
                "reference, " +
                "related_files, " +
                "donor_annual as Annual, " +
-               "donor_fd as FD, " +
+               "donor_endowment as FD, " +
                "donor_things as Things, " +
                "donor_welfare as Welfare, " +
                "support_cs as CS, " +
                "support_fs as FS, " +
                "support_bs as BS" +
                " from lukes_donor_registration" +
-               " where  id= " + xDonorId + "";
+               " where  p_donor_id= " + xDonorId + "";
             DonorRegistrationResponseModel donorRegistrationResponse = new DonorRegistrationResponseModel();
             donorRegistrationResponse = xDb.GetDonorRegistrationBasedOnQry(xQry);
             txtName.Text =donorRegistrationResponse.Name;
@@ -184,6 +188,12 @@ namespace NellaiBill.Master
                 ptxtPanCard.Enabled = false;
                 ptxtPanCard.Text = "";
             }
+        }
+
+        private void mbtnImportantDates_Click(object sender, EventArgs e)
+        {
+            DonorImportantDates donorImportantDates = new DonorImportantDates(xDonorId);
+            donorImportantDates.ShowDialog();
         }
     }
 }
