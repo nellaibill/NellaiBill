@@ -56,7 +56,7 @@ namespace NellaiBill
                 ecgXraySummaryReportToolStripMenuItem.Visible = false;
                 patientInformationReportToolStripMenuItem.Visible = false;
                 userMasterToolStripMenuItem.Visible = false;
-
+                donorRegistrationToolStripMenuItem.Visible = false;
                // stockAdjustmentToolStripMenuItem.Visible = false;
                 toolStripSeparator1.Visible = false;
                 toolStripSeparator2.Visible = false;

@@ -77,9 +77,7 @@ namespace NellaiBill.Master
                 "patient_address as Address," +
                 "patient_mobileno as Mobile " +
                 "from m_patient_registration";
-
             xDb.LoadGrid(xQry, dataGridView1);
-
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

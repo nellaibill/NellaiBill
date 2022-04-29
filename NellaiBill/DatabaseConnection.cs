@@ -231,13 +231,11 @@ namespace NellaiBill
                     DataSet ds = new DataSet();
                     adapter.Fill(ds);
                     xGridView.DataSource = ds.Tables[0];
-                    xGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                    xGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 10, FontStyle.Bold);
+                    xGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 12, FontStyle.Bold);
                     xGridView.AllowUserToAddRows = false;
                     //xGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
                     //xGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkMagenta;
                     xGridView.RowHeadersVisible = false;
-
                 }
             }
 
@@ -882,8 +880,10 @@ namespace NellaiBill
         //    return model;
         //}
 
-        public DonorRegistrationResponseModel GetDonorRegistrationBasedOnQry(string xQry)
+        public DonorRegistrationResponseModel GetDonorRegistrationBasedOnQry(int xGetDonorId)
         {
+            string xQry = "select * " +
+                    " from lukes_donor_registration where   p_donor_id  = '" + xGetDonorId + "'";
             DonorRegistrationResponseModel donorRegistrationResponseModel = new DonorRegistrationResponseModel();
             using (connection = new MySqlConnection(conString))
             {
@@ -896,16 +896,35 @@ namespace NellaiBill
                 {
                     donorRegistrationResponseModel = new DonorRegistrationResponseModel()
                     {
-                        Id = reader.GetInt32(0),
-                        Name = reader.GetString("Name"),
-                        AddressLine1=reader.GetString("Address1"),
-                        AddressLine2 = reader.GetString("Address2"),
+                        Id = reader.GetInt32("p_donor_id"),
+                        Name = reader.GetString("donor_name"),
+                        AddressLine1=reader.GetString("address_line1"),
+                        AddressLine2 = reader.GetString("address_line2"),
+                        State = reader.GetString("state"),
+                        Country= reader.GetString("country"),
                         PhoneNo1 = reader.GetString("phone_no1"),
                         PhoneNo2 = reader.GetString("phone_no2"),
                         LandlineNo1 = reader.GetString("landline_no1"),
                         LandlineNo2 = reader.GetString("landline_no2"),
                         EmailId1 = reader.GetString("email_id1"),
                         EmailId2 = reader.GetString("email_id2"),
+                        DonorFileName = reader.GetString("donor_file_name"),
+                        Reference = reader.GetString("reference"),
+                        RelatedFiles = reader.GetString("related_files"),
+                        DonorAnnual = reader.GetInt32("donor_annual"),
+                        DonorEndowment = reader.GetInt32("donor_endowment"),
+                        DonorThings = reader.GetInt32("donor_things"),
+                        DonorWelfare = reader.GetInt32("donor_welfare"),
+                         SupportCS= reader.GetInt32("support_cs"),
+                        SupportFS = reader.GetInt32("support_fs"),
+                        SupportBS = reader.GetInt32("support_bs"),
+                        SupportCloth = reader.GetInt32("support_cloth"),
+                        SupportOther = reader.GetInt32("support_other"),
+                        SROOC = reader.GetInt32("sr_ooc"),
+                        SRNTC = reader.GetInt32("sr_ntc"),
+                        SRPost = reader.GetInt32("sr_post"),
+                        SRVisitor = reader.GetInt32("sr_visitor"),
+                        SREmail = reader.GetInt32("sr_email"),
                     };
                 }
                 connection.Close();

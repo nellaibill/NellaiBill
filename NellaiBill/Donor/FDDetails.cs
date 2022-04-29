@@ -1,60 +1,73 @@
 ﻿using NellaiBill.Models;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NellaiBill.Donor
 {
-    public partial class DonorImportantDates : Form
+    public partial class FDDetails : Form
     {
         DatabaseConnection xDb = new DatabaseConnection();
         int xFDonorId;
-        int xPDonorImpDateId;
-        GlobalClass globalClass = new GlobalClass();
-        public DonorImportantDates(int xDonorId)
+        int xPDonorFDDetailsId;
+        public FDDetails(int xDonorId)
         {
             InitializeComponent();
             xFDonorId = xDonorId;
             DataFetch(xDonorId);
         }
 
-        private void DonorImportantDates_Load(object sender, EventArgs e)
+        private void FDDetails_Load(object sender, EventArgs e)
         {
             LoadGrid();
             DataClear();
+            txtAmount.Controls[0].Visible = false;
+            ((TextBox)txtAmount.Controls[1]).MaxLength = 10;
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void btnSaveUpdate_Click(object sender, EventArgs e)
         {
             string xQry = "";
-            if (txtName.Text == "")
+            int xAmount = Convert.ToInt32(txtAmount.Text);
+            if (xAmount == 0)
             {
-                MessageBox.Show("Please Choose Name");
-                txtName.Focus();
+                MessageBox.Show("Please Choose Amount");
+                txtAmount.Focus();
                 return;
             }
             if (btnSaveUpdate.Text == "SAVE")
             {
 
-                xQry = "insert into lukes_donor_important_dates (`f_donor_id`, `name`, `relation`,`occasion_date`, `occasion`, `remarks`,`createdason`) " +
+                xQry = "insert into lukes_donor_fd_details (`f_donor_id`, `date`, `amount`,`bank`, `purpose`, `remarks`,`createdason`) " +
                     " values ( " + xFDonorId + ",'" +
-                    txtName.Text + "','" +
-                    txtRelation.Text + "','" +
-                   dtImp.Value.ToString("yyyy-MM-dd") + "','" +
-                    cmbOccasion.Text + "','" +
+                   dtpFDDate.Value.ToString("yyyy-MM-dd") + "','" +
+                    txtAmount.Text + "','" +
+                   txtBank.Text+ "','" +
+                    txtPurpose.Text + "','" +
                     rchRemarks.Text + "','" +
                     DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "')";
             }
             else
             {
                 xQry = "update lukes_donor_important_dates set " +
-                    " name = '" + txtName.Text + "', " +
-                    " relation = '" + txtRelation.Text + "', " +
-                    " occasion_date = '" + dtImp.Value.ToString("yyyy-MM-dd") + "', " +
-
-                    " occasion = '" + cmbOccasion.SelectedValue + "', " +
+                    " amount = '" + txtAmount.Text + "', " +
+                    " bank = '" + txtBank.Text + "', " +
+                    " date = '" + dtpFDDate.Value.ToString("yyyy-MM-dd") + "', " +
+                    " purpose = '" + txtPurpose.Text + "', " +
                     " remarks = '" + rchRemarks.Text + "' " +
                     " updatedason = '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
-                    " where  p_donor_imp_date_id= " + xPDonorImpDateId + "";
+                    " where  p_donor_imp_date_id= " + xPDonorFDDetailsId + "";
             }
             xDb.DataProcess(xQry);
             MessageBox.Show("Saved/Updated");
@@ -65,13 +78,12 @@ namespace NellaiBill.Donor
         {
             DonorRegistrationResponseModel donorRegistrationResponse = new DonorRegistrationResponseModel();
             donorRegistrationResponse = xDb.GetDonorRegistrationBasedOnQry(xDonorId);
-            lblImportantDatesTitle.Text = "Important Dates for " + donorRegistrationResponse.Name; 
+            lblFDDetailsTitle.Text = "FD Details for " + donorRegistrationResponse.Name;
         }
-
         private void LoadGrid()
         {
-            string xQry = "select p_donor_imp_date_id,f_donor_id,name,relation,occasion_date as date,occasion,remarks" +
-                " from lukes_donor_important_dates where f_donor_id = " + xFDonorId + "";
+            string xQry = "select p_donor_fd_details_id,f_donor_id,date,amount,bank,purpose,remarks" +
+                " from lukes_donor_fd_details where f_donor_id = " + xFDonorId + "";
             xDb.LoadGrid(xQry, dataGridView1);
             dataGridView1.ReadOnly = true;
             dataGridView1.AutoGenerateColumns = false;
@@ -87,23 +99,12 @@ namespace NellaiBill.Donor
         }
         private void DataClear()
         {
-            txtName.Text = "";
-            txtRelation.Text = "";
-            dtImp.Text = "";
+            //dtpFDDate.Text = "";
+            txtAmount.Text = ""; 
+            txtBank.Text = "";
+            txtPurpose.Text = "";
             rchRemarks.Text = "";
             btnSaveUpdate.Text = "SAVE";
-            cmbOccasion.SelectedIndex = 1;
-        }
-
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            xPDonorImpDateId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-            txtName.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txtRelation.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            dtImp.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-            cmbOccasion.SelectedItem = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-            rchRemarks.Text= dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-            btnSaveUpdate.Text = "UPDATE";
         }
     }
 }

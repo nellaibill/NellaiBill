@@ -103,9 +103,9 @@ namespace NellaiBill.Master
                 " i.gst as Gst, " +
                 " i.mrp as Mrp," +
                 " i.salt_name as SALT," +
-                 " i.scheduleh as SCHEDULEH," +
-                 " i.schedulehP as SCHEDULEH_PLUS," +
-                 " i.norcatic as NORCATIC" +
+                " i.scheduleh as SCHEDULEH," +
+                " i.schedulehP as SCHEDULEH_PLUS," +
+                " i.norcatic as NORCATIC" +
                 " from m_category c,m_group g, " +
                 " m_product i " +
                 " where c.category_id = i.category_id " +

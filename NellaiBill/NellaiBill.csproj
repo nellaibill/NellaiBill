@@ -443,6 +443,18 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Donor\DonorFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Donor\DonorFilter.Designer.cs">
+      <DependentUpon>DonorFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Donor\FDDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Donor\FDDetails.Designer.cs">
+      <DependentUpon>FDDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Donor\ImportantDates.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1085,6 +1097,12 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Donor\DonorFilter.resx">
+      <DependentUpon>DonorFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Donor\FDDetails.resx">
+      <DependentUpon>FDDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Donor\ImportantDates.resx">
       <DependentUpon>ImportantDates.cs</DependentUpon>
     </EmbeddedResource>
@@ -1373,10 +1391,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="h_icon_cng_icon.ico" />
+    <Content Include="Images\abd.ico" />
     <Content Include="logo.ico" />
     <Content Include="pharmacy.ico" />
     <Content Include="Common\database_changes.sql" />
     <Content Include="Common\hms_lhs.sql" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
     <None Include="Resources\print.png" />
     <None Include="Resources\arrow1.png" />
     <None Include="Resources\arrow.png" />
