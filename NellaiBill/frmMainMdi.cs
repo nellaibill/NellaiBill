@@ -37,7 +37,18 @@ namespace NellaiBill
             lblUserType.Text = xUserName;
             categoryToolStripMenuItem.Visible = false;
             ConfigResponseModel configResponseModel = xDb.GetConfig();
-            if (configResponseModel.IsHms == "NO")
+            if (configResponseModel.IsDonor == "YES"  && configResponseModel.IsHms == "NO" && configResponseModel.IsAccounts == "NO")
+            {
+                toolStripMasterMenu.Visible = false;
+                toolStripAccountsMenu.Visible = false;
+                toolStripHMSMenu.Visible = false;
+                toolStripPurchaseMenu.Visible = false;
+                toolStripSalesMenu.Visible = false;
+                toolStripReportsMenu.Visible = false;
+                stockAdjustmentToolStripMenuItem.Visible = false;
+                CommonFormControls(new DonorRegistration());
+            }
+            else if (configResponseModel.IsHms == "NO")
             {
                 patientRegistrationToolStripMenuItem.Visible = false;
                 doctorRegistrationToolStripMenuItem.Visible = false;
@@ -48,7 +59,7 @@ namespace NellaiBill
                 roomMasterToolStripMenuItem.Visible = false;
                 iPFeesMasterToolStripMenuItem.Visible = false;
                 
-                hmsTransactionMenu.Visible = false;
+                toolStripHMSMenu.Visible = false;
                 oPSummaryReportToolStripMenuItem.Visible = false;
                 scanSummaryToolStripMenuItem.Visible = false;
                 labReportToolStripMenuItem.Visible = false;
@@ -71,7 +82,7 @@ namespace NellaiBill
             }
             if (configResponseModel.IsAccounts == "NO")
             {
-                toolStripAccounts.Visible = false;
+                toolStripAccountsMenu.Visible = false;
             }
             //Dashboard dashboard = new Dashboard();
             // dashboard.MdiParent = this;

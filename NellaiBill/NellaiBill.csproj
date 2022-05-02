@@ -459,6 +459,12 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Donor\DonationDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Donor\DonationDetails.Designer.cs">
+      <DependentUpon>DonationDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Donor\DonorFilter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -476,6 +482,12 @@
     </Compile>
     <Compile Include="Donor\ImportantDates.Designer.cs">
       <DependentUpon>ImportantDates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Donor\OtherDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Donor\OtherDetails.Designer.cs">
+      <DependentUpon>OtherDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Don\CustomerDetails.cs">
       <SubType>Form</SubType>
@@ -1120,6 +1132,9 @@
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Donor\DonationDetails.resx">
+      <DependentUpon>DonationDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Donor\DonorFilter.resx">
       <DependentUpon>DonorFilter.cs</DependentUpon>
     </EmbeddedResource>
@@ -1128,6 +1143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Donor\ImportantDates.resx">
       <DependentUpon>ImportantDates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Donor\OtherDetails.resx">
+      <DependentUpon>OtherDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Don\CustomerDetails.resx">
       <DependentUpon>CustomerDetails.cs</DependentUpon>

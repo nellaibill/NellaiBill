@@ -434,6 +434,7 @@ namespace NellaiBill.Master
             this.mbtnDonationDetails.TabIndex = 172;
             this.mbtnDonationDetails.Text = "Donation Details";
             this.mbtnDonationDetails.UseVisualStyleBackColor = true;
+            this.mbtnDonationDetails.Click += new System.EventHandler(this.mbtnDonationDetails_Click);
             // 
             // mbtnOtherDetails
             // 
@@ -448,6 +449,7 @@ namespace NellaiBill.Master
             this.mbtnOtherDetails.TabIndex = 173;
             this.mbtnOtherDetails.Text = "Other Details";
             this.mbtnOtherDetails.UseVisualStyleBackColor = true;
+            this.mbtnOtherDetails.Click += new System.EventHandler(this.mbtnOtherDetails_Click);
             // 
             // groupBox1
             // 

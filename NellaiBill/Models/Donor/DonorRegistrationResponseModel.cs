@@ -38,5 +38,7 @@ namespace NellaiBill.Models
         public int SRPost { get; set; }
         public int SRVisitor { get; set; }
         public int SREmail { get; set; }
+        public string OtherDetails { get; set; }
+
     }
 }

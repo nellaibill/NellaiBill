@@ -1,7 +1,7 @@
 ﻿
 namespace NellaiBill.Donor
 {
-    partial class FDDetails
+    partial class DonationDetails
     {
         /// <summary>
         /// Required designer variable.
@@ -31,11 +31,11 @@ namespace NellaiBill.Donor
         {
             this.btnSaveUpdate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtBank = new System.Windows.Forms.TextBox();
+            this.txtChannel = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.lblFDDetailsTitle = new System.Windows.Forms.Label();
+            this.lblDonationDetailsTitle = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtAmount = new System.Windows.Forms.NumericUpDown();
             this.txtPurpose = new System.Windows.Forms.TextBox();
@@ -56,11 +56,11 @@ namespace NellaiBill.Donor
             this.btnSaveUpdate.BackColor = System.Drawing.Color.Green;
             this.btnSaveUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveUpdate.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnSaveUpdate.Location = new System.Drawing.Point(1260, 18);
+            this.btnSaveUpdate.Location = new System.Drawing.Point(1255, 31);
             this.btnSaveUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveUpdate.Name = "btnSaveUpdate";
             this.btnSaveUpdate.Size = new System.Drawing.Size(123, 45);
-            this.btnSaveUpdate.TabIndex = 6;
+            this.btnSaveUpdate.TabIndex = 102;
             this.btnSaveUpdate.Text = "SAVE";
             this.btnSaveUpdate.UseVisualStyleBackColor = false;
             this.btnSaveUpdate.Click += new System.EventHandler(this.btnSaveUpdate_Click);
@@ -74,17 +74,15 @@ namespace NellaiBill.Donor
             this.label1.Size = new System.Drawing.Size(61, 17);
             this.label1.TabIndex = 33;
             this.label1.Text = "Purpose";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // txtBank
+            // txtChannel
             // 
-            this.txtBank.Location = new System.Drawing.Point(420, 51);
-            this.txtBank.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBank.MaxLength = 10;
-            this.txtBank.Name = "txtBank";
-            this.txtBank.Size = new System.Drawing.Size(271, 22);
-            this.txtBank.TabIndex = 3;
-            this.txtBank.TextChanged += new System.EventHandler(this.txtBank_TextChanged);
+            this.txtChannel.Location = new System.Drawing.Point(420, 51);
+            this.txtChannel.Margin = new System.Windows.Forms.Padding(4);
+            this.txtChannel.MaxLength = 10;
+            this.txtChannel.Name = "txtChannel";
+            this.txtChannel.Size = new System.Drawing.Size(271, 22);
+            this.txtChannel.TabIndex = 3;
             // 
             // label7
             // 
@@ -92,10 +90,9 @@ namespace NellaiBill.Donor
             this.label7.Location = new System.Drawing.Point(417, 19);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 17);
+            this.label7.Size = new System.Drawing.Size(60, 17);
             this.label7.TabIndex = 31;
-            this.label7.Text = "Bank";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            this.label7.Text = "Channel";
             // 
             // label4
             // 
@@ -106,34 +103,30 @@ namespace NellaiBill.Donor
             this.label4.Size = new System.Drawing.Size(56, 17);
             this.label4.TabIndex = 14;
             this.label4.Text = "Amount";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(40, 231);
+            this.dataGridView1.Location = new System.Drawing.Point(35, 244);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(1479, 332);
-            this.dataGridView1.TabIndex = 11;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.dataGridView1.TabIndex = 104;
             // 
-            // lblFDDetailsTitle
+            // lblDonationDetailsTitle
             // 
-            this.lblFDDetailsTitle.AutoSize = true;
-            this.lblFDDetailsTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblFDDetailsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFDDetailsTitle.ForeColor = System.Drawing.Color.White;
-            this.lblFDDetailsTitle.Location = new System.Drawing.Point(93, 0);
-            this.lblFDDetailsTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblFDDetailsTitle.Name = "lblFDDetailsTitle";
-            this.lblFDDetailsTitle.Size = new System.Drawing.Size(135, 29);
-            this.lblFDDetailsTitle.TabIndex = 0;
-            this.lblFDDetailsTitle.Text = "FD Details";
-            this.lblFDDetailsTitle.Click += new System.EventHandler(this.lblFDDetailsTitle_Click);
+            this.lblDonationDetailsTitle.AutoSize = true;
+            this.lblDonationDetailsTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblDonationDetailsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDonationDetailsTitle.ForeColor = System.Drawing.Color.White;
+            this.lblDonationDetailsTitle.Location = new System.Drawing.Point(93, 0);
+            this.lblDonationDetailsTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDonationDetailsTitle.Name = "lblDonationDetailsTitle";
+            this.lblDonationDetailsTitle.Size = new System.Drawing.Size(205, 29);
+            this.lblDonationDetailsTitle.TabIndex = 0;
+            this.lblDonationDetailsTitle.Text = "Donation Details";
             // 
             // groupBox1
             // 
@@ -144,17 +137,16 @@ namespace NellaiBill.Donor
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtBank);
+            this.groupBox1.Controls.Add(this.txtChannel);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(40, 67);
+            this.groupBox1.Location = new System.Drawing.Point(35, 80);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(1479, 156);
-            this.groupBox1.TabIndex = 101;
+            this.groupBox1.TabIndex = 106;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtAmount
             // 
@@ -167,7 +159,6 @@ namespace NellaiBill.Donor
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(152, 22);
             this.txtAmount.TabIndex = 2;
-            this.txtAmount.ValueChanged += new System.EventHandler(this.txtAmount_ValueChanged);
             // 
             // txtPurpose
             // 
@@ -177,7 +168,6 @@ namespace NellaiBill.Donor
             this.txtPurpose.Name = "txtPurpose";
             this.txtPurpose.Size = new System.Drawing.Size(271, 22);
             this.txtPurpose.TabIndex = 4;
-            this.txtPurpose.TextChanged += new System.EventHandler(this.txtPurpose_TextChanged);
             // 
             // rchRemarks
             // 
@@ -187,7 +177,6 @@ namespace NellaiBill.Donor
             this.rchRemarks.Size = new System.Drawing.Size(337, 94);
             this.rchRemarks.TabIndex = 5;
             this.rchRemarks.Text = "";
-            this.rchRemarks.TextChanged += new System.EventHandler(this.rchRemarks_TextChanged);
             // 
             // dtpFDDate
             // 
@@ -195,7 +184,6 @@ namespace NellaiBill.Donor
             this.dtpFDDate.Name = "dtpFDDate";
             this.dtpFDDate.Size = new System.Drawing.Size(200, 22);
             this.dtpFDDate.TabIndex = 1;
-            this.dtpFDDate.ValueChanged += new System.EventHandler(this.dtpFDDate_ValueChanged);
             // 
             // label3
             // 
@@ -206,7 +194,6 @@ namespace NellaiBill.Donor
             this.label3.Size = new System.Drawing.Size(64, 17);
             this.label3.TabIndex = 99;
             this.label3.Text = "Remarks";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -217,47 +204,44 @@ namespace NellaiBill.Donor
             this.label2.Size = new System.Drawing.Size(38, 17);
             this.label2.TabIndex = 138;
             this.label2.Text = "Date";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Green;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnCancel.Location = new System.Drawing.Point(1391, 18);
+            this.btnCancel.Location = new System.Drawing.Point(1386, 31);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(123, 45);
-            this.btnCancel.TabIndex = 7;
+            this.btnCancel.TabIndex = 103;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DarkMagenta;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Controls.Add(this.lblFDDetailsTitle);
-            this.panel3.Location = new System.Drawing.Point(35, 18);
+            this.panel3.Controls.Add(this.lblDonationDetailsTitle);
+            this.panel3.Location = new System.Drawing.Point(30, 31);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1026, 41);
-            this.panel3.TabIndex = 100;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
+            this.panel3.TabIndex = 105;
             // 
-            // FDDetails
+            // DonationDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1571, 610);
+            this.ClientSize = new System.Drawing.Size(1607, 612);
             this.Controls.Add(this.btnSaveUpdate);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.panel3);
-            this.Name = "FDDetails";
-            this.Text = "FDDetails";
-            this.Load += new System.EventHandler(this.FDDetails_Load);
+            this.Name = "DonationDetails";
+            this.Text = "DonationDetails";
+            this.Load += new System.EventHandler(this.DonationDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -272,19 +256,19 @@ namespace NellaiBill.Donor
 
         private System.Windows.Forms.Button btnSaveUpdate;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtBank;
+        private System.Windows.Forms.TextBox txtChannel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridView1;
-        internal System.Windows.Forms.Label lblFDDetailsTitle;
+        internal System.Windows.Forms.Label lblDonationDetailsTitle;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.NumericUpDown txtAmount;
+        private System.Windows.Forms.TextBox txtPurpose;
         private System.Windows.Forms.RichTextBox rchRemarks;
         private System.Windows.Forms.DateTimePicker dtpFDDate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCancel;
         internal System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox txtPurpose;
-        private System.Windows.Forms.NumericUpDown txtAmount;
     }
 }

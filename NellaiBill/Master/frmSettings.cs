@@ -29,7 +29,7 @@ namespace NellaiBill
             //string xgethms = xDb.GetConfigForm(xHms).is_hms;
             //string xAccounts = cmbAccounts.Text.ToString();
             //string xgetAccounts = xDb.GetConfigForm(xAccounts).is_accounts;
-            string xQry = "update config set is_hms='" + cmbHMS.Text.ToString() + "'  , is_accounts='" + cmbAccounts.Text.ToString() + "' , is_batch= '" + cmbBatch.Text.ToString() + "' , is_expiry= '" + cmbExpiry.Text.ToString() + "', backup_path= '" + txtFilePath.Text.ToString() + "' , is_m_hsn_code= '" + cmbHsnCode.Text.ToString() + "' , is_m_product_name_in_tamil= '" + cmbProductNameTamil.Text.ToString() + "' , is_m_product_code= '" + cmbProductCode.Text.ToString() + "' , is_m_product_mrp= '" + cmbProductMrp.Text.ToString() + "' , doctor_id='"+cmbDoctorId.Text+"' where config_id=0";
+            string xQry = "update config set is_hms='" + cmbHMS.Text.ToString() + "'  , is_accounts='" + cmbAccounts.Text.ToString() + "'  , is_donor='" + cmbDonor.Text.ToString() + "' , is_batch= '" + cmbBatch.Text.ToString() + "' , is_expiry= '" + cmbExpiry.Text.ToString() + "', backup_path= '" + txtFilePath.Text.ToString() + "' , is_m_hsn_code= '" + cmbHsnCode.Text.ToString() + "' , is_m_product_name_in_tamil= '" + cmbProductNameTamil.Text.ToString() + "' , is_m_product_code= '" + cmbProductCode.Text.ToString() + "' , is_m_product_mrp= '" + cmbProductMrp.Text.ToString() + "' , doctor_id='"+cmbDoctorId.Text+"' where config_id=0";
             xDb.DataProcess(xQry);
             MessageBox.Show("Updated");
         }
@@ -40,6 +40,7 @@ namespace NellaiBill
             configModelResponse = xDb.GetConfig(0);
             cmbHMS.SelectedItem = configModelResponse.is_hms;
             cmbAccounts.SelectedItem = configModelResponse.is_accounts;
+            cmbDonor.SelectedItem = configModelResponse.IsDonor;
             cmbBatch.SelectedItem = configModelResponse.is_batch;
             cmbExpiry.SelectedItem = configModelResponse.is_expiry;
             txtFilePath.Text = configModelResponse.backup_path;

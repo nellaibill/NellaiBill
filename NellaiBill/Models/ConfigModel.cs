@@ -10,7 +10,8 @@ namespace NellaiBill.Models
        public int config_id { get; set; }
        public string is_hms { get; set; }
        public string is_accounts { get; set; }
-       public string is_batch { get; set; }
+        public string IsDonor { get; set; }
+        public string is_batch { get; set; }
        public string is_expiry { get; set; }
        public string backup_path { get; set; }
        public string is_m_hsn_code { get; set; }

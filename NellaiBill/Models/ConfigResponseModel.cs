@@ -11,6 +11,7 @@ namespace NellaiBill.Models
         public string BackUpPath { get; set; }
         public string IsHms { get; set; }
         public string IsAccounts { get; set; }
+        public string IsDonor { get; set; }
         public string IsBatch { get; set; }
         public string IsExpiry { get; set; }
         public string IS_M_ProductnameInTamil { get; set; }

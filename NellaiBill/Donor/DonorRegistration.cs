@@ -306,6 +306,7 @@ namespace NellaiBill.Master
         {
             DonorFilter donorFilter = new DonorFilter();
             donorFilter.ShowDialog();
+            DataClear();
             this.LoadGrid();
         }
 
@@ -321,5 +322,16 @@ namespace NellaiBill.Master
             }
         }
 
+        private void mbtnDonationDetails_Click(object sender, EventArgs e)
+        {
+            DonationDetails donationDetails = new DonationDetails(xDonorId);
+            donationDetails.ShowDialog();
+        }
+
+        private void mbtnOtherDetails_Click(object sender, EventArgs e)
+        {
+            OtherDetails otherDetails = new OtherDetails(xDonorId);
+            otherDetails.ShowDialog();
+        }
     }
 }

@@ -1,39 +1,19 @@
 ﻿using NellaiBill.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NellaiBill.Donor
 {
-    public partial class FDDetails : Form
+    public partial class DonationDetails : Form
     {
         DatabaseConnection xDb = new DatabaseConnection();
         int xFDonorId;
         int xPDonorFDDetailsId;
-        public FDDetails(int xDonorId)
+        public DonationDetails(int xDonorId)
         {
             InitializeComponent();
             xFDonorId = xDonorId;
             DataFetch(xDonorId);
-        }
-
-        private void FDDetails_Load(object sender, EventArgs e)
-        {
-            LoadGrid();
-            DataClear();
-            txtAmount.Controls[0].Visible = false;
-            ((TextBox)txtAmount.Controls[1]).MaxLength = 10;
-        }
-
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void btnSaveUpdate_Click(object sender, EventArgs e)
@@ -49,20 +29,20 @@ namespace NellaiBill.Donor
             if (btnSaveUpdate.Text == "SAVE")
             {
 
-                xQry = "insert into lukes_donor_fd_details (`f_donor_id`, `date`, `amount`,`bank`, `purpose`, `remarks`,`createdason`) " +
+                xQry = "insert into lukes_donor_donation_details (`f_donor_id`, `date`, `amount`,`channel`, `purpose`, `remarks`,`createdason`) " +
                     " values ( " + xFDonorId + ",'" +
                    dtpFDDate.Value.ToString("yyyy-MM-dd") + "','" +
                     txtAmount.Text + "','" +
-                   txtBank.Text+ "','" +
+                   txtChannel.Text + "','" +
                     txtPurpose.Text + "','" +
                     rchRemarks.Text + "','" +
                     DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "')";
             }
             else
             {
-                xQry = "update lukes_donor_fd_details set " +
+                xQry = "update lukes_donor_donation_details set " +
                     " amount = '" + txtAmount.Text + "', " +
-                    " bank = '" + txtBank.Text + "', " +
+                    " channel = '" + txtChannel.Text + "', " +
                     " date = '" + dtpFDDate.Value.ToString("yyyy-MM-dd") + "', " +
                     " purpose = '" + txtPurpose.Text + "', " +
                     " remarks = '" + rchRemarks.Text + "' " +
@@ -78,12 +58,12 @@ namespace NellaiBill.Donor
         {
             DonorRegistrationResponseModel donorRegistrationResponse = new DonorRegistrationResponseModel();
             donorRegistrationResponse = xDb.GetDonorRegistrationBasedOnQry(xDonorId);
-            lblFDDetailsTitle.Text = "FD Details for " + donorRegistrationResponse.Name;
+            lblDonationDetailsTitle.Text = "Donation Details for " + donorRegistrationResponse.Name;
         }
         private void LoadGrid()
         {
-            string xQry = "select p_donor_fd_details_id,f_donor_id,date as Date,amount as Amount,bank as Bank,purpose as Purpose,remarks as Remarks" +
-                " from lukes_donor_fd_details where f_donor_id = " + xFDonorId + "";
+            string xQry = "select p_donor_donation_details_id,f_donor_id,date as Date,amount as Amount,channel as Channel,purpose as Purpose,remarks as Remarks" +
+                " from lukes_donor_donation_details where f_donor_id = " + xFDonorId + "";
             xDb.LoadGrid(xQry, dataGridView1);
             dataGridView1.ReadOnly = true;
             dataGridView1.AutoGenerateColumns = false;
@@ -100,86 +80,19 @@ namespace NellaiBill.Donor
         private void DataClear()
         {
             //dtpFDDate.Text = "";
-            txtAmount.Text = ""; 
-            txtBank.Text = "";
+            txtAmount.Text = "";
+            txtChannel.Text = "";
             txtPurpose.Text = "";
             rchRemarks.Text = "";
             btnSaveUpdate.Text = "SAVE";
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void DonationDetails_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void txtBank_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void lblFDDetailsTitle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtAmount_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtPurpose_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rchRemarks_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpFDDate_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
+            LoadGrid();
+            DataClear();
+            txtAmount.Controls[0].Visible = false;
+            ((TextBox)txtAmount.Controls[1]).MaxLength = 10;
         }
     }
 }

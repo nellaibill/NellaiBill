@@ -441,6 +441,7 @@ namespace NellaiBill
                         BackUpPath = reader.GetString("backup_path"),
                         IsHms = reader.GetString("is_hms"),
                         IsAccounts= reader.GetString("is_accounts"),
+                        IsDonor=reader.GetString("is_donor"),
                         IsBatch = reader.GetString("is_batch"),
                         IsExpiry = reader.GetString("is_expiry"),
                         IS_M_ProductnameInTamil = reader.GetString("is_m_product_name_in_tamil"),
@@ -826,7 +827,7 @@ namespace NellaiBill
             ConfigModel model = new ConfigModel();
             using (connection = new MySqlConnection(conString))
             {
-                string xQry = "select config_id,is_hms,is_accounts,is_batch,is_expiry,backup_path,is_m_hsn_code,is_m_product_name_in_tamil,is_m_product_code,is_m_product_mrp,doctor_id from config where config_id  = " + xCongifid + "";
+                string xQry = "select config_id,is_hms,is_accounts,is_batch,is_expiry,backup_path,is_m_hsn_code,is_m_product_name_in_tamil,is_m_product_code,is_m_product_mrp,doctor_id,is_donor from config where config_id  = " + xCongifid + "";
                 connection.Open();
                 MySqlCommand comm = new MySqlCommand(xQry, connection);
 
@@ -846,7 +847,8 @@ namespace NellaiBill
                         is_m_product_name_in_tamil = reader.GetString(7),
                         is_m_product_code = reader.GetString(8),
                         is_m_product_mrp = reader.GetString(9),
-                        doctor_id = reader.GetInt32(10)
+                        doctor_id = reader.GetInt32(10),
+                        IsDonor = reader.GetString(11),
                     };
                 }
                 connection.Close();
@@ -927,6 +929,7 @@ namespace NellaiBill
                         SRPost = reader.GetInt32("sr_post"),
                         SRVisitor = reader.GetInt32("sr_visitor"),
                         SREmail = reader.GetInt32("sr_email"),
+                        OtherDetails = reader.GetString("other_details"),
                     };
                 }
                 connection.Close();
