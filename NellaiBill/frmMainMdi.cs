@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using NellaiBill.Accounts;
 using NellaiBill.Common;
+using NellaiBill.Don;
 using NellaiBill.Master;
 using NellaiBill.Models;
 using NellaiBill.Reports;
@@ -66,6 +67,7 @@ namespace NellaiBill
             {
                 //CommonFormControls(new OPBilling());
                 CommonFormControls(new DonorRegistration());
+                //CommonFormControls(new CustomerDetails());
             }
             if (configResponseModel.IsAccounts == "NO")
             {

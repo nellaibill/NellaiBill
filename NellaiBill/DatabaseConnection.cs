@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using NellaiBill.Models;
+using NellaiBill.Models.Donor;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -22,8 +23,9 @@ namespace NellaiBill
         public string xReportPath = "";
         int xGBatch = 0;
         public MySqlConnection connection;
-         public string conString = @"Data Source=localhost;port=3306;Initial Catalog=hms_lhs;;Convert Zero Datetime=True;CharSet=utf8;User Id=root;password=";
-       // public string conString = @"Data Source=ns1069.ifastnet.com;port=3306;Initial Catalog=hellotam_nellaibill;User Id=hellotam_saleem;password=hellotamila;Convert Zero Datetime=True;CharSet=utf8;";
+         public string conString = @"Data Source="+xHostName+";port="+xPort+";Initial Catalog="+xDatabaseName+";Convert Zero Datetime=True;CharSet=utf8;User Id="+xUserName+";password="+xPassword+"";
+        //public string conString = @"Data Source=localhost;port=3306;Initial Catalog=don_data_entry;Convert Zero Datetime=True;CharSet=utf8;User Id=root;password=";
+        // public string conString = @"Data Source=ns1069.ifastnet.com;port=3306;Initial Catalog=hellotam_nellaibill;User Id=hellotam_saleem;password=hellotamila;Convert Zero Datetime=True;CharSet=utf8;";
         /*public string conString =
         @"Data Source=" + xHostName + ";" +
         "port=" + xPort + ";" +
@@ -930,6 +932,43 @@ namespace NellaiBill
                 connection.Close();
             }
             return donorRegistrationResponseModel;
+        }
+
+        public DonorSettingsModel GetDonorSettingsBasedOnQry(int xDonorSettingsId)
+        {
+            string xQry = "select * " +
+                    " from lukes_donor_settings where   p_donor_settings_id  = '" + xDonorSettingsId + "'";
+            DonorSettingsModel donorSettingsModel = new DonorSettingsModel();
+            using (connection = new MySqlConnection(conString))
+            {
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    donorSettingsModel = new DonorSettingsModel()
+                    {
+                        DonorAnnual = reader.GetInt32("donor_annual"),
+                        DonorEndowment = reader.GetInt32("donor_endowment"),
+                        DonorThings = reader.GetInt32("donor_things"),
+                        DonorWelfare = reader.GetInt32("donor_welfare"),
+                        SupportCS = reader.GetInt32("support_cs"),
+                        SupportFS = reader.GetInt32("support_fs"),
+                        SupportBS = reader.GetInt32("support_bs"),
+                        SupportCloth = reader.GetInt32("support_cloth"),
+                        SupportOther = reader.GetInt32("support_other"),
+                        SROOC = reader.GetInt32("sr_ooc"),
+                        SRNTC = reader.GetInt32("sr_ntc"),
+                        SRPost = reader.GetInt32("sr_post"),
+                        SRVisitor = reader.GetInt32("sr_visitor"),
+                        SREmail = reader.GetInt32("sr_email"),
+                    };
+                }
+                connection.Close();
+            }
+            return donorSettingsModel;
         }
     }
 

@@ -49,6 +49,8 @@ namespace NellaiBill.Donor
             this.panel3 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.btnDonorFilterApply = new System.Windows.Forms.Button();
+            this.btnSelectAllCheckBox = new System.Windows.Forms.Button();
+            this.btnDeSelectAllCheckBox = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -247,7 +249,7 @@ namespace NellaiBill.Donor
             this.panel3.Location = new System.Drawing.Point(36, 13);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(546, 52);
+            this.panel3.Size = new System.Drawing.Size(263, 52);
             this.panel3.TabIndex = 177;
             // 
             // label10
@@ -256,7 +258,7 @@ namespace NellaiBill.Donor
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(171, 10);
+            this.label10.Location = new System.Drawing.Point(28, 11);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(152, 29);
@@ -268,20 +270,50 @@ namespace NellaiBill.Donor
             this.btnDonorFilterApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnDonorFilterApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDonorFilterApply.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDonorFilterApply.Location = new System.Drawing.Point(590, 13);
+            this.btnDonorFilterApply.Location = new System.Drawing.Point(626, 13);
             this.btnDonorFilterApply.Margin = new System.Windows.Forms.Padding(4);
             this.btnDonorFilterApply.Name = "btnDonorFilterApply";
-            this.btnDonorFilterApply.Size = new System.Drawing.Size(156, 52);
+            this.btnDonorFilterApply.Size = new System.Drawing.Size(120, 52);
             this.btnDonorFilterApply.TabIndex = 178;
             this.btnDonorFilterApply.Text = "Apply";
             this.btnDonorFilterApply.UseVisualStyleBackColor = false;
             this.btnDonorFilterApply.Click += new System.EventHandler(this.btnDonorFilterApply_Click);
             // 
+            // btnSelectAllCheckBox
+            // 
+            this.btnSelectAllCheckBox.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnSelectAllCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelectAllCheckBox.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnSelectAllCheckBox.Location = new System.Drawing.Point(318, 13);
+            this.btnSelectAllCheckBox.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSelectAllCheckBox.Name = "btnSelectAllCheckBox";
+            this.btnSelectAllCheckBox.Size = new System.Drawing.Size(127, 52);
+            this.btnSelectAllCheckBox.TabIndex = 179;
+            this.btnSelectAllCheckBox.Text = "Select All";
+            this.btnSelectAllCheckBox.UseVisualStyleBackColor = false;
+            this.btnSelectAllCheckBox.Click += new System.EventHandler(this.btnSelectAllCheckBox_Click);
+            // 
+            // btnDeSelectAllCheckBox
+            // 
+            this.btnDeSelectAllCheckBox.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnDeSelectAllCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeSelectAllCheckBox.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnDeSelectAllCheckBox.Location = new System.Drawing.Point(453, 13);
+            this.btnDeSelectAllCheckBox.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeSelectAllCheckBox.Name = "btnDeSelectAllCheckBox";
+            this.btnDeSelectAllCheckBox.Size = new System.Drawing.Size(147, 52);
+            this.btnDeSelectAllCheckBox.TabIndex = 180;
+            this.btnDeSelectAllCheckBox.Text = "De-Select All";
+            this.btnDeSelectAllCheckBox.UseVisualStyleBackColor = false;
+            this.btnDeSelectAllCheckBox.Click += new System.EventHandler(this.btnDeSelectAllCheckBox_Click);
+            // 
             // DonorFilter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 402);
+            this.ClientSize = new System.Drawing.Size(1012, 402);
+            this.Controls.Add(this.btnDeSelectAllCheckBox);
+            this.Controls.Add(this.btnSelectAllCheckBox);
             this.Controls.Add(this.btnDonorFilterApply);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.groupBox4);
@@ -324,5 +356,7 @@ namespace NellaiBill.Donor
         internal System.Windows.Forms.Panel panel3;
         internal System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnDonorFilterApply;
+        private System.Windows.Forms.Button btnSelectAllCheckBox;
+        private System.Windows.Forms.Button btnDeSelectAllCheckBox;
     }
 }

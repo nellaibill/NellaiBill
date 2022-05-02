@@ -1,5 +1,6 @@
 ﻿using NellaiBill.Donor;
 using NellaiBill.Models;
+using NellaiBill.Models.Donor;
 using System;
 using System.Data;
 using System.Text.RegularExpressions;
@@ -12,7 +13,7 @@ namespace NellaiBill.Master
         DatabaseConnection xDb = new DatabaseConnection();
         int xDonorId;
         GlobalClass globalClass = new GlobalClass();
-        
+
         public DonorRegistration()
         {
             InitializeComponent();
@@ -118,29 +119,46 @@ namespace NellaiBill.Master
             }
             xDb.DataProcess(xQry);
             MessageBox.Show("Saved/Updated");
-            LoadGrid("");
+            LoadGrid();
             DataClear();
         }
-
-
-        public bool IsCorrectMobileNumber(String strNumber)
+        public void RefreshGrid()
         {
-            Regex mobilePattern = new Regex(@"^[1-9]\d{10}$"); return !mobilePattern.IsMatch(strNumber);
+            dataGridView1.DataSource = null;
         }
-        public void LoadGrid(string xFilter)
+        public void LoadGrid()
         {
+            DonorSettingsModel donorSettingsModelResponse = new DonorSettingsModel();
+            donorSettingsModelResponse = xDb.GetDonorSettingsBasedOnQry(1);
+
+            string xFilterQry = "where is_active=1";
+                xFilterQry += donorSettingsModelResponse.DonorAnnual == 1 ? " and donor_annual=" + donorSettingsModelResponse.DonorAnnual :"";
+                xFilterQry += donorSettingsModelResponse.DonorEndowment == 1 ? "  and donor_endowment = " + donorSettingsModelResponse.DonorAnnual :"";
+                xFilterQry += donorSettingsModelResponse.DonorThings == 1 ? "  and donor_things = " + donorSettingsModelResponse.DonorThings :"";
+                xFilterQry += donorSettingsModelResponse.DonorWelfare == 1 ? "  and donor_welfare = " + donorSettingsModelResponse.DonorWelfare :"";
+                xFilterQry += donorSettingsModelResponse.SupportCS == 1 ? "  and support_cs = " + donorSettingsModelResponse.SupportCS :"";
+                xFilterQry += donorSettingsModelResponse.SupportFS == 1 ? "  and support_fs = " + donorSettingsModelResponse.SupportFS :"";
+                xFilterQry += donorSettingsModelResponse.SupportBS == 1 ? "  and support_bs = " + donorSettingsModelResponse.SupportBS :"";
+                xFilterQry += donorSettingsModelResponse.SupportCloth == 1 ? "  and support_cloth = " + donorSettingsModelResponse.SupportCloth :"";
+                xFilterQry += donorSettingsModelResponse.SupportOther == 1 ? "  and support_other = " + donorSettingsModelResponse.SupportOther :"";
+                xFilterQry += donorSettingsModelResponse.SROOC == 1 ? "  and sr_ooc = " + donorSettingsModelResponse.SROOC :"";
+                xFilterQry += donorSettingsModelResponse.SRNTC == 1 ? "  and sr_ntc = " + donorSettingsModelResponse.SRNTC :"";
+                xFilterQry += donorSettingsModelResponse.SRPost == 1 ? "  and sr_post = " + donorSettingsModelResponse.SRPost :"";
+                xFilterQry += donorSettingsModelResponse.SRVisitor == 1 ? "  and sr_visitor = " + donorSettingsModelResponse.SRVisitor :"";
+                xFilterQry += donorSettingsModelResponse.SREmail == 1 ? "  and sr_email = " + donorSettingsModelResponse.SREmail : "";
+
             string xQry = "select p_donor_id as Id," +
                 "donor_name as Name," +
                 "CONCAT(address_line1, '-', address_line2, '-', state, '-', country) as Address," +
                 "state," +
                 "country," +
                 "CONCAT(phone_no1, '-', phone_no2) as PhoneNo," +
-                //"CONCAT(landline_no1, '-', landline_no2) as LandLineNo," +
+                "CONCAT(landline_no1, '-', landline_no2) as LandLineNo," +
                 "CONCAT(email_id1, '-', email_id2) as EmailId," +
                 "donor_file_name, " +
                 "reference, " +
                 "related_files " +
-                " from lukes_donor_registration " + xFilter +" order by p_donor_id desc";
+                " from lukes_donor_registration " + xFilterQry + " order by p_donor_id desc";
             xDb.LoadGrid(xQry, dataGridView1);
             dataGridView1.ReadOnly = true;
             dataGridView1.AutoGenerateColumns = false;
@@ -156,13 +174,14 @@ namespace NellaiBill.Master
             dataGridView1.Columns[6].Width = 250;
             dataGridView1.Columns[7].Width = 250;
         }
-     
+
         private void DataClear()
         {
             globalClass.ClearFormControls(this.groupBox1);
             globalClass.ClearFormControls(this.groupBox2);
             globalClass.ClearFormControls(this.groupBox3);
             globalClass.ClearFormControls(this.groupBox4);
+            LoadGrid();
             cmbGender.SelectedIndex = 0;
             cmbCountry.SelectedIndex = 0;
             btnSaveUpdate.Text = "SAVE";
@@ -177,7 +196,7 @@ namespace NellaiBill.Master
         private void DonorRegistration_Load(object sender, EventArgs e)
         {
             DataClear();
-            LoadGrid("");
+            LoadGrid();
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -249,6 +268,7 @@ namespace NellaiBill.Master
             }
         }
 
+
         private void mbtnImportantDates_Click(object sender, EventArgs e)
         {
             DonorImportantDates donorImportantDates = new DonorImportantDates(xDonorId);
@@ -286,6 +306,20 @@ namespace NellaiBill.Master
         {
             DonorFilter donorFilter = new DonorFilter();
             donorFilter.ShowDialog();
+            this.LoadGrid();
         }
+
+        private void DonorRegistration_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control == true && e.KeyCode == Keys.N)
+            {
+                DataClear();
+            }
+            if (e.Control == true && e.KeyCode == Keys.S)
+            {
+                btnSaveUpdate.PerformClick();
+            }
+        }
+
     }
 }

@@ -35,7 +35,6 @@ namespace NellaiBill.Master
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnDonorFilter = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
@@ -166,25 +165,12 @@ namespace NellaiBill.Master
             this.panel3.Size = new System.Drawing.Size(1595, 52);
             this.panel3.TabIndex = 95;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DarkMagenta;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Window;
-            this.button1.Location = new System.Drawing.Point(1640, 140);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(193, 41);
-            this.button1.TabIndex = 138;
-            this.button1.Text = "Settings";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // btnDonorFilter
             // 
             this.btnDonorFilter.BackColor = System.Drawing.Color.DarkMagenta;
             this.btnDonorFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDonorFilter.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDonorFilter.Location = new System.Drawing.Point(1640, 201);
+            this.btnDonorFilter.Location = new System.Drawing.Point(1640, 136);
             this.btnDonorFilter.Margin = new System.Windows.Forms.Padding(4);
             this.btnDonorFilter.Name = "btnDonorFilter";
             this.btnDonorFilter.Size = new System.Drawing.Size(193, 41);
@@ -408,6 +394,7 @@ namespace NellaiBill.Master
             // mbtnImportantDates
             // 
             this.mbtnImportantDates.Depth = 0;
+            this.mbtnImportantDates.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.mbtnImportantDates.Location = new System.Drawing.Point(761, 321);
             this.mbtnImportantDates.Margin = new System.Windows.Forms.Padding(4);
             this.mbtnImportantDates.MouseState = MaterialSkin.MouseState.HOVER;
@@ -422,6 +409,7 @@ namespace NellaiBill.Master
             // mbtnFDDetails
             // 
             this.mbtnFDDetails.Depth = 0;
+            this.mbtnFDDetails.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.mbtnFDDetails.Location = new System.Drawing.Point(946, 321);
             this.mbtnFDDetails.Margin = new System.Windows.Forms.Padding(4);
             this.mbtnFDDetails.MouseState = MaterialSkin.MouseState.HOVER;
@@ -436,6 +424,7 @@ namespace NellaiBill.Master
             // mbtnDonationDetails
             // 
             this.mbtnDonationDetails.Depth = 0;
+            this.mbtnDonationDetails.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.mbtnDonationDetails.Location = new System.Drawing.Point(1131, 321);
             this.mbtnDonationDetails.Margin = new System.Windows.Forms.Padding(4);
             this.mbtnDonationDetails.MouseState = MaterialSkin.MouseState.HOVER;
@@ -449,6 +438,7 @@ namespace NellaiBill.Master
             // mbtnOtherDetails
             // 
             this.mbtnOtherDetails.Depth = 0;
+            this.mbtnOtherDetails.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.mbtnOtherDetails.Location = new System.Drawing.Point(1305, 321);
             this.mbtnOtherDetails.Margin = new System.Windows.Forms.Padding(4);
             this.mbtnOtherDetails.MouseState = MaterialSkin.MouseState.HOVER;
@@ -839,7 +829,6 @@ namespace NellaiBill.Master
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.btnDonorFilter);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel3);
@@ -849,6 +838,7 @@ namespace NellaiBill.Master
             this.Name = "DonorRegistration";
             this.Text = "DonorRegistration";
             this.Load += new System.EventHandler(this.DonorRegistration_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DonorRegistration_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -869,10 +859,9 @@ namespace NellaiBill.Master
 
         private System.Windows.Forms.Button btnSaveUpdate;
         private MaterialSkin.Controls.MaterialRaisedButton mBtnNew;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView dataGridView1;
         internal System.Windows.Forms.Label label10;
         internal System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnDonorFilter;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label lblSearch;

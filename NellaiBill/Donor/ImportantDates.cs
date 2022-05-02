@@ -70,7 +70,7 @@ namespace NellaiBill.Donor
 
         private void LoadGrid()
         {
-            string xQry = "select p_donor_imp_date_id,f_donor_id,name,relation,occasion_date as date,occasion,remarks" +
+            string xQry = "select p_donor_imp_date_id,f_donor_id,name as Name,relation as Relation,occasion_date as Date,occasion as Occasion,remarks as Remarks" +
                 " from lukes_donor_important_dates where f_donor_id = " + xFDonorId + "";
             xDb.LoadGrid(xQry, dataGridView1);
             dataGridView1.ReadOnly = true;
