@@ -91,6 +91,7 @@ namespace NellaiBill.Master
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnImpDatesReport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -823,11 +824,26 @@ namespace NellaiBill.Master
             this.label4.TabIndex = 14;
             this.label4.Text = "Name";
             // 
+            // btnImpDatesReport
+            // 
+            this.btnImpDatesReport.BackColor = System.Drawing.Color.DarkMagenta;
+            this.btnImpDatesReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImpDatesReport.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnImpDatesReport.Location = new System.Drawing.Point(1640, 197);
+            this.btnImpDatesReport.Margin = new System.Windows.Forms.Padding(4);
+            this.btnImpDatesReport.Name = "btnImpDatesReport";
+            this.btnImpDatesReport.Size = new System.Drawing.Size(193, 41);
+            this.btnImpDatesReport.TabIndex = 142;
+            this.btnImpDatesReport.Text = "Imp.Dates Report";
+            this.btnImpDatesReport.UseVisualStyleBackColor = false;
+            this.btnImpDatesReport.Click += new System.EventHandler(this.btnImpDatesReport_Click);
+            // 
             // DonorRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 958);
+            this.Controls.Add(this.btnImpDatesReport);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.btnDonorFilter);
@@ -920,5 +936,6 @@ namespace NellaiBill.Master
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnImpDatesReport;
     }
 }

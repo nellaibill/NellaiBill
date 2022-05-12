@@ -333,5 +333,12 @@ namespace NellaiBill.Master
             OtherDetails otherDetails = new OtherDetails(xDonorId);
             otherDetails.ShowDialog();
         }
+
+        private void btnImpDatesReport_Click(object sender, EventArgs e)
+        {
+            ImpDatesReport impDatesReport = new ImpDatesReport();
+            impDatesReport.ShowDialog();
+        }
     }
 }
+
