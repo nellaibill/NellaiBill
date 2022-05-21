@@ -52,7 +52,7 @@ namespace NellaiBill.Donor
                     " occasion_date = '" + dtImp.Value.ToString("yyyy-MM-dd") + "', " +
 
                     " occasion = '" + cmbOccasion.SelectedValue + "', " +
-                    " remarks = '" + rchRemarks.Text + "' " +
+                    " remarks = '" + rchRemarks.Text + "', " +
                     " updatedason = '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
                     " where  p_donor_imp_date_id= " + xPDonorImpDateId + "";
             }

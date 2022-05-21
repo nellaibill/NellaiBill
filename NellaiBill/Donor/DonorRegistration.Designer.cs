@@ -92,6 +92,7 @@ namespace NellaiBill.Master
             this.txtName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnImpDatesReport = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -110,7 +111,7 @@ namespace NellaiBill.Master
             this.btnSaveUpdate.Name = "btnSaveUpdate";
             this.btnSaveUpdate.Size = new System.Drawing.Size(193, 41);
             this.btnSaveUpdate.TabIndex = 137;
-            this.btnSaveUpdate.Text = "SAVE (Ctrl + S)";
+            this.btnSaveUpdate.Text = "Save";
             this.btnSaveUpdate.UseVisualStyleBackColor = false;
             this.btnSaveUpdate.Click += new System.EventHandler(this.btnSaveUpdate_Click);
             // 
@@ -171,7 +172,7 @@ namespace NellaiBill.Master
             this.btnDonorFilter.BackColor = System.Drawing.Color.DarkMagenta;
             this.btnDonorFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDonorFilter.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDonorFilter.Location = new System.Drawing.Point(1640, 136);
+            this.btnDonorFilter.Location = new System.Drawing.Point(1640, 185);
             this.btnDonorFilter.Margin = new System.Windows.Forms.Padding(4);
             this.btnDonorFilter.Name = "btnDonorFilter";
             this.btnDonorFilter.Size = new System.Drawing.Size(193, 41);
@@ -829,7 +830,7 @@ namespace NellaiBill.Master
             this.btnImpDatesReport.BackColor = System.Drawing.Color.DarkMagenta;
             this.btnImpDatesReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImpDatesReport.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnImpDatesReport.Location = new System.Drawing.Point(1640, 197);
+            this.btnImpDatesReport.Location = new System.Drawing.Point(1640, 246);
             this.btnImpDatesReport.Margin = new System.Windows.Forms.Padding(4);
             this.btnImpDatesReport.Name = "btnImpDatesReport";
             this.btnImpDatesReport.Size = new System.Drawing.Size(193, 41);
@@ -838,11 +839,26 @@ namespace NellaiBill.Master
             this.btnImpDatesReport.UseVisualStyleBackColor = false;
             this.btnImpDatesReport.Click += new System.EventHandler(this.btnImpDatesReport_Click);
             // 
+            // btnPrint
+            // 
+            this.btnPrint.BackColor = System.Drawing.Color.DarkMagenta;
+            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnPrint.Location = new System.Drawing.Point(1640, 136);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(193, 41);
+            this.btnPrint.TabIndex = 143;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
             // DonorRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 958);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnImpDatesReport);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblSearch);
@@ -937,5 +953,6 @@ namespace NellaiBill.Master
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnImpDatesReport;
+        private System.Windows.Forms.Button btnPrint;
     }
 }

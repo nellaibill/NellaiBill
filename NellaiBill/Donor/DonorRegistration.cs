@@ -187,10 +187,11 @@ namespace NellaiBill.Master
             btnSaveUpdate.Text = "SAVE";
             ptxtPanCard.PlaceholderText = "Enter PanCard No";
             ptxtPanCard.Enabled = false;
-            mbtnImportantDates.Enabled = false;
-            mbtnDonationDetails.Enabled = false;
-            mbtnFDDetails.Enabled = false;
-            mbtnOtherDetails.Enabled = false;
+            mbtnImportantDates.Visible = false;
+            mbtnDonationDetails.Visible = false;
+            mbtnFDDetails.Visible = false;
+            mbtnOtherDetails.Visible = false;
+            btnPrint.Enabled = false;
         }
 
         private void DonorRegistration_Load(object sender, EventArgs e)
@@ -203,12 +204,13 @@ namespace NellaiBill.Master
         {
             xDonorId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             mBtnNew.Enabled = true;
-            mbtnImportantDates.Enabled = true;
-            mbtnDonationDetails.Enabled = true;
-            mbtnFDDetails.Enabled = true;
-            mbtnOtherDetails.Enabled = true;
+            mbtnImportantDates.Visible = true;
+            mbtnDonationDetails.Visible = true;
+            mbtnFDDetails.Visible = true;
+            mbtnOtherDetails.Visible = true;
+            btnPrint.Enabled = true;
             DataFetch(xDonorId);
-            btnSaveUpdate.Text = "UPDATE";
+            btnSaveUpdate.Text = "Update";
         }
         private void DataFetch(int xDonorId)
         {
@@ -338,6 +340,11 @@ namespace NellaiBill.Master
         {
             ImpDatesReport impDatesReport = new ImpDatesReport();
             impDatesReport.ShowDialog();
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

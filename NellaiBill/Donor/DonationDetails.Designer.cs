@@ -79,7 +79,7 @@ namespace NellaiBill.Donor
             // 
             this.txtChannel.Location = new System.Drawing.Point(420, 51);
             this.txtChannel.Margin = new System.Windows.Forms.Padding(4);
-            this.txtChannel.MaxLength = 10;
+            this.txtChannel.MaxLength = 100;
             this.txtChannel.Name = "txtChannel";
             this.txtChannel.Size = new System.Drawing.Size(271, 22);
             this.txtChannel.TabIndex = 3;
@@ -114,6 +114,7 @@ namespace NellaiBill.Donor
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(1479, 332);
             this.dataGridView1.TabIndex = 104;
+            this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
             // lblDonationDetailsTitle
             // 
@@ -164,7 +165,7 @@ namespace NellaiBill.Donor
             // 
             this.txtPurpose.Location = new System.Drawing.Point(708, 51);
             this.txtPurpose.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPurpose.MaxLength = 10;
+            this.txtPurpose.MaxLength = 100;
             this.txtPurpose.Name = "txtPurpose";
             this.txtPurpose.Size = new System.Drawing.Size(271, 22);
             this.txtPurpose.TabIndex = 4;

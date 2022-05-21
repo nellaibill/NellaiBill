@@ -33,7 +33,13 @@ namespace NellaiBill.Donor
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            xPDonorFDDetailsId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+            dtpFDDate.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtAmount.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txtBank.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            txtPurpose.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            rchRemarks.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+            btnSaveUpdate.Text = "UPDATE";
         }
 
         private void btnSaveUpdate_Click(object sender, EventArgs e)
@@ -65,9 +71,9 @@ namespace NellaiBill.Donor
                     " bank = '" + txtBank.Text + "', " +
                     " date = '" + dtpFDDate.Value.ToString("yyyy-MM-dd") + "', " +
                     " purpose = '" + txtPurpose.Text + "', " +
-                    " remarks = '" + rchRemarks.Text + "' " +
+                    " remarks = '" + rchRemarks.Text + "', " +
                     " updatedason = '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
-                    " where  p_donor_imp_date_id= " + xPDonorFDDetailsId + "";
+                    " where  p_donor_fd_details_id= " + xPDonorFDDetailsId + "";
             }
             xDb.DataProcess(xQry);
             MessageBox.Show("Saved/Updated");
@@ -106,6 +112,7 @@ namespace NellaiBill.Donor
             rchRemarks.Text = "";
             btnSaveUpdate.Text = "SAVE";
         }
+
 
         private void label1_Click(object sender, EventArgs e)
         {

@@ -8,7 +8,7 @@ namespace NellaiBill.Donor
     {
         DatabaseConnection xDb = new DatabaseConnection();
         int xFDonorId;
-        int xPDonorFDDetailsId;
+        int xPDonorDonationDetailsId;
         public DonationDetails(int xDonorId)
         {
             InitializeComponent();
@@ -45,9 +45,9 @@ namespace NellaiBill.Donor
                     " channel = '" + txtChannel.Text + "', " +
                     " date = '" + dtpFDDate.Value.ToString("yyyy-MM-dd") + "', " +
                     " purpose = '" + txtPurpose.Text + "', " +
-                    " remarks = '" + rchRemarks.Text + "' " +
+                    " remarks = '" + rchRemarks.Text + "', " +
                     " updatedason = '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
-                    " where  p_donor_imp_date_id= " + xPDonorFDDetailsId + "";
+                    " where  p_donor_donation_details_id= " + xPDonorDonationDetailsId + "";
             }
             xDb.DataProcess(xQry);
             MessageBox.Show("Saved/Updated");
@@ -93,6 +93,17 @@ namespace NellaiBill.Donor
             DataClear();
             txtAmount.Controls[0].Visible = false;
             ((TextBox)txtAmount.Controls[1]).MaxLength = 10;
+        }
+
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            xPDonorDonationDetailsId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+            dtpFDDate.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            txtAmount.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+            txtChannel.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            txtPurpose.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            rchRemarks.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+            btnSaveUpdate.Text = "UPDATE";
         }
     }
 }
