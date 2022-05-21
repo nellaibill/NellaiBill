@@ -1,4 +1,5 @@
-﻿using NellaiBill.Donor;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using NellaiBill.Donor;
 using NellaiBill.Models;
 using NellaiBill.Models.Donor;
 using System;
@@ -40,12 +41,12 @@ namespace NellaiBill.Master
                 txtAddressLine1.Focus();
                 return;
             }
-            if (txtEmailId1.Text == "")
-            {
-                MessageBox.Show("Please Choose Email1");
-                txtEmailId1.Focus();
-                return;
-            }
+            //if (txtEmailId1.Text == "")
+            //{
+            //    MessageBox.Show("Please Choose Email1");
+            //    txtEmailId1.Focus();
+            //    return;
+            //}
             if (btnSaveUpdate.Text == "SAVE")
             {
                 xQry = "insert into lukes_donor_registration (`donor_name`, `address_line1`, `address_line2`," +
@@ -344,7 +345,26 @@ namespace NellaiBill.Master
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Do you want to print?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
 
+                ReportDocument reportDocument = new ReportDocument();
+                GlobalClass globalClass = new GlobalClass();
+                string path = globalClass.GetReportPath() + "rptDonorInfo.rpt";
+                reportDocument.Load(path);
+               // reportDocument.SetParameterValue("PatientId", xPatientId);
+                reportDocument.PrintToPrinter(1, true, 0, 0);
+            }
+            else if (result == DialogResult.No)
+            {
+                //...
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }

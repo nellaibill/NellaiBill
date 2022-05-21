@@ -32,17 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_main_mdi));
             this.StatusStrip1 = new System.Windows.Forms.StatusStrip();
             this.ToolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblUserType = new System.Windows.Forms.ToolStripStatusLabel();
             this.ToolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripClose = new System.Windows.Forms.ToolStripStatusLabel();
-            this.ToolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.purchaseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.feesMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.ContainerPanel = new System.Windows.Forms.Panel();
-            this.pBoxLogo = new System.Windows.Forms.PictureBox();
-            this.lblUserType = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblDateTime = new System.Windows.Forms.ToolStripStatusLabel();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMasterMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.companyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.patientRegistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.doctorRegistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,11 +55,11 @@
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.donorRegistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMasterMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripAccountsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.accountGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.receiptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.paymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripAccountsMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripHMSMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.outPatientEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eCGBILLINGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sCANBILLINGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,14 +69,14 @@
             this.iPADVANCEPAYMENTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iPINVOICEBILLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iPDISCHARGESUMMARYToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripHMSMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripPurchaseMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.PurchaseEntryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PurchaseReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripPurchaseMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSalesMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.POSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesEntryBasicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SalesReturnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSalesMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripReportsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.patientInformationReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oPSummaryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ecgXraySummaryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,7 +93,7 @@
             this.purchaseReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.stockDetailsBetweenDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scheduleHReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripReportsMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripBackUp = new System.Windows.Forms.ToolStripMenuItem();
             this.stockAdjustmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.calculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -108,12 +103,15 @@
             this.TaskManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SystemInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripBackUp = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMinimize = new System.Windows.Forms.ToolStripMenuItem();
             this.LogoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.purchaseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.feesMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.ContainerPanel = new System.Windows.Forms.Panel();
+            this.ToolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.StatusStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // StatusStrip1
@@ -141,6 +139,14 @@
             this.ToolStripStatusLabel1.Size = new System.Drawing.Size(118, 23);
             this.ToolStripStatusLabel1.Text = "Logged in As :";
             // 
+            // lblUserType
+            // 
+            this.lblUserType.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserType.Image = ((System.Drawing.Image)(resources.GetObject("lblUserType.Image")));
+            this.lblUserType.Name = "lblUserType";
+            this.lblUserType.Size = new System.Drawing.Size(105, 23);
+            this.lblUserType.Text = "User Type";
+            // 
             // ToolStripStatusLabel2
             // 
             this.ToolStripStatusLabel2.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -155,11 +161,14 @@
             this.toolStripClose.Text = "CLOSE(ALT+C)";
             this.toolStripClose.Click += new System.EventHandler(this.toolStripClose_Click);
             // 
-            // ToolStripStatusLabel3
+            // lblDateTime
             // 
-            this.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3";
-            this.ToolStripStatusLabel3.Size = new System.Drawing.Size(810, 23);
-            this.ToolStripStatusLabel3.Spring = true;
+            this.lblDateTime.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateTime.ForeColor = System.Drawing.Color.Black;
+            this.lblDateTime.Image = ((System.Drawing.Image)(resources.GetObject("lblDateTime.Image")));
+            this.lblDateTime.Name = "lblDateTime";
+            this.lblDateTime.Size = new System.Drawing.Size(108, 23);
+            this.lblDateTime.Text = "Date Time";
             // 
             // menuStrip2
             // 
@@ -177,62 +186,37 @@
             this.LogoutToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1279, 78);
+            this.menuStrip2.Size = new System.Drawing.Size(1279, 30);
             this.menuStrip2.TabIndex = 11;
             this.menuStrip2.Text = "menuStrip2";
             // 
-            // purchaseReportToolStripMenuItem
+            // toolStripMasterMenu
             // 
-            this.purchaseReportToolStripMenuItem.Name = "purchaseReportToolStripMenuItem";
-            this.purchaseReportToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            // 
-            // feesMasterToolStripMenuItem
-            // 
-            this.feesMasterToolStripMenuItem.Name = "feesMasterToolStripMenuItem";
-            this.feesMasterToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.feesMasterToolStripMenuItem.Text = "Fees Master";
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // ContainerPanel
-            // 
-            this.ContainerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ContainerPanel.Location = new System.Drawing.Point(0, 78);
-            this.ContainerPanel.Margin = new System.Windows.Forms.Padding(4);
-            this.ContainerPanel.Name = "ContainerPanel";
-            this.ContainerPanel.Size = new System.Drawing.Size(1279, 468);
-            this.ContainerPanel.TabIndex = 12;
-            // 
-            // pBoxLogo
-            // 
-            this.pBoxLogo.Image = global::NellaiBill.Properties.Resources.logo;
-            this.pBoxLogo.Location = new System.Drawing.Point(1165, 12);
-            this.pBoxLogo.Name = "pBoxLogo";
-            this.pBoxLogo.Size = new System.Drawing.Size(102, 66);
-            this.pBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pBoxLogo.TabIndex = 13;
-            this.pBoxLogo.TabStop = false;
-            // 
-            // lblUserType
-            // 
-            this.lblUserType.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserType.Image = ((System.Drawing.Image)(resources.GetObject("lblUserType.Image")));
-            this.lblUserType.Name = "lblUserType";
-            this.lblUserType.Size = new System.Drawing.Size(105, 23);
-            this.lblUserType.Text = "User Type";
-            // 
-            // lblDateTime
-            // 
-            this.lblDateTime.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateTime.ForeColor = System.Drawing.Color.Black;
-            this.lblDateTime.Image = ((System.Drawing.Image)(resources.GetObject("lblDateTime.Image")));
-            this.lblDateTime.Name = "lblDateTime";
-            this.lblDateTime.Size = new System.Drawing.Size(108, 23);
-            this.lblDateTime.Text = "Date Time";
+            this.toolStripMasterMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.companyToolStripMenuItem,
+            this.patientRegistrationToolStripMenuItem,
+            this.doctorRegistrationToolStripMenuItem,
+            this.scanTestMasterToolStripMenuItem,
+            this.ScanFeesMasterToolStripMenuItem,
+            this.labFeesMasterToolStripMenuItem,
+            this.caseTypeMasterToolStripMenuItem,
+            this.roomMasterToolStripMenuItem,
+            this.iPFeesMasterToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.supplerToolStripMenuItem,
+            this.customerToolStripMenuItem,
+            this.categoryToolStripMenuItem,
+            this.groupToolStripMenuItem,
+            this.productToolStripMenuItem,
+            this.userMasterToolStripMenuItem,
+            this.donorRegistrationToolStripMenuItem});
+            this.toolStripMasterMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMasterMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.toolStripMasterMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMasterMenu.Name = "toolStripMasterMenu";
+            this.toolStripMasterMenu.Size = new System.Drawing.Size(70, 74);
+            this.toolStripMasterMenu.Text = "Master";
+            this.toolStripMasterMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // companyToolStripMenuItem
             // 
@@ -351,56 +335,6 @@
             this.donorRegistrationToolStripMenuItem.Text = "Donor Registration";
             this.donorRegistrationToolStripMenuItem.Click += new System.EventHandler(this.donorRegistrationToolStripMenuItem_Click);
             // 
-            // toolStripMasterMenu
-            // 
-            this.toolStripMasterMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.companyToolStripMenuItem,
-            this.patientRegistrationToolStripMenuItem,
-            this.doctorRegistrationToolStripMenuItem,
-            this.scanTestMasterToolStripMenuItem,
-            this.ScanFeesMasterToolStripMenuItem,
-            this.labFeesMasterToolStripMenuItem,
-            this.caseTypeMasterToolStripMenuItem,
-            this.roomMasterToolStripMenuItem,
-            this.iPFeesMasterToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.supplerToolStripMenuItem,
-            this.customerToolStripMenuItem,
-            this.categoryToolStripMenuItem,
-            this.groupToolStripMenuItem,
-            this.productToolStripMenuItem,
-            this.userMasterToolStripMenuItem,
-            this.donorRegistrationToolStripMenuItem});
-            this.toolStripMasterMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMasterMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.toolStripMasterMenu.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMasterMenu.Image")));
-            this.toolStripMasterMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripMasterMenu.Name = "toolStripMasterMenu";
-            this.toolStripMasterMenu.Size = new System.Drawing.Size(70, 74);
-            this.toolStripMasterMenu.Text = "Master";
-            this.toolStripMasterMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // accountGroupToolStripMenuItem
-            // 
-            this.accountGroupToolStripMenuItem.Name = "accountGroupToolStripMenuItem";
-            this.accountGroupToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.accountGroupToolStripMenuItem.Text = "Account Group";
-            this.accountGroupToolStripMenuItem.Click += new System.EventHandler(this.accountGroupToolStripMenuItem_Click);
-            // 
-            // receiptToolStripMenuItem
-            // 
-            this.receiptToolStripMenuItem.Name = "receiptToolStripMenuItem";
-            this.receiptToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.receiptToolStripMenuItem.Text = "Receipt";
-            this.receiptToolStripMenuItem.Click += new System.EventHandler(this.receiptToolStripMenuItem_Click);
-            // 
-            // paymentToolStripMenuItem
-            // 
-            this.paymentToolStripMenuItem.Name = "paymentToolStripMenuItem";
-            this.paymentToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.paymentToolStripMenuItem.Text = "Payment";
-            this.paymentToolStripMenuItem.Click += new System.EventHandler(this.paymentToolStripMenuItem_Click);
-            // 
             // toolStripAccountsMenu
             // 
             this.toolStripAccountsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -409,12 +343,52 @@
             this.paymentToolStripMenuItem});
             this.toolStripAccountsMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripAccountsMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.toolStripAccountsMenu.Image = ((System.Drawing.Image)(resources.GetObject("toolStripAccountsMenu.Image")));
             this.toolStripAccountsMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripAccountsMenu.Name = "toolStripAccountsMenu";
             this.toolStripAccountsMenu.Size = new System.Drawing.Size(85, 74);
             this.toolStripAccountsMenu.Text = "Accounts";
             this.toolStripAccountsMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // accountGroupToolStripMenuItem
+            // 
+            this.accountGroupToolStripMenuItem.Name = "accountGroupToolStripMenuItem";
+            this.accountGroupToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
+            this.accountGroupToolStripMenuItem.Text = "Account Group";
+            this.accountGroupToolStripMenuItem.Click += new System.EventHandler(this.accountGroupToolStripMenuItem_Click);
+            // 
+            // receiptToolStripMenuItem
+            // 
+            this.receiptToolStripMenuItem.Name = "receiptToolStripMenuItem";
+            this.receiptToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
+            this.receiptToolStripMenuItem.Text = "Receipt";
+            this.receiptToolStripMenuItem.Click += new System.EventHandler(this.receiptToolStripMenuItem_Click);
+            // 
+            // paymentToolStripMenuItem
+            // 
+            this.paymentToolStripMenuItem.Name = "paymentToolStripMenuItem";
+            this.paymentToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
+            this.paymentToolStripMenuItem.Text = "Payment";
+            this.paymentToolStripMenuItem.Click += new System.EventHandler(this.paymentToolStripMenuItem_Click);
+            // 
+            // toolStripHMSMenu
+            // 
+            this.toolStripHMSMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.outPatientEntryToolStripMenuItem,
+            this.eCGBILLINGToolStripMenuItem,
+            this.sCANBILLINGToolStripMenuItem,
+            this.lABBILLINGToolStripMenuItem,
+            this.lABTESTENTRYToolStripMenuItem,
+            this.iPADMISSIONToolStripMenuItem,
+            this.iPADVANCEPAYMENTToolStripMenuItem,
+            this.iPINVOICEBILLToolStripMenuItem,
+            this.iPDISCHARGESUMMARYToolStripMenuItem});
+            this.toolStripHMSMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripHMSMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.toolStripHMSMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripHMSMenu.Name = "toolStripHMSMenu";
+            this.toolStripHMSMenu.Size = new System.Drawing.Size(56, 74);
+            this.toolStripHMSMenu.Text = "HMS";
+            this.toolStripHMSMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // outPatientEntryToolStripMenuItem
             // 
@@ -479,26 +453,18 @@
             this.iPDISCHARGESUMMARYToolStripMenuItem.Text = "IP DISCHARGE SUMMARY";
             this.iPDISCHARGESUMMARYToolStripMenuItem.Click += new System.EventHandler(this.iPDISCHARGESUMMARYToolStripMenuItem_Click);
             // 
-            // toolStripHMSMenu
+            // toolStripPurchaseMenu
             // 
-            this.toolStripHMSMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.outPatientEntryToolStripMenuItem,
-            this.eCGBILLINGToolStripMenuItem,
-            this.sCANBILLINGToolStripMenuItem,
-            this.lABBILLINGToolStripMenuItem,
-            this.lABTESTENTRYToolStripMenuItem,
-            this.iPADMISSIONToolStripMenuItem,
-            this.iPADVANCEPAYMENTToolStripMenuItem,
-            this.iPINVOICEBILLToolStripMenuItem,
-            this.iPDISCHARGESUMMARYToolStripMenuItem});
-            this.toolStripHMSMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripHMSMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.toolStripHMSMenu.Image = ((System.Drawing.Image)(resources.GetObject("toolStripHMSMenu.Image")));
-            this.toolStripHMSMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripHMSMenu.Name = "toolStripHMSMenu";
-            this.toolStripHMSMenu.Size = new System.Drawing.Size(64, 74);
-            this.toolStripHMSMenu.Text = "HMS";
-            this.toolStripHMSMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripPurchaseMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.PurchaseEntryToolStripMenuItem,
+            this.PurchaseReturnToolStripMenuItem});
+            this.toolStripPurchaseMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripPurchaseMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.toolStripPurchaseMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripPurchaseMenu.Name = "toolStripPurchaseMenu";
+            this.toolStripPurchaseMenu.Size = new System.Drawing.Size(85, 74);
+            this.toolStripPurchaseMenu.Text = "Purchase";
+            this.toolStripPurchaseMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // PurchaseEntryToolStripMenuItem
             // 
@@ -515,19 +481,19 @@
             this.PurchaseReturnToolStripMenuItem.Text = "Purchase Return";
             this.PurchaseReturnToolStripMenuItem.Click += new System.EventHandler(this.PurchaseReturnToolStripMenuItem_Click);
             // 
-            // toolStripPurchaseMenu
+            // toolStripSalesMenu
             // 
-            this.toolStripPurchaseMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.PurchaseEntryToolStripMenuItem,
-            this.PurchaseReturnToolStripMenuItem});
-            this.toolStripPurchaseMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripPurchaseMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.toolStripPurchaseMenu.Image = ((System.Drawing.Image)(resources.GetObject("toolStripPurchaseMenu.Image")));
-            this.toolStripPurchaseMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripPurchaseMenu.Name = "toolStripPurchaseMenu";
-            this.toolStripPurchaseMenu.Size = new System.Drawing.Size(85, 74);
-            this.toolStripPurchaseMenu.Text = "Purchase";
-            this.toolStripPurchaseMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripSalesMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.POSToolStripMenuItem,
+            this.salesEntryBasicToolStripMenuItem,
+            this.SalesReturnToolStripMenuItem});
+            this.toolStripSalesMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripSalesMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.toolStripSalesMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripSalesMenu.Name = "toolStripSalesMenu";
+            this.toolStripSalesMenu.Size = new System.Drawing.Size(57, 74);
+            this.toolStripSalesMenu.Text = "Sales";
+            this.toolStripSalesMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // POSToolStripMenuItem
             // 
@@ -554,20 +520,29 @@
             this.SalesReturnToolStripMenuItem.Text = "Sales Return";
             this.SalesReturnToolStripMenuItem.Click += new System.EventHandler(this.SalesReturnToolStripMenuItem_Click);
             // 
-            // toolStripSalesMenu
+            // toolStripReportsMenu
             // 
-            this.toolStripSalesMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.POSToolStripMenuItem,
-            this.salesEntryBasicToolStripMenuItem,
-            this.SalesReturnToolStripMenuItem});
-            this.toolStripSalesMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripSalesMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.toolStripSalesMenu.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSalesMenu.Image")));
-            this.toolStripSalesMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripSalesMenu.Name = "toolStripSalesMenu";
-            this.toolStripSalesMenu.Size = new System.Drawing.Size(64, 74);
-            this.toolStripSalesMenu.Text = "Sales";
-            this.toolStripSalesMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripReportsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.patientInformationReportToolStripMenuItem,
+            this.oPSummaryReportToolStripMenuItem,
+            this.ecgXraySummaryReportToolStripMenuItem,
+            this.scanSummaryToolStripMenuItem,
+            this.labReportToolStripMenuItem,
+            this.iPToolStripMenuItem,
+            this.auditorDiagnosisSummaryReportToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.stockReportToolStripMenuItem,
+            this.salesReportToolStripMenuItem,
+            this.purchaseReportToolStripMenuItem1,
+            this.stockDetailsBetweenDateToolStripMenuItem,
+            this.scheduleHReportToolStripMenuItem});
+            this.toolStripReportsMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripReportsMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.toolStripReportsMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripReportsMenu.Name = "toolStripReportsMenu";
+            this.toolStripReportsMenu.Size = new System.Drawing.Size(69, 74);
+            this.toolStripReportsMenu.Text = "Report";
+            this.toolStripReportsMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // patientInformationReportToolStripMenuItem
             // 
@@ -682,99 +657,6 @@
             this.scheduleHReportToolStripMenuItem.Text = "ScheduleHReport";
             this.scheduleHReportToolStripMenuItem.Click += new System.EventHandler(this.scheduleHReportToolStripMenuItem_Click);
             // 
-            // toolStripReportsMenu
-            // 
-            this.toolStripReportsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.patientInformationReportToolStripMenuItem,
-            this.oPSummaryReportToolStripMenuItem,
-            this.ecgXraySummaryReportToolStripMenuItem,
-            this.scanSummaryToolStripMenuItem,
-            this.labReportToolStripMenuItem,
-            this.iPToolStripMenuItem,
-            this.auditorDiagnosisSummaryReportToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.stockReportToolStripMenuItem,
-            this.salesReportToolStripMenuItem,
-            this.purchaseReportToolStripMenuItem1,
-            this.stockDetailsBetweenDateToolStripMenuItem,
-            this.scheduleHReportToolStripMenuItem});
-            this.toolStripReportsMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripReportsMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.toolStripReportsMenu.Image = ((System.Drawing.Image)(resources.GetObject("toolStripReportsMenu.Image")));
-            this.toolStripReportsMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripReportsMenu.Name = "toolStripReportsMenu";
-            this.toolStripReportsMenu.Size = new System.Drawing.Size(69, 74);
-            this.toolStripReportsMenu.Text = "Report";
-            this.toolStripReportsMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // stockAdjustmentToolStripMenuItem
-            // 
-            this.stockAdjustmentToolStripMenuItem.Name = "stockAdjustmentToolStripMenuItem";
-            this.stockAdjustmentToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.stockAdjustmentToolStripMenuItem.Text = "Stock Adjustment";
-            this.stockAdjustmentToolStripMenuItem.Click += new System.EventHandler(this.stockAdjustmentToolStripMenuItem_Click_1);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
-            this.toolStripMenuItem2.Text = "Backup";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // calculatorToolStripMenuItem
-            // 
-            this.calculatorToolStripMenuItem.Name = "calculatorToolStripMenuItem";
-            this.calculatorToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.calculatorToolStripMenuItem.Text = "Calculator";
-            this.calculatorToolStripMenuItem.Click += new System.EventHandler(this.calculatorToolStripMenuItem_Click_1);
-            // 
-            // NotepadToolStripMenuItem
-            // 
-            this.NotepadToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("NotepadToolStripMenuItem.Image")));
-            this.NotepadToolStripMenuItem.Name = "NotepadToolStripMenuItem";
-            this.NotepadToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.NotepadToolStripMenuItem.Text = "Notepad";
-            this.NotepadToolStripMenuItem.Click += new System.EventHandler(this.NotepadToolStripMenuItem_Click);
-            // 
-            // WordpadToolStripMenuItem
-            // 
-            this.WordpadToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("WordpadToolStripMenuItem.Image")));
-            this.WordpadToolStripMenuItem.Name = "WordpadToolStripMenuItem";
-            this.WordpadToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.WordpadToolStripMenuItem.Text = "Wordpad";
-            this.WordpadToolStripMenuItem.Click += new System.EventHandler(this.WordpadToolStripMenuItem_Click);
-            // 
-            // MSWordToolStripMenuItem
-            // 
-            this.MSWordToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("MSWordToolStripMenuItem.Image")));
-            this.MSWordToolStripMenuItem.Name = "MSWordToolStripMenuItem";
-            this.MSWordToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.MSWordToolStripMenuItem.Text = "MS Word";
-            this.MSWordToolStripMenuItem.Click += new System.EventHandler(this.MSWordToolStripMenuItem_Click);
-            // 
-            // TaskManagerToolStripMenuItem
-            // 
-            this.TaskManagerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("TaskManagerToolStripMenuItem.Image")));
-            this.TaskManagerToolStripMenuItem.Name = "TaskManagerToolStripMenuItem";
-            this.TaskManagerToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.TaskManagerToolStripMenuItem.Text = "Task Manager";
-            this.TaskManagerToolStripMenuItem.Click += new System.EventHandler(this.TaskManagerToolStripMenuItem_Click);
-            // 
-            // SystemInfoToolStripMenuItem
-            // 
-            this.SystemInfoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("SystemInfoToolStripMenuItem.Image")));
-            this.SystemInfoToolStripMenuItem.Name = "SystemInfoToolStripMenuItem";
-            this.SystemInfoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.SystemInfoToolStripMenuItem.Text = "System Info";
-            this.SystemInfoToolStripMenuItem.Click += new System.EventHandler(this.SystemInfoToolStripMenuItem_Click);
-            // 
-            // settingsToolStripMenuItem
-            // 
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.settingsToolStripMenuItem.Text = "Settings";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
-            // 
             // toolStripBackUp
             // 
             this.toolStripBackUp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -789,21 +671,87 @@
             this.settingsToolStripMenuItem});
             this.toolStripBackUp.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripBackUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.toolStripBackUp.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBackUp.Image")));
             this.toolStripBackUp.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBackUp.Name = "toolStripBackUp";
-            this.toolStripBackUp.Size = new System.Drawing.Size(64, 74);
+            this.toolStripBackUp.Size = new System.Drawing.Size(58, 24);
             this.toolStripBackUp.Text = "Tools";
             this.toolStripBackUp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // stockAdjustmentToolStripMenuItem
+            // 
+            this.stockAdjustmentToolStripMenuItem.Name = "stockAdjustmentToolStripMenuItem";
+            this.stockAdjustmentToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
+            this.stockAdjustmentToolStripMenuItem.Text = "Stock Adjustment";
+            this.stockAdjustmentToolStripMenuItem.Click += new System.EventHandler(this.stockAdjustmentToolStripMenuItem_Click_1);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(211, 26);
+            this.toolStripMenuItem2.Text = "Backup";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // calculatorToolStripMenuItem
+            // 
+            this.calculatorToolStripMenuItem.Name = "calculatorToolStripMenuItem";
+            this.calculatorToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
+            this.calculatorToolStripMenuItem.Text = "Calculator";
+            this.calculatorToolStripMenuItem.Click += new System.EventHandler(this.calculatorToolStripMenuItem_Click_1);
+            // 
+            // NotepadToolStripMenuItem
+            // 
+            this.NotepadToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("NotepadToolStripMenuItem.Image")));
+            this.NotepadToolStripMenuItem.Name = "NotepadToolStripMenuItem";
+            this.NotepadToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
+            this.NotepadToolStripMenuItem.Text = "Notepad";
+            this.NotepadToolStripMenuItem.Click += new System.EventHandler(this.NotepadToolStripMenuItem_Click);
+            // 
+            // WordpadToolStripMenuItem
+            // 
+            this.WordpadToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("WordpadToolStripMenuItem.Image")));
+            this.WordpadToolStripMenuItem.Name = "WordpadToolStripMenuItem";
+            this.WordpadToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
+            this.WordpadToolStripMenuItem.Text = "Wordpad";
+            this.WordpadToolStripMenuItem.Click += new System.EventHandler(this.WordpadToolStripMenuItem_Click);
+            // 
+            // MSWordToolStripMenuItem
+            // 
+            this.MSWordToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("MSWordToolStripMenuItem.Image")));
+            this.MSWordToolStripMenuItem.Name = "MSWordToolStripMenuItem";
+            this.MSWordToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
+            this.MSWordToolStripMenuItem.Text = "MS Word";
+            this.MSWordToolStripMenuItem.Click += new System.EventHandler(this.MSWordToolStripMenuItem_Click);
+            // 
+            // TaskManagerToolStripMenuItem
+            // 
+            this.TaskManagerToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("TaskManagerToolStripMenuItem.Image")));
+            this.TaskManagerToolStripMenuItem.Name = "TaskManagerToolStripMenuItem";
+            this.TaskManagerToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
+            this.TaskManagerToolStripMenuItem.Text = "Task Manager";
+            this.TaskManagerToolStripMenuItem.Click += new System.EventHandler(this.TaskManagerToolStripMenuItem_Click);
+            // 
+            // SystemInfoToolStripMenuItem
+            // 
+            this.SystemInfoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("SystemInfoToolStripMenuItem.Image")));
+            this.SystemInfoToolStripMenuItem.Name = "SystemInfoToolStripMenuItem";
+            this.SystemInfoToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
+            this.SystemInfoToolStripMenuItem.Text = "System Info";
+            this.SystemInfoToolStripMenuItem.Click += new System.EventHandler(this.SystemInfoToolStripMenuItem_Click);
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(211, 26);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // toolStripMinimize
             // 
             this.toolStripMinimize.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.toolStripMinimize.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMinimize.Image")));
             this.toolStripMinimize.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMinimize.Name = "toolStripMinimize";
-            this.toolStripMinimize.Size = new System.Drawing.Size(86, 74);
+            this.toolStripMinimize.Size = new System.Drawing.Size(86, 24);
             this.toolStripMinimize.Text = "Minimize";
             this.toolStripMinimize.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMinimize.Click += new System.EventHandler(this.toolStripMinimize_Click);
@@ -812,13 +760,44 @@
             // 
             this.LogoutToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogoutToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.LogoutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("LogoutToolStripMenuItem.Image")));
             this.LogoutToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem";
-            this.LogoutToolStripMenuItem.Size = new System.Drawing.Size(71, 74);
-            this.LogoutToolStripMenuItem.Text = "Logout";
+            this.LogoutToolStripMenuItem.Size = new System.Drawing.Size(48, 26);
+            this.LogoutToolStripMenuItem.Text = "Exit";
             this.LogoutToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.LogoutToolStripMenuItem.Click += new System.EventHandler(this.LogoutToolStripMenuItem_Click_1);
+            // 
+            // purchaseReportToolStripMenuItem
+            // 
+            this.purchaseReportToolStripMenuItem.Name = "purchaseReportToolStripMenuItem";
+            this.purchaseReportToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // feesMasterToolStripMenuItem
+            // 
+            this.feesMasterToolStripMenuItem.Name = "feesMasterToolStripMenuItem";
+            this.feesMasterToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.feesMasterToolStripMenuItem.Text = "Fees Master";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // ContainerPanel
+            // 
+            this.ContainerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ContainerPanel.Location = new System.Drawing.Point(0, 30);
+            this.ContainerPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.ContainerPanel.Name = "ContainerPanel";
+            this.ContainerPanel.Size = new System.Drawing.Size(1279, 516);
+            this.ContainerPanel.TabIndex = 12;
+            // 
+            // ToolStripStatusLabel3
+            // 
+            this.ToolStripStatusLabel3.Name = "ToolStripStatusLabel3";
+            this.ToolStripStatusLabel3.Size = new System.Drawing.Size(771, 23);
+            this.ToolStripStatusLabel3.Spring = true;
             // 
             // frm_main_mdi
             // 
@@ -826,7 +805,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1279, 575);
-            this.Controls.Add(this.pBoxLogo);
             this.Controls.Add(this.ContainerPanel);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.StatusStrip1);
@@ -840,7 +818,6 @@
             this.StatusStrip1.PerformLayout();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pBoxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -856,11 +833,9 @@
         internal System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem purchaseReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem feesMasterToolStripMenuItem;
-        internal System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel3;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel ContainerPanel;
         private System.Windows.Forms.ToolStripStatusLabel toolStripClose;
-        private System.Windows.Forms.PictureBox pBoxLogo;
         internal System.Windows.Forms.ToolStripMenuItem toolStripMasterMenu;
         private System.Windows.Forms.ToolStripMenuItem companyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem patientRegistrationToolStripMenuItem;
@@ -929,6 +904,7 @@
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         internal System.Windows.Forms.ToolStripMenuItem toolStripMinimize;
         internal System.Windows.Forms.ToolStripMenuItem LogoutToolStripMenuItem;
+        internal System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel3;
     }
 }
 

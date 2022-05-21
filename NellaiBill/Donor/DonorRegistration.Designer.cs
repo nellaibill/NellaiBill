@@ -106,7 +106,7 @@ namespace NellaiBill.Master
             this.btnSaveUpdate.BackColor = System.Drawing.Color.DarkMagenta;
             this.btnSaveUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveUpdate.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnSaveUpdate.Location = new System.Drawing.Point(1640, 87);
+            this.btnSaveUpdate.Location = new System.Drawing.Point(1623, 75);
             this.btnSaveUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveUpdate.Name = "btnSaveUpdate";
             this.btnSaveUpdate.Size = new System.Drawing.Size(193, 41);
@@ -118,7 +118,7 @@ namespace NellaiBill.Master
             // mBtnNew
             // 
             this.mBtnNew.Depth = 0;
-            this.mBtnNew.Location = new System.Drawing.Point(1640, 29);
+            this.mBtnNew.Location = new System.Drawing.Point(1623, 17);
             this.mBtnNew.Margin = new System.Windows.Forms.Padding(4);
             this.mBtnNew.MouseState = MaterialSkin.MouseState.HOVER;
             this.mBtnNew.Name = "mBtnNew";
@@ -134,12 +134,12 @@ namespace NellaiBill.Master
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(26, 502);
+            this.dataGridView1.Location = new System.Drawing.Point(23, 500);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1864, 440);
+            this.dataGridView1.Size = new System.Drawing.Size(1762, 338);
             this.dataGridView1.TabIndex = 97;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
@@ -172,7 +172,7 @@ namespace NellaiBill.Master
             this.btnDonorFilter.BackColor = System.Drawing.Color.DarkMagenta;
             this.btnDonorFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDonorFilter.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDonorFilter.Location = new System.Drawing.Point(1640, 185);
+            this.btnDonorFilter.Location = new System.Drawing.Point(1623, 173);
             this.btnDonorFilter.Margin = new System.Windows.Forms.Padding(4);
             this.btnDonorFilter.Name = "btnDonorFilter";
             this.btnDonorFilter.Size = new System.Drawing.Size(193, 41);
@@ -193,7 +193,7 @@ namespace NellaiBill.Master
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(23, 473);
+            this.lblSearch.Location = new System.Drawing.Point(54, 470);
             this.lblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(53, 17);
@@ -830,7 +830,7 @@ namespace NellaiBill.Master
             this.btnImpDatesReport.BackColor = System.Drawing.Color.DarkMagenta;
             this.btnImpDatesReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImpDatesReport.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnImpDatesReport.Location = new System.Drawing.Point(1640, 246);
+            this.btnImpDatesReport.Location = new System.Drawing.Point(1623, 234);
             this.btnImpDatesReport.Margin = new System.Windows.Forms.Padding(4);
             this.btnImpDatesReport.Name = "btnImpDatesReport";
             this.btnImpDatesReport.Size = new System.Drawing.Size(193, 41);
@@ -844,7 +844,7 @@ namespace NellaiBill.Master
             this.btnPrint.BackColor = System.Drawing.Color.DarkMagenta;
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnPrint.Location = new System.Drawing.Point(1640, 136);
+            this.btnPrint.Location = new System.Drawing.Point(1623, 124);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(193, 41);
@@ -857,7 +857,7 @@ namespace NellaiBill.Master
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 958);
+            this.ClientSize = new System.Drawing.Size(1828, 853);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnImpDatesReport);
             this.Controls.Add(this.txtSearch);
