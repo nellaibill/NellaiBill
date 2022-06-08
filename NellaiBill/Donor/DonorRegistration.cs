@@ -30,13 +30,14 @@ namespace NellaiBill.Master
                 return;
             }
             string xDeleteString = "";
+            int xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
             if (btnSaveUpdate.Text == "SAVE")
             {
                 
                 xQry = "insert into lukes_donor_registration (`donor_name`, `address_line1`, `address_line2`," +
                     "state,country,phone_no1,phone_no2,landline_no1,landline_no2," +
                     "donor_file_name,email_id1,email_id2," +
-                    "reference,related_files," +
+                    "reference,related_files,pancard,category_id" +
                     "donor_annual,donor_endowment,donor_things,donor_welfare," +
                     "support_cs,support_fs,support_bs,support_cloth,support_other," +
                     "sr_ooc,sr_ntc,sr_post,sr_visitor,sr_email) " +
@@ -54,6 +55,8 @@ namespace NellaiBill.Master
                     "'" + xDeleteString + "'," +
                     "'" + txtReference.Text + "'," +
                     "'" + txtRelatedFiles.Text + "'," +
+                    "'" + txtPanCard.Text + "'," +
+                    "" + xCategoryId + "," +
                     "'" + globalClass.getInteger(chkDonorAnnual.Checked) + "'," +
                     "'" + globalClass.getInteger(chkDonorEndowment.Checked) + "'," +
                     "'" + globalClass.getInteger(chkDonorThings.Checked) + "'," +
@@ -86,6 +89,8 @@ namespace NellaiBill.Master
                     " email_id2 = '" + xDeleteString + "', " +
                     " reference = '" + txtReference.Text + "', " +
                     " related_files = '" + txtRelatedFiles.Text + "', " +
+                    " pancard = '" + txtPanCard.Text + "', " +
+                    " category_id = " + xCategoryId + ", " +
                     " donor_annual = " + globalClass.getInteger(chkDonorAnnual.Checked) + ", " +
                     " donor_endowment = " + globalClass.getInteger(chkDonorEndowment.Checked) + ", " +
                     " donor_things = " + globalClass.getInteger(chkDonorThings.Checked) + ", " +
@@ -141,6 +146,7 @@ namespace NellaiBill.Master
                 "CONCAT(email_id1, '-', email_id2) as EmailId," +
                 "donor_file_name as DonorFileName, " +
                 "reference as Reference, " +
+                "pancard as PanCard, " +
                 "related_files as RelatedFiles " +
                 "from lukes_donor_registration " + xFilterQry + " order by p_donor_id desc";
             xDb.LoadGrid(xQry, dataGridView1);
@@ -239,6 +245,7 @@ namespace NellaiBill.Master
                  + "%' OR EmailId LIKE '%" + txtSearch.Text
                  + "%' OR DonorFileName LIKE '%" + txtSearch.Text
                  + "%' OR Reference LIKE '%" + txtSearch.Text
+                 + "%' OR PanCard LIKE '%" + txtSearch.Text
                  + "%' OR RelatedFiles LIKE '%" + txtSearch.Text + "%'";
             (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format(xFilterSearch);
         }
