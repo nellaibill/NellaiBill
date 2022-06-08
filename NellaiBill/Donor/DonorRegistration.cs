@@ -29,26 +29,10 @@ namespace NellaiBill.Master
                 txtName.Focus();
                 return;
             }
-            if (txtMobileNo.Text == "")
-            {
-                MessageBox.Show("Please Choose Mobile No");
-                txtMobileNo.Focus();
-                return;
-            }
-            if (txtAddressLine1.Text == "")
-            {
-                MessageBox.Show("Please Choose AddressLine1");
-                txtAddressLine1.Focus();
-                return;
-            }
-            //if (txtEmailId1.Text == "")
-            //{
-            //    MessageBox.Show("Please Choose Email1");
-            //    txtEmailId1.Focus();
-            //    return;
-            //}
+            string xDeleteString = "";
             if (btnSaveUpdate.Text == "SAVE")
             {
+                
                 xQry = "insert into lukes_donor_registration (`donor_name`, `address_line1`, `address_line2`," +
                     "state,country,phone_no1,phone_no2,landline_no1,landline_no2," +
                     "donor_file_name,email_id1,email_id2," +
@@ -57,17 +41,17 @@ namespace NellaiBill.Master
                     "support_cs,support_fs,support_bs,support_cloth,support_other," +
                     "sr_ooc,sr_ntc,sr_post,sr_visitor,sr_email) " +
                     " values ( '" + txtName.Text + "'," +
-                    "'" + txtAddressLine1.Text + "'," +
-                    "'" + txtAddressLine2.Text + "'," +
-                    "'" + txtState.Text + "'," +
+                    "'" + rchHomeAddress.Text + "'," +
+                    "'" + rchOfficeAddress.Text + "'," +
+                    "'" + xDeleteString + "'," +
                     "'" + cmbCountry.SelectedItem + "'," +
                     "'" + txtMobileNo.Text + "'," +
                     "'" + txtWhatsAppNo.Text + "'," +
-                    "'" + txtLandlineNo1.Text + "'," +
-                    "'" + txtLandlineNo2.Text + "'," +
+                    "'" + xDeleteString + "'," +
+                    "'" + xDeleteString + "'," +
                     "'" + txtFileName.Text + "'," +
                     "'" + txtEmailId1.Text + "'," +
-                    "'" + txtEmailId2.Text + "'," +
+                    "'" + xDeleteString + "'," +
                     "'" + txtReference.Text + "'," +
                     "'" + txtRelatedFiles.Text + "'," +
                     "'" + globalClass.getInteger(chkDonorAnnual.Checked) + "'," +
@@ -89,17 +73,17 @@ namespace NellaiBill.Master
             {
                 xQry = "update lukes_donor_registration set " +
                     " donor_name = '" + txtName.Text + "', " +
-                    " address_line1 = '" + txtAddressLine1.Text + "', " +
-                    " address_line2 = '" + txtAddressLine2.Text + "', " +
-                    " state = '" + txtState.Text + "', " +
+                    " address_line1 = '" + rchHomeAddress.Text + "', " +
+                    " address_line2 = '" + rchOfficeAddress.Text + "', " +
+                    " state = '" + xDeleteString + "', " +
                     " country = '" + cmbCountry.SelectedItem + "', " +
                     " phone_no1 = '" + txtMobileNo.Text + "', " +
                     " phone_no2 = '" + txtWhatsAppNo.Text + "', " +
-                    " landline_no1 = '" + txtLandlineNo1.Text + "', " +
-                    " landline_no2 = '" + txtLandlineNo2.Text + "', " +
+                    " landline_no1 = '" + xDeleteString + "', " +
+                    " landline_no2 = '" + xDeleteString + "', " +
                     " donor_file_name = '" + txtFileName.Text + "', " +
                     " email_id1 = '" + txtEmailId1.Text + "', " +
-                    " email_id2 = '" + txtEmailId2.Text + "', " +
+                    " email_id2 = '" + xDeleteString + "', " +
                     " reference = '" + txtReference.Text + "', " +
                     " related_files = '" + txtRelatedFiles.Text + "', " +
                     " donor_annual = " + globalClass.getInteger(chkDonorAnnual.Checked) + ", " +
@@ -150,16 +134,15 @@ namespace NellaiBill.Master
 
             string xQry = "select p_donor_id as Id," +
                 "donor_name as Name," +
-                "CONCAT(address_line1, '-', address_line2, '-', state, '-', country) as Address," +
-                "state," +
-                "country," +
+                "CONCAT(address_line1) as HomeAddress," +
+                "CONCAT(address_line2) as OfficeAddress," +
+                "country as Country," +
                 "CONCAT(phone_no1, '-', phone_no2) as PhoneNo," +
-                "CONCAT(landline_no1, '-', landline_no2) as LandLineNo," +
                 "CONCAT(email_id1, '-', email_id2) as EmailId," +
-                "donor_file_name, " +
-                "reference, " +
-                "related_files " +
-                " from lukes_donor_registration " + xFilterQry + " order by p_donor_id desc";
+                "donor_file_name as DonorFileName, " +
+                "reference as Reference, " +
+                "related_files as RelatedFiles " +
+                "from lukes_donor_registration " + xFilterQry + " order by p_donor_id desc";
             xDb.LoadGrid(xQry, dataGridView1);
             dataGridView1.ReadOnly = true;
             dataGridView1.AutoGenerateColumns = false;
@@ -168,8 +151,8 @@ namespace NellaiBill.Master
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns["Name"].Frozen = true;
             dataGridView1.Columns["Name"].Width = 150;
-            dataGridView1.Columns[2].Width = 300;
-            dataGridView1.Columns[3].Width = 100;
+            dataGridView1.Columns[2].Width = 250;
+            dataGridView1.Columns[3].Width = 250;
             dataGridView1.Columns[4].Width = 100;
             dataGridView1.Columns[5].Width = 250;
             dataGridView1.Columns[6].Width = 250;
@@ -182,21 +165,20 @@ namespace NellaiBill.Master
             globalClass.ClearFormControls(this.groupBox2);
             globalClass.ClearFormControls(this.groupBox3);
             globalClass.ClearFormControls(this.groupBox4);
+            rchHomeAddress.Clear();
+            rchOfficeAddress.Clear();
             LoadGrid();
-            cmbGender.SelectedIndex = 0;
             cmbCountry.SelectedIndex = 0;
             btnSaveUpdate.Text = "SAVE";
-            ptxtPanCard.PlaceholderText = "Enter PanCard No";
-            ptxtPanCard.Enabled = false;
             mbtnImportantDates.Visible = false;
             mbtnDonationDetails.Visible = false;
             mbtnFDDetails.Visible = false;
             mbtnOtherDetails.Visible = false;
-            btnPrint.Enabled = false;
         }
 
         private void DonorRegistration_Load(object sender, EventArgs e)
         {
+            xDb.LoadComboBox("select category_id,category_name from m_category", cmbCategory, "category_id", "category_name");
             DataClear();
             LoadGrid();
         }
@@ -209,7 +191,6 @@ namespace NellaiBill.Master
             mbtnDonationDetails.Visible = true;
             mbtnFDDetails.Visible = true;
             mbtnOtherDetails.Visible = true;
-            btnPrint.Enabled = true;
             DataFetch(xDonorId);
             btnSaveUpdate.Text = "Update";
         }
@@ -218,16 +199,12 @@ namespace NellaiBill.Master
             DonorRegistrationResponseModel donorRegistrationResponse = new DonorRegistrationResponseModel();
             donorRegistrationResponse = xDb.GetDonorRegistrationBasedOnQry(xDonorId);
             txtName.Text = donorRegistrationResponse.Name;
-            txtAddressLine1.Text = donorRegistrationResponse.AddressLine1;
-            txtAddressLine2.Text = donorRegistrationResponse.AddressLine2;
-            txtState.Text = donorRegistrationResponse.State;
+            rchHomeAddress.Text = donorRegistrationResponse.AddressLine1;
+            rchOfficeAddress.Text = donorRegistrationResponse.AddressLine2;
             cmbCountry.Text = donorRegistrationResponse.Country;
             txtMobileNo.Text = donorRegistrationResponse.PhoneNo1;
             txtWhatsAppNo.Text = donorRegistrationResponse.PhoneNo2;
-            txtLandlineNo1.Text = donorRegistrationResponse.LandlineNo1;
-            txtLandlineNo2.Text = donorRegistrationResponse.LandlineNo2;
             txtEmailId1.Text = donorRegistrationResponse.EmailId1;
-            txtEmailId2.Text = donorRegistrationResponse.EmailId2;
             txtReference.Text = donorRegistrationResponse.Reference;
             txtFileName.Text = donorRegistrationResponse.DonorFileName;
             txtRelatedFiles.Text = donorRegistrationResponse.RelatedFiles;
@@ -254,23 +231,19 @@ namespace NellaiBill.Master
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            string xFilterSearch = "NAME Like '%" + txtSearch.Text + "%'";
+            string xFilterSearch = "Name Like '%" + txtSearch.Text
+                 + "%' OR HomeAddress LIKE '%" + txtSearch.Text
+                 + "%' OR OfficeAddress LIKE '%" + txtSearch.Text
+                 + "%' OR Country LIKE '%" + txtSearch.Text
+                 + "%' OR PhoneNo LIKE '%" + txtSearch.Text
+                 + "%' OR EmailId LIKE '%" + txtSearch.Text
+                 + "%' OR DonorFileName LIKE '%" + txtSearch.Text
+                 + "%' OR Reference LIKE '%" + txtSearch.Text
+                 + "%' OR RelatedFiles LIKE '%" + txtSearch.Text + "%'";
             (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format(xFilterSearch);
         }
 
-        private void chkDonorEndowment_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkDonorEndowment.Checked)
-            {
-                ptxtPanCard.Enabled = true;
-            }
-            else
-            {
-                ptxtPanCard.Enabled = false;
-                ptxtPanCard.Text = "";
-            }
-        }
-
+       
 
         private void mbtnImportantDates_Click(object sender, EventArgs e)
         {
@@ -333,14 +306,12 @@ namespace NellaiBill.Master
 
         private void mbtnOtherDetails_Click(object sender, EventArgs e)
         {
-            OtherDetails otherDetails = new OtherDetails(xDonorId);
-            otherDetails.ShowDialog();
+          
         }
 
         private void btnImpDatesReport_Click(object sender, EventArgs e)
         {
-            ImpDatesReport impDatesReport = new ImpDatesReport();
-            impDatesReport.ShowDialog();
+      
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -365,6 +336,12 @@ namespace NellaiBill.Master
         private void btnExit_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void mbtnOtherDetails_Click_1(object sender, EventArgs e)
+        {
+            OtherDetails otherDetails = new OtherDetails(xDonorId);
+            otherDetails.ShowDialog();
         }
     }
 }
