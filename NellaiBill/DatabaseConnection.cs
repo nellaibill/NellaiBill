@@ -298,6 +298,23 @@ namespace NellaiBill
                 }
             }
         }
+        public void LoadComboBoxWithoutSelect(string xQry, ComboBox xComboBox, string xValueMember, string xDisplayMember)
+        {
+            using (MySqlConnection conn = new MySqlConnection(conString))
+            {
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(xQry, conn))
+                {
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    xComboBox.ValueMember = xValueMember;
+                    xComboBox.DisplayMember = xDisplayMember;
+                    xComboBox.DataSource = dt;
+
+                }
+            }
+        }
         public void LoadComboBoxData(string xQry, ComboBox xComboBox)
         {
             DataTable table = new DataTable("ip_admission");
@@ -915,11 +932,12 @@ namespace NellaiBill
                         DonorFileName = reader.GetString("donor_file_name"),
                         Reference = reader.GetString("reference"),
                         RelatedFiles = reader.GetString("related_files"),
+                        PanCard = reader.GetString("pancard"),
                         DonorAnnual = reader.GetInt32("donor_annual"),
                         DonorEndowment = reader.GetInt32("donor_endowment"),
                         DonorThings = reader.GetInt32("donor_things"),
                         DonorWelfare = reader.GetInt32("donor_welfare"),
-                         SupportCS= reader.GetInt32("support_cs"),
+                        SupportCS= reader.GetInt32("support_cs"),
                         SupportFS = reader.GetInt32("support_fs"),
                         SupportBS = reader.GetInt32("support_bs"),
                         SupportCloth = reader.GetInt32("support_cloth"),

@@ -25,6 +25,7 @@ namespace NellaiBill.Master
         {
           
             btnDelete.Enabled = false;
+            btnDelete.Visible = false;
             LoadGrid();
             //DataClear();
             //dataGridView1.ReadOnly = true;
@@ -85,8 +86,9 @@ namespace NellaiBill.Master
         }
         private void LoadGrid()
         {
-            string xQuery = "select category_id,category_name as NAME from " + xTableName + " order by category_name";
+            string xQuery = "select category_id as Id,category_name as Name from " + xTableName + " order by category_id";
             xDb.LoadGrid(xQuery, dataGridView1);
+            dataGridView1.Columns[1].Width = 200;
             btnSaveUpdate.Text = "SAVE";
         }
 
@@ -103,7 +105,7 @@ namespace NellaiBill.Master
             xCategoryId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             txtCategoryName.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             btnSaveUpdate.Text = "UPDATE";
-            btnDelete.Enabled = true;
+            //btnDelete.Enabled = true;
         }
 
     }

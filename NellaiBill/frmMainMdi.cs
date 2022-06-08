@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using NellaiBill.Accounts;
 using NellaiBill.Common;
 using NellaiBill.Don;
+using NellaiBill.Donor;
 using NellaiBill.Master;
 using NellaiBill.Models;
 using NellaiBill.Reports;
@@ -68,7 +69,6 @@ namespace NellaiBill
                 ecgXraySummaryReportToolStripMenuItem.Visible = false;
                 patientInformationReportToolStripMenuItem.Visible = false;
                 userMasterToolStripMenuItem.Visible = false;
-                donorRegistrationToolStripMenuItem.Visible = false;
                // stockAdjustmentToolStripMenuItem.Visible = false;
                 toolStripSeparator1.Visible = false;
                 toolStripSeparator2.Visible = false;
@@ -459,9 +459,39 @@ namespace NellaiBill
             CommonFormControls(new frmSettings());
         }
 
-        private void donorRegistrationToolStripMenuItem_Click(object sender, EventArgs e)
+        private void donorRegistrationToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             CommonFormControls(new DonorRegistration());
+        }
+
+        private void donorCategoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new Category());
+        }
+
+        private void impDatesReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new ImpDatesReport());
+        }
+
+        private void categoryReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new DonorGeneralReport("CategoryReport"));
+        }
+
+        private void panCardReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new DonorGeneralReport("PanCardReport"));
+        }
+
+        private void fDDetailsReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new DonorGeneralReport("FDReport"));
+        }
+
+        private void donationDetailsReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CommonFormControls(new DonorGeneralReport("DonationDetailsReport"));
         }
     }
 }

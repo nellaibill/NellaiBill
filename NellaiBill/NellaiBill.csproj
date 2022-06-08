@@ -236,6 +236,13 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="CrystalReports\rptDonorInfo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDonorInfo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="CrystalReports\rptIpAdmissionReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -284,13 +291,6 @@
       <DependentUpon>rptLabPatientTestReport.rpt</DependentUpon>
       <SubType>Component</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="CrystalReports\rptDonorInfo.cs">
-      <DependentUpon>rptDonorInfo.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="CrystalReports\rptPatientInformation.cs">
       <AutoGen>True</AutoGen>
@@ -477,6 +477,12 @@
     </Compile>
     <Compile Include="Donor\DonorFilter.Designer.cs">
       <DependentUpon>DonorFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Donor\DonorGeneralReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Donor\DonorGeneralReport.Designer.cs">
+      <DependentUpon>DonorGeneralReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Donor\FDDetails.cs">
       <SubType>Form</SubType>
@@ -987,6 +993,11 @@
       <LastGenOutput>rptDischargeBill.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\rptDonorInfo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDonorInfo.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptIpAdmissionReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptIpAdmissionReport.cs</LastGenOutput>
@@ -1020,11 +1031,6 @@
     <EmbeddedResource Include="CrystalReports\rptLabPatientTestReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptLabPatientTestReport.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReports\rptDonorInfo.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>rptDonorInfo.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\rptPatientInformation.rpt">
@@ -1155,6 +1161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Donor\DonorFilter.resx">
       <DependentUpon>DonorFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Donor\DonorGeneralReport.resx">
+      <DependentUpon>DonorGeneralReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Donor\FDDetails.resx">
       <DependentUpon>FDDetails.cs</DependentUpon>
