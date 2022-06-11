@@ -37,7 +37,7 @@ namespace NellaiBill.Master
                 xQry = "insert into lukes_donor_registration (`donor_name`, `address_line1`, `address_line2`," +
                     "state,country,phone_no1,phone_no2,landline_no1,landline_no2," +
                     "donor_file_name,email_id1,email_id2," +
-                    "reference,related_files,pancard,category_id" +
+                    "reference,related_files,pancard,category_id,notes," +
                     "donor_annual,donor_endowment,donor_things,donor_welfare," +
                     "support_cs,support_fs,support_bs,support_cloth,support_other," +
                     "sr_ooc,sr_ntc,sr_post,sr_visitor,sr_email) " +
@@ -57,6 +57,7 @@ namespace NellaiBill.Master
                     "'" + txtRelatedFiles.Text + "'," +
                     "'" + txtPanCard.Text + "'," +
                     "" + xCategoryId + "," +
+                    "'" + rchRemarks.Text + "'," +
                     "'" + globalClass.getInteger(chkDonorAnnual.Checked) + "'," +
                     "'" + globalClass.getInteger(chkDonorEndowment.Checked) + "'," +
                     "'" + globalClass.getInteger(chkDonorThings.Checked) + "'," +
@@ -91,6 +92,7 @@ namespace NellaiBill.Master
                     " related_files = '" + txtRelatedFiles.Text + "', " +
                     " pancard = '" + txtPanCard.Text + "', " +
                     " category_id = " + xCategoryId + ", " +
+                    " notes = '" + rchRemarks.Text + "', " +
                     " donor_annual = " + globalClass.getInteger(chkDonorAnnual.Checked) + ", " +
                     " donor_endowment = " + globalClass.getInteger(chkDonorEndowment.Checked) + ", " +
                     " donor_things = " + globalClass.getInteger(chkDonorThings.Checked) + ", " +
@@ -167,7 +169,7 @@ namespace NellaiBill.Master
 
         private void DataClear()
         {
-            globalClass.ClearFormControls(this.groupBox1);
+         //   globalClass.ClearFormControls(this.groupBox1);
             globalClass.ClearFormControls(this.groupBox2);
             globalClass.ClearFormControls(this.groupBox3);
             globalClass.ClearFormControls(this.groupBox4);
@@ -179,7 +181,6 @@ namespace NellaiBill.Master
             mbtnImportantDates.Visible = false;
             mbtnDonationDetails.Visible = false;
             mbtnFDDetails.Visible = false;
-            mbtnOtherDetails.Visible = false;
         }
 
         private void DonorRegistration_Load(object sender, EventArgs e)
@@ -192,11 +193,9 @@ namespace NellaiBill.Master
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             xDonorId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-            mBtnNew.Enabled = true;
             mbtnImportantDates.Visible = true;
             mbtnDonationDetails.Visible = true;
             mbtnFDDetails.Visible = true;
-            mbtnOtherDetails.Visible = true;
             DataFetch(xDonorId);
             btnSaveUpdate.Text = "Update";
         }
@@ -349,6 +348,11 @@ namespace NellaiBill.Master
         {
             OtherDetails otherDetails = new OtherDetails(xDonorId);
             otherDetails.ShowDialog();
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            DataClear();
         }
     }
 }
