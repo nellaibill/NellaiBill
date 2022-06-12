@@ -143,6 +143,7 @@ namespace NellaiBill.Master
                 "donor_name as Name," +
                 "CONCAT(address_line1) as HomeAddress," +
                 "CONCAT(address_line2) as OfficeAddress," +
+                "notes as  Notes," +
                 "country as Country," +
                 "CONCAT(phone_no1, '-', phone_no2) as PhoneNo," +
                 "CONCAT(email_id1, '-', email_id2) as EmailId," +
@@ -161,7 +162,7 @@ namespace NellaiBill.Master
             dataGridView1.Columns["Name"].Width = 150;
             dataGridView1.Columns[2].Width = 250;
             dataGridView1.Columns[3].Width = 250;
-            dataGridView1.Columns[4].Width = 100;
+            dataGridView1.Columns[4].Width = 250;
             dataGridView1.Columns[5].Width = 250;
             dataGridView1.Columns[6].Width = 250;
             dataGridView1.Columns[7].Width = 250;
@@ -169,10 +170,11 @@ namespace NellaiBill.Master
 
         private void DataClear()
         {
-         //   globalClass.ClearFormControls(this.groupBox1);
+            globalClass.ClearFormControls(this.groupBox1);
             globalClass.ClearFormControls(this.groupBox2);
             globalClass.ClearFormControls(this.groupBox3);
             globalClass.ClearFormControls(this.groupBox4);
+            rchRemarks.Clear();
             rchHomeAddress.Clear();
             rchOfficeAddress.Clear();
             LoadGrid();
@@ -213,6 +215,7 @@ namespace NellaiBill.Master
             txtReference.Text = donorRegistrationResponse.Reference;
             txtFileName.Text = donorRegistrationResponse.DonorFileName;
             txtRelatedFiles.Text = donorRegistrationResponse.RelatedFiles;
+            rchRemarks.Text = donorRegistrationResponse.Notes;
             chkDonorAnnual.Checked = globalClass.getBoolean(donorRegistrationResponse.DonorAnnual);
             chkDonorEndowment.Checked = globalClass.getBoolean(donorRegistrationResponse.DonorEndowment);
             chkDonorThings.Checked = globalClass.getBoolean(donorRegistrationResponse.DonorThings);
@@ -245,6 +248,7 @@ namespace NellaiBill.Master
                  + "%' OR DonorFileName LIKE '%" + txtSearch.Text
                  + "%' OR Reference LIKE '%" + txtSearch.Text
                  + "%' OR PanCard LIKE '%" + txtSearch.Text
+                 + "%' OR Notes LIKE '%" + txtSearch.Text
                  + "%' OR RelatedFiles LIKE '%" + txtSearch.Text + "%'";
             (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format(xFilterSearch);
         }

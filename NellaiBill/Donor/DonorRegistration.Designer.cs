@@ -85,7 +85,15 @@ namespace NellaiBill.Master
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtState = new System.Windows.Forms.TextBox();
+            this.txtLandLineNo1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtLandLineNo2 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.txtEmailId2 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -126,7 +134,7 @@ namespace NellaiBill.Master
             this.groupBox2.Controls.Add(this.chkDonorEndowment);
             this.groupBox2.Controls.Add(this.chkDonorAnnual);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(462, 76);
+            this.groupBox2.Location = new System.Drawing.Point(462, 65);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
@@ -187,7 +195,7 @@ namespace NellaiBill.Master
             this.groupBox3.Controls.Add(this.chkSupportFS);
             this.groupBox3.Controls.Add(this.chkSupportCS);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(465, 136);
+            this.groupBox3.Location = new System.Drawing.Point(465, 125);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
@@ -259,7 +267,7 @@ namespace NellaiBill.Master
             this.groupBox4.Controls.Add(this.chkSRNTC);
             this.groupBox4.Controls.Add(this.chkSROOC);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(465, 204);
+            this.groupBox4.Location = new System.Drawing.Point(465, 193);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
@@ -373,16 +381,16 @@ namespace NellaiBill.Master
             this.cmbCategory.Items.AddRange(new object[] {
             "India",
             "OutsideIndia"});
-            this.cmbCategory.Location = new System.Drawing.Point(121, 451);
+            this.cmbCategory.Location = new System.Drawing.Point(120, 484);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(160, 25);
-            this.cmbCategory.TabIndex = 8;
+            this.cmbCategory.TabIndex = 10;
             // 
             // lblCategory
             // 
             this.lblCategory.AutoSize = true;
             this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategory.Location = new System.Drawing.Point(38, 451);
+            this.lblCategory.Location = new System.Drawing.Point(37, 484);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(65, 17);
             this.lblCategory.TabIndex = 179;
@@ -391,17 +399,17 @@ namespace NellaiBill.Master
             // txtPanCard
             // 
             this.txtPanCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPanCard.Location = new System.Drawing.Point(121, 489);
+            this.txtPanCard.Location = new System.Drawing.Point(120, 522);
             this.txtPanCard.MaxLength = 100;
             this.txtPanCard.Name = "txtPanCard";
             this.txtPanCard.Size = new System.Drawing.Size(160, 23);
-            this.txtPanCard.TabIndex = 13;
+            this.txtPanCard.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(40, 488);
+            this.label5.Location = new System.Drawing.Point(39, 521);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 17);
             this.label5.TabIndex = 176;
@@ -409,53 +417,53 @@ namespace NellaiBill.Master
             // 
             // rchOfficeAddress
             // 
-            this.rchOfficeAddress.Location = new System.Drawing.Point(121, 229);
+            this.rchOfficeAddress.Location = new System.Drawing.Point(121, 242);
             this.rchOfficeAddress.Name = "rchOfficeAddress";
-            this.rchOfficeAddress.Size = new System.Drawing.Size(282, 97);
+            this.rchOfficeAddress.Size = new System.Drawing.Size(282, 48);
             this.rchOfficeAddress.TabIndex = 6;
             this.rchOfficeAddress.Text = "";
             // 
             // rchHomeAddress
             // 
-            this.rchHomeAddress.Location = new System.Drawing.Point(121, 126);
+            this.rchHomeAddress.Location = new System.Drawing.Point(120, 194);
             this.rchHomeAddress.Name = "rchHomeAddress";
-            this.rchHomeAddress.Size = new System.Drawing.Size(282, 97);
+            this.rchHomeAddress.Size = new System.Drawing.Size(282, 42);
             this.rchHomeAddress.TabIndex = 5;
             this.rchHomeAddress.Text = "";
             // 
             // txtRelatedFiles
             // 
             this.txtRelatedFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRelatedFiles.Location = new System.Drawing.Point(121, 556);
+            this.txtRelatedFiles.Location = new System.Drawing.Point(120, 589);
             this.txtRelatedFiles.MaxLength = 100;
             this.txtRelatedFiles.Name = "txtRelatedFiles";
             this.txtRelatedFiles.Size = new System.Drawing.Size(282, 23);
-            this.txtRelatedFiles.TabIndex = 12;
+            this.txtRelatedFiles.TabIndex = 13;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(17, 556);
+            this.label14.Location = new System.Drawing.Point(13, 589);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(86, 17);
+            this.label14.Size = new System.Drawing.Size(90, 17);
             this.label14.TabIndex = 166;
-            this.label14.Text = "RelatedFiles";
+            this.label14.Text = "Related Files";
             // 
             // txtReference
             // 
             this.txtReference.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReference.Location = new System.Drawing.Point(121, 518);
+            this.txtReference.Location = new System.Drawing.Point(120, 551);
             this.txtReference.MaxLength = 100;
             this.txtReference.Name = "txtReference";
             this.txtReference.Size = new System.Drawing.Size(282, 23);
-            this.txtReference.TabIndex = 11;
+            this.txtReference.TabIndex = 12;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(29, 520);
+            this.label15.Location = new System.Drawing.Point(28, 553);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(74, 17);
             this.label15.TabIndex = 164;
@@ -464,36 +472,36 @@ namespace NellaiBill.Master
             // txtEmailId1
             // 
             this.txtEmailId1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmailId1.Location = new System.Drawing.Point(121, 342);
+            this.txtEmailId1.Location = new System.Drawing.Point(120, 407);
             this.txtEmailId1.MaxLength = 50;
             this.txtEmailId1.Name = "txtEmailId1";
             this.txtEmailId1.Size = new System.Drawing.Size(282, 23);
-            this.txtEmailId1.TabIndex = 10;
+            this.txtEmailId1.TabIndex = 7;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(42, 342);
+            this.label12.Location = new System.Drawing.Point(41, 407);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 17);
+            this.label12.Size = new System.Drawing.Size(61, 17);
             this.label12.TabIndex = 160;
-            this.label12.Text = "EmailId";
+            this.label12.Text = "EmailId1";
             // 
             // txtFileName
             // 
             this.txtFileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFileName.Location = new System.Drawing.Point(121, 379);
+            this.txtFileName.Location = new System.Drawing.Point(118, 365);
             this.txtFileName.MaxLength = 100;
             this.txtFileName.Name = "txtFileName";
             this.txtFileName.Size = new System.Drawing.Size(282, 23);
-            this.txtFileName.TabIndex = 4;
+            this.txtFileName.TabIndex = 8;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(36, 385);
+            this.label2.Location = new System.Drawing.Point(27, 365);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 17);
             this.label2.TabIndex = 158;
@@ -547,40 +555,40 @@ namespace NellaiBill.Master
             this.cmbCountry.Items.AddRange(new object[] {
             "India",
             "OutsideIndia"});
-            this.cmbCountry.Location = new System.Drawing.Point(121, 411);
+            this.cmbCountry.Location = new System.Drawing.Point(121, 334);
             this.cmbCountry.Name = "cmbCountry";
-            this.cmbCountry.Size = new System.Drawing.Size(160, 25);
-            this.cmbCountry.TabIndex = 7;
+            this.cmbCountry.Size = new System.Drawing.Size(159, 25);
+            this.cmbCountry.TabIndex = 9;
             // 
             // Country
             // 
             this.Country.AutoSize = true;
             this.Country.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Country.Location = new System.Drawing.Point(46, 414);
+            this.Country.Location = new System.Drawing.Point(53, 300);
             this.Country.Name = "Country";
-            this.Country.Size = new System.Drawing.Size(57, 17);
+            this.Country.Size = new System.Drawing.Size(41, 17);
             this.Country.TabIndex = 145;
-            this.Country.Text = "Country";
+            this.Country.Text = "State";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 229);
+            this.label3.Location = new System.Drawing.Point(-1, 242);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 17);
+            this.label3.Size = new System.Drawing.Size(95, 17);
             this.label3.TabIndex = 141;
-            this.label3.Text = "OfficeAddress";
+            this.label3.Text = "AddressLine2";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 126);
+            this.label1.Location = new System.Drawing.Point(5, 194);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 17);
+            this.label1.Size = new System.Drawing.Size(95, 17);
             this.label1.TabIndex = 139;
-            this.label1.Text = "HomeAddress";
+            this.label1.Text = "AddressLine1";
             // 
             // txtName
             // 
@@ -639,9 +647,9 @@ namespace NellaiBill.Master
             // 
             // rchRemarks
             // 
-            this.rchRemarks.Location = new System.Drawing.Point(465, 294);
+            this.rchRemarks.Location = new System.Drawing.Point(465, 269);
             this.rchRemarks.Name = "rchRemarks";
-            this.rchRemarks.Size = new System.Drawing.Size(532, 312);
+            this.rchRemarks.Size = new System.Drawing.Size(532, 322);
             this.rchRemarks.TabIndex = 180;
             this.rchRemarks.Text = "";
             // 
@@ -649,7 +657,7 @@ namespace NellaiBill.Master
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(467, 260);
+            this.label8.Location = new System.Drawing.Point(467, 249);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 17);
             this.label8.TabIndex = 181;
@@ -658,7 +666,7 @@ namespace NellaiBill.Master
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(34, 671);
+            this.lblSearch.Location = new System.Drawing.Point(34, 703);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(41, 13);
             this.lblSearch.TabIndex = 140;
@@ -666,7 +674,7 @@ namespace NellaiBill.Master
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(104, 671);
+            this.txtSearch.Location = new System.Drawing.Point(104, 703);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(324, 20);
             this.txtSearch.TabIndex = 141;
@@ -677,16 +685,24 @@ namespace NellaiBill.Master
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(31, 707);
+            this.dataGridView1.Location = new System.Drawing.Point(22, 733);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1110, 107);
+            this.dataGridView1.Size = new System.Drawing.Size(1110, 62);
             this.dataGridView1.TabIndex = 97;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.txtEmailId2);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.txtState);
+            this.groupBox1.Controls.Add(this.txtLandLineNo1);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.txtLandLineNo2);
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtFileName);
             this.groupBox1.Controls.Add(this.label3);
@@ -713,10 +729,86 @@ namespace NellaiBill.Master
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Location = new System.Drawing.Point(22, 55);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(414, 599);
+            this.groupBox1.Size = new System.Drawing.Size(406, 642);
             this.groupBox1.TabIndex = 182;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Registration";
+            // 
+            // txtState
+            // 
+            this.txtState.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtState.Location = new System.Drawing.Point(120, 297);
+            this.txtState.MaxLength = 100;
+            this.txtState.Name = "txtState";
+            this.txtState.Size = new System.Drawing.Size(160, 23);
+            this.txtState.TabIndex = 184;
+            // 
+            // txtLandLineNo1
+            // 
+            this.txtLandLineNo1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLandLineNo1.Location = new System.Drawing.Point(120, 123);
+            this.txtLandLineNo1.MaxLength = 20;
+            this.txtLandLineNo1.Name = "txtLandLineNo1";
+            this.txtLandLineNo1.Size = new System.Drawing.Size(282, 23);
+            this.txtLandLineNo1.TabIndex = 180;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(12, 129);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(88, 17);
+            this.label9.TabIndex = 183;
+            this.label9.Text = "LandlineNo1";
+            // 
+            // txtLandLineNo2
+            // 
+            this.txtLandLineNo2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLandLineNo2.Location = new System.Drawing.Point(120, 159);
+            this.txtLandLineNo2.MaxLength = 20;
+            this.txtLandLineNo2.Name = "txtLandLineNo2";
+            this.txtLandLineNo2.Size = new System.Drawing.Size(282, 23);
+            this.txtLandLineNo2.TabIndex = 181;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(11, 159);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(88, 17);
+            this.label10.TabIndex = 182;
+            this.label10.Text = "LandlineNo2";
+            // 
+            // txtEmailId2
+            // 
+            this.txtEmailId2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmailId2.Location = new System.Drawing.Point(120, 439);
+            this.txtEmailId2.MaxLength = 50;
+            this.txtEmailId2.Name = "txtEmailId2";
+            this.txtEmailId2.Size = new System.Drawing.Size(282, 23);
+            this.txtEmailId2.TabIndex = 185;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(41, 439);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(61, 17);
+            this.label11.TabIndex = 186;
+            this.label11.Text = "EmailId2";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(39, 334);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(57, 17);
+            this.label13.TabIndex = 187;
+            this.label13.Text = "Country";
             // 
             // DonorRegistration
             // 
@@ -818,5 +910,13 @@ namespace NellaiBill.Master
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.TextBox txtLandLineNo1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtLandLineNo2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtState;
+        private System.Windows.Forms.TextBox txtEmailId2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label13;
     }
 }

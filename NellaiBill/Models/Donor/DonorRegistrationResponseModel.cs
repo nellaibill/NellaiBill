@@ -22,6 +22,7 @@ namespace NellaiBill.Models
         public string EmailId2 { get; set; }
         public string DonorFileName { get; set; }
         public string Reference { get; set; }
+        public string Notes { get; set; }
         public string RelatedFiles { get; set; }
         public string PanCard { get; set; }
         public int DonorAnnual { get; set; }

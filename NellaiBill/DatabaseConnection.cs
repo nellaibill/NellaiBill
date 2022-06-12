@@ -931,6 +931,7 @@ namespace NellaiBill
                         EmailId2 = reader.GetString("email_id2"),
                         DonorFileName = reader.GetString("donor_file_name"),
                         Reference = reader.GetString("reference"),
+                        Notes = reader.GetString("notes"),
                         RelatedFiles = reader.GetString("related_files"),
                         PanCard = reader.GetString("pancard"),
                         DonorAnnual = reader.GetInt32("donor_annual"),
