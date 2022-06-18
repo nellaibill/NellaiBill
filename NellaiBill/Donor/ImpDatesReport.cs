@@ -41,7 +41,7 @@ namespace NellaiBill.Donor
 
         private void btnSingleDateFinder_Click(object sender, EventArgs e)
         {
-            LoadGrid(" and  MONTH(occasion_date) = MONTH('" + dtpFromDate.Value.ToString("yyyy-MM-dd") + "') AND DAY(occasion_date) = DAY('" + dtpFromDate.Value.ToString("yyyy-MM-dd") + "')");
+            LoadGrid(" and  MONTH(occasion_date) = MONTH('" + dtpFindDate.Value.ToString("yyyy-MM-dd") + "') AND DAY(occasion_date) = DAY('" + dtpFindDate.Value.ToString("yyyy-MM-dd") + "')");
 
            // LoadGrid(" and DATE_FORMAT(FROM_UNIXTIME(occasion_date),'%m-%d') = DATE_FORMAT( '" + dtpFromDate.Value.ToString("yyyy-MM-dd") + "' ,'%m-%d')");
         }
