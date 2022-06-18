@@ -222,7 +222,7 @@ namespace NellaiBill.Master
             rchRemarks.Text = donorRegistrationResponse.Notes;
             txtState.Text = donorRegistrationResponse.State;
             txtPanCard.Text = donorRegistrationResponse.PanCard;
-            cmbCategory.SelectedItem = donorRegistrationResponse.CategoryName;
+            cmbCategory.Text = donorRegistrationResponse.CategoryName;
             chkDonorAnnual.Checked = globalClass.getBoolean(donorRegistrationResponse.DonorAnnual);
             chkDonorEndowment.Checked = globalClass.getBoolean(donorRegistrationResponse.DonorEndowment);
             chkDonorThings.Checked = globalClass.getBoolean(donorRegistrationResponse.DonorThings);

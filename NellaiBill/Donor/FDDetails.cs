@@ -35,10 +35,10 @@ namespace NellaiBill.Donor
         {
             xPDonorFDDetailsId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             dtpFDDate.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txtAmount.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-            txtBank.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-            txtPurpose.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-            rchRemarks.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+            txtAmount.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+            txtBank.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+            txtPurpose.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+            rchRemarks.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
             btnSaveUpdate.Text = "UPDATE";
         }
 
@@ -88,7 +88,7 @@ namespace NellaiBill.Donor
         }
         private void LoadGrid()
         {
-            string xQry = "select p_donor_fd_details_id,f_donor_id,date as Date,amount as Amount,bank as Bank,purpose as Purpose,remarks as Remarks" +
+            string xQry = "select p_donor_fd_details_id,f_donor_id,date as Date,amount as Amount1,FORMAT(amount ,0) as Amount, bank as Bank,purpose as Purpose,remarks as Remarks" +
                 " from lukes_donor_fd_details where f_donor_id = " + xFDonorId + "";
             xDb.LoadGrid(xQry, dataGridView1);
             dataGridView1.ReadOnly = true;
@@ -99,9 +99,10 @@ namespace NellaiBill.Donor
             dataGridView1.Columns[1].Visible = false;
             //dataGridView1.Columns["Name"].Frozen = true;
             dataGridView1.Columns[2].Width = 150;
-            dataGridView1.Columns[3].Width = 150;
-            dataGridView1.Columns[4].Width = 150;
-            dataGridView1.Columns[5].Width = 150;
+            dataGridView1.Columns[3].Visible = false;
+            dataGridView1.Columns[4].Width = 200;
+            dataGridView1.Columns[5].Width = 200;
+            dataGridView1.Columns[6].Width = 200;
         }
         private void DataClear()
         {

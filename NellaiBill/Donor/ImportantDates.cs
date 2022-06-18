@@ -50,8 +50,7 @@ namespace NellaiBill.Donor
                     " name = '" + txtName.Text + "', " +
                     " relation = '" + txtRelation.Text + "', " +
                     " occasion_date = '" + dtImp.Value.ToString("yyyy-MM-dd") + "', " +
-
-                    " occasion = '" + cmbOccasion.SelectedValue + "', " +
+                    " occasion = '" + cmbOccasion.Text + "', " +
                     " remarks = '" + rchRemarks.Text + "', " +
                     " updatedason = '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
                     " where  p_donor_imp_date_id= " + xPDonorImpDateId + "";

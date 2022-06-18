@@ -55,7 +55,7 @@ namespace NellaiBill.Donor
             this.btnSaveUpdate.BackColor = System.Drawing.Color.Green;
             this.btnSaveUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveUpdate.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnSaveUpdate.Location = new System.Drawing.Point(925, 15);
+            this.btnSaveUpdate.Location = new System.Drawing.Point(465, 87);
             this.btnSaveUpdate.Name = "btnSaveUpdate";
             this.btnSaveUpdate.Size = new System.Drawing.Size(92, 37);
             this.btnSaveUpdate.TabIndex = 6;
@@ -123,10 +123,10 @@ namespace NellaiBill.Donor
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 188);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 264);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1109, 594);
+            this.dataGridView1.Size = new System.Drawing.Size(883, 376);
             this.dataGridView1.TabIndex = 97;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
@@ -144,10 +144,12 @@ namespace NellaiBill.Donor
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnCancel);
             this.groupBox1.Controls.Add(this.rchRemarks);
             this.groupBox1.Controls.Add(this.dtImp);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.btnSaveUpdate);
             this.groupBox1.Controls.Add(this.cmbOccasion);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtRelation);
@@ -156,22 +158,22 @@ namespace NellaiBill.Donor
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(10, 54);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1109, 127);
+            this.groupBox1.Size = new System.Drawing.Size(883, 204);
             this.groupBox1.TabIndex = 96;
             this.groupBox1.TabStop = false;
             // 
             // rchRemarks
             // 
-            this.rchRemarks.Location = new System.Drawing.Point(784, 38);
+            this.rchRemarks.Location = new System.Drawing.Point(10, 87);
             this.rchRemarks.Name = "rchRemarks";
-            this.rchRemarks.Size = new System.Drawing.Size(254, 77);
+            this.rchRemarks.Size = new System.Drawing.Size(449, 77);
             this.rchRemarks.TabIndex = 5;
             this.rchRemarks.Text = "";
             // 
             // dtImp
             // 
             this.dtImp.Location = new System.Drawing.Point(444, 40);
-            this.dtImp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtImp.Margin = new System.Windows.Forms.Padding(2);
             this.dtImp.Name = "dtImp";
             this.dtImp.Size = new System.Drawing.Size(151, 20);
             this.dtImp.TabIndex = 3;
@@ -179,7 +181,7 @@ namespace NellaiBill.Donor
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(782, 15);
+            this.label3.Location = new System.Drawing.Point(8, 64);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 99;
@@ -201,7 +203,7 @@ namespace NellaiBill.Donor
             this.panel3.Controls.Add(this.lblImportantDatesTitle);
             this.panel3.Location = new System.Drawing.Point(6, 15);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(913, 33);
+            this.panel3.Size = new System.Drawing.Size(887, 33);
             this.panel3.TabIndex = 95;
             // 
             // btnCancel
@@ -209,7 +211,7 @@ namespace NellaiBill.Donor
             this.btnCancel.BackColor = System.Drawing.Color.Green;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnCancel.Location = new System.Drawing.Point(1023, 15);
+            this.btnCancel.Location = new System.Drawing.Point(465, 127);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(92, 37);
             this.btnCancel.TabIndex = 98;
@@ -220,13 +222,11 @@ namespace NellaiBill.Donor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1518, 866);
-            this.Controls.Add(this.btnCancel);
+            this.ClientSize = new System.Drawing.Size(903, 650);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.btnSaveUpdate);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DonorImportantDates";
             this.Text = "ImportantDates";
             this.Load += new System.EventHandler(this.DonorImportantDates_Load);
