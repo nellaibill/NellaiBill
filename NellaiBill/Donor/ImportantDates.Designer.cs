@@ -72,7 +72,7 @@ namespace NellaiBill.Donor
             "DOW",
             "DOD",
             "Others"});
-            this.cmbOccasion.Location = new System.Drawing.Point(607, 38);
+            this.cmbOccasion.Location = new System.Drawing.Point(718, 38);
             this.cmbOccasion.Name = "cmbOccasion";
             this.cmbOccasion.Size = new System.Drawing.Size(160, 21);
             this.cmbOccasion.TabIndex = 4;
@@ -80,7 +80,7 @@ namespace NellaiBill.Donor
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(604, 15);
+            this.label1.Location = new System.Drawing.Point(715, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 33;
@@ -89,9 +89,9 @@ namespace NellaiBill.Donor
             // txtRelation
             // 
             this.txtRelation.Location = new System.Drawing.Point(236, 41);
-            this.txtRelation.MaxLength = 10;
+            this.txtRelation.MaxLength = 100;
             this.txtRelation.Name = "txtRelation";
-            this.txtRelation.Size = new System.Drawing.Size(204, 20);
+            this.txtRelation.Size = new System.Drawing.Size(314, 20);
             this.txtRelation.TabIndex = 2;
             // 
             // label7
@@ -172,7 +172,7 @@ namespace NellaiBill.Donor
             // 
             // dtImp
             // 
-            this.dtImp.Location = new System.Drawing.Point(444, 40);
+            this.dtImp.Location = new System.Drawing.Point(555, 40);
             this.dtImp.Margin = new System.Windows.Forms.Padding(2);
             this.dtImp.Name = "dtImp";
             this.dtImp.Size = new System.Drawing.Size(151, 20);
@@ -190,7 +190,7 @@ namespace NellaiBill.Donor
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(442, 15);
+            this.label2.Location = new System.Drawing.Point(553, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(30, 13);
             this.label2.TabIndex = 138;

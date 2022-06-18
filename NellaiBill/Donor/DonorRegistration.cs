@@ -4,7 +4,6 @@ using NellaiBill.Models;
 using NellaiBill.Models.Donor;
 using System;
 using System.Data;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace NellaiBill.Master
@@ -319,16 +318,6 @@ namespace NellaiBill.Master
         {
             DonationDetails donationDetails = new DonationDetails(xDonorId);
             donationDetails.ShowDialog();
-        }
-
-        private void mbtnOtherDetails_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnImpDatesReport_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnPrint_Click(object sender, EventArgs e)

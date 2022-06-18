@@ -119,7 +119,7 @@ namespace NellaiBill.Master
             this.btnDonorFilter.BackColor = System.Drawing.Color.DarkMagenta;
             this.btnDonorFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDonorFilter.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDonorFilter.Location = new System.Drawing.Point(647, 16);
+            this.btnDonorFilter.Location = new System.Drawing.Point(470, 16);
             this.btnDonorFilter.Name = "btnDonorFilter";
             this.btnDonorFilter.Size = new System.Drawing.Size(143, 37);
             this.btnDonorFilter.TabIndex = 139;

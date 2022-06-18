@@ -13,11 +13,13 @@ namespace NellaiBill.Donor
 
         private void btnImpDateReportLoad_Click(object sender, EventArgs e)
         {
-            LoadGrid();
+            string xFilterQry = " and occasion_date BETWEEN '" + dtpFromDate.Value.ToString("yyyy-MM-dd") + "' AND '" + dtpToDate.Value.ToString("yyyy-MM-dd") + "'";
+            LoadGrid(xFilterQry);
         }
-        private void LoadGrid()
+        private void LoadGrid(string xFilterQry)
         {
-            string xQry = "SELECT p_donor_imp_date_id,f_donor_id,name as Name,relation as Relation,occasion_date as Date,occasion as Occasion,remarks as Remarks FROM lukes_donor_important_dates WHERE occasion_date BETWEEN '" + dtpFromDate.Value.ToString("yyyy-MM-dd") + "' AND '" + dtpToDate.Value.ToString("yyyy-MM-dd") + "'";
+            string xQry = "SELECT p_donor_imp_date_id,f_donor_id, f.donor_name as DonorName,relation as Relation,name as Name,occasion_date as Date,occasion as Occasion,remarks as Remarks " +
+                " FROM lukes_donor_important_dates as p, lukes_donor_registration as f WHERE p.f_donor_id = f.p_donor_id" + xFilterQry;
             xDb.LoadGrid(xQry, dataGridView1);
             dataGridView1.ReadOnly = true;
             dataGridView1.AutoGenerateColumns = false;
@@ -29,7 +31,19 @@ namespace NellaiBill.Donor
             dataGridView1.Columns[2].Width = 150;
             dataGridView1.Columns[3].Width = 150;
             dataGridView1.Columns[4].Width = 150;
-            //dataGridView1.Columns[5].Width = 150;
+            dataGridView1.Columns[5].Width = 150;
+        }
+
+        private void ImpDatesReport_Load(object sender, EventArgs e)
+        {
+            LoadGrid("");
+        }
+
+        private void btnSingleDateFinder_Click(object sender, EventArgs e)
+        {
+            LoadGrid(" and  MONTH(occasion_date) = MONTH('" + dtpFromDate.Value.ToString("yyyy-MM-dd") + "') AND DAY(occasion_date) = DAY('" + dtpFromDate.Value.ToString("yyyy-MM-dd") + "')");
+
+           // LoadGrid(" and DATE_FORMAT(FROM_UNIXTIME(occasion_date),'%m-%d') = DATE_FORMAT( '" + dtpFromDate.Value.ToString("yyyy-MM-dd") + "' ,'%m-%d')");
         }
     }
 }

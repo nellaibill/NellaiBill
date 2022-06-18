@@ -77,7 +77,7 @@ namespace NellaiBill.Donor
             // txtBank
             // 
             this.txtBank.Location = new System.Drawing.Point(315, 41);
-            this.txtBank.MaxLength = 10;
+            this.txtBank.MaxLength = 100;
             this.txtBank.Name = "txtBank";
             this.txtBank.Size = new System.Drawing.Size(204, 20);
             this.txtBank.TabIndex = 3;
@@ -166,7 +166,7 @@ namespace NellaiBill.Donor
             // txtPurpose
             // 
             this.txtPurpose.Location = new System.Drawing.Point(531, 41);
-            this.txtPurpose.MaxLength = 10;
+            this.txtPurpose.MaxLength = 100;
             this.txtPurpose.Name = "txtPurpose";
             this.txtPurpose.Size = new System.Drawing.Size(204, 20);
             this.txtPurpose.TabIndex = 4;

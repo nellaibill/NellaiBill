@@ -37,6 +37,7 @@ namespace NellaiBill.Donor
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnImpDateReportLoad = new System.Windows.Forms.Button();
+            this.btnSingleDateFinder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -48,7 +49,7 @@ namespace NellaiBill.Donor
             this.dataGridView1.Location = new System.Drawing.Point(10, 128);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1183, 262);
+            this.dataGridView1.Size = new System.Drawing.Size(836, 641);
             this.dataGridView1.TabIndex = 99;
             // 
             // panel3
@@ -58,7 +59,7 @@ namespace NellaiBill.Donor
             this.panel3.Controls.Add(this.lblImportantDatesTitle);
             this.panel3.Location = new System.Drawing.Point(6, 15);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1187, 33);
+            this.panel3.Size = new System.Drawing.Size(840, 33);
             this.panel3.TabIndex = 98;
             // 
             // lblImportantDatesTitle
@@ -76,7 +77,7 @@ namespace NellaiBill.Donor
             // dtpFromDate
             // 
             this.dtpFromDate.Location = new System.Drawing.Point(27, 89);
-            this.dtpFromDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpFromDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpFromDate.Name = "dtpFromDate";
             this.dtpFromDate.Size = new System.Drawing.Size(151, 20);
             this.dtpFromDate.TabIndex = 100;
@@ -84,7 +85,7 @@ namespace NellaiBill.Donor
             // dtpToDate
             // 
             this.dtpToDate.Location = new System.Drawing.Point(219, 89);
-            this.dtpToDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpToDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpToDate.Name = "dtpToDate";
             this.dtpToDate.Size = new System.Drawing.Size(151, 20);
             this.dtpToDate.TabIndex = 101;
@@ -114,19 +115,33 @@ namespace NellaiBill.Donor
             this.btnImpDateReportLoad.BackColor = System.Drawing.Color.Green;
             this.btnImpDateReportLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImpDateReportLoad.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnImpDateReportLoad.Location = new System.Drawing.Point(388, 71);
+            this.btnImpDateReportLoad.Location = new System.Drawing.Point(375, 65);
             this.btnImpDateReportLoad.Name = "btnImpDateReportLoad";
-            this.btnImpDateReportLoad.Size = new System.Drawing.Size(92, 37);
+            this.btnImpDateReportLoad.Size = new System.Drawing.Size(92, 44);
             this.btnImpDateReportLoad.TabIndex = 104;
             this.btnImpDateReportLoad.Text = "LOAD";
             this.btnImpDateReportLoad.UseVisualStyleBackColor = false;
             this.btnImpDateReportLoad.Click += new System.EventHandler(this.btnImpDateReportLoad_Click);
             // 
+            // btnSingleDateFinder
+            // 
+            this.btnSingleDateFinder.BackColor = System.Drawing.Color.Green;
+            this.btnSingleDateFinder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSingleDateFinder.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnSingleDateFinder.Location = new System.Drawing.Point(488, 65);
+            this.btnSingleDateFinder.Name = "btnSingleDateFinder";
+            this.btnSingleDateFinder.Size = new System.Drawing.Size(213, 44);
+            this.btnSingleDateFinder.TabIndex = 105;
+            this.btnSingleDateFinder.Text = "SingleDateFinder";
+            this.btnSingleDateFinder.UseVisualStyleBackColor = false;
+            this.btnSingleDateFinder.Click += new System.EventHandler(this.btnSingleDateFinder_Click);
+            // 
             // ImpDatesReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1512, 486);
+            this.ClientSize = new System.Drawing.Size(879, 794);
+            this.Controls.Add(this.btnSingleDateFinder);
             this.Controls.Add(this.btnImpDateReportLoad);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -134,9 +149,10 @@ namespace NellaiBill.Donor
             this.Controls.Add(this.dtpFromDate);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel3);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ImpDatesReport";
             this.Text = "ImpDatesReport";
+            this.Load += new System.EventHandler(this.ImpDatesReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -155,5 +171,6 @@ namespace NellaiBill.Donor
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnImpDateReportLoad;
+        private System.Windows.Forms.Button btnSingleDateFinder;
     }
 }
