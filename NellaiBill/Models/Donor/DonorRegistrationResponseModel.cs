@@ -24,6 +24,9 @@ namespace NellaiBill.Models
         public string Reference { get; set; }
         public string Notes { get; set; }
         public string RelatedFiles { get; set; }
+
+        public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
         public string PanCard { get; set; }
         public int DonorAnnual { get; set; }
         public int DonorEndowment { get; set; }
