@@ -37,6 +37,10 @@ namespace NellaiBill.Donor
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblSearch = new System.Windows.Forms.Label();
+            this.btnPrintView = new System.Windows.Forms.Button();
+            this.cachedrptIpAdmissionReport1 = new NellaiBill.CrystalReports.CachedrptIpAdmissionReport();
+            this.cachedrptIpAdmissionReport2 = new NellaiBill.CrystalReports.CachedrptIpAdmissionReport();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -65,12 +69,12 @@ namespace NellaiBill.Donor
             // 
             // btnImpDateReportLoad
             // 
-            this.btnImpDateReportLoad.BackColor = System.Drawing.Color.Green;
-            this.btnImpDateReportLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImpDateReportLoad.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnImpDateReportLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImpDateReportLoad.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnImpDateReportLoad.Location = new System.Drawing.Point(487, 65);
+            this.btnImpDateReportLoad.Location = new System.Drawing.Point(440, 61);
             this.btnImpDateReportLoad.Name = "btnImpDateReportLoad";
-            this.btnImpDateReportLoad.Size = new System.Drawing.Size(98, 58);
+            this.btnImpDateReportLoad.Size = new System.Drawing.Size(136, 58);
             this.btnImpDateReportLoad.TabIndex = 111;
             this.btnImpDateReportLoad.Text = "LOAD";
             this.btnImpDateReportLoad.UseVisualStyleBackColor = false;
@@ -80,7 +84,7 @@ namespace NellaiBill.Donor
             // 
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(24, 86);
+            this.cmbCategory.Location = new System.Drawing.Point(96, 62);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(189, 21);
             this.cmbCategory.TabIndex = 179;
@@ -97,7 +101,7 @@ namespace NellaiBill.Donor
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(91, 136);
+            this.txtSearch.Location = new System.Drawing.Point(95, 99);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(324, 20);
             this.txtSearch.TabIndex = 182;
@@ -108,27 +112,51 @@ namespace NellaiBill.Donor
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 178);
+            this.dataGridView1.Location = new System.Drawing.Point(21, 125);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(925, 500);
+            this.dataGridView1.Size = new System.Drawing.Size(925, 541);
             this.dataGridView1.TabIndex = 180;
             // 
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(21, 136);
+            this.lblSearch.Location = new System.Drawing.Point(25, 99);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(41, 13);
             this.lblSearch.TabIndex = 181;
             this.lblSearch.Text = "Search";
+            // 
+            // btnPrintView
+            // 
+            this.btnPrintView.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnPrintView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintView.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnPrintView.Location = new System.Drawing.Point(582, 61);
+            this.btnPrintView.Name = "btnPrintView";
+            this.btnPrintView.Size = new System.Drawing.Size(206, 58);
+            this.btnPrintView.TabIndex = 183;
+            this.btnPrintView.Text = "PRINT VIEW";
+            this.btnPrintView.UseVisualStyleBackColor = false;
+            this.btnPrintView.Click += new System.EventHandler(this.btnExportToWord_Click);
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "NellaiBill.Donor.donor_report1.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(24, 149);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(922, 555);
+            this.reportViewer1.TabIndex = 184;
             // 
             // DonorGeneralReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 752);
+            this.Controls.Add(this.reportViewer1);
+            this.Controls.Add(this.btnPrintView);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.dataGridView1);
@@ -156,5 +184,9 @@ namespace NellaiBill.Donor
         private System.Windows.Forms.TextBox txtSearch;
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lblSearch;
+        private System.Windows.Forms.Button btnPrintView;
+        private CrystalReports.CachedrptIpAdmissionReport cachedrptIpAdmissionReport1;
+        private CrystalReports.CachedrptIpAdmissionReport cachedrptIpAdmissionReport2;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using NellaiBill.Donor;
 using NellaiBill.Models;
 using NellaiBill.Models.Donor;
 using System;
@@ -33,6 +34,13 @@ namespace NellaiBill
         "User Id=" + xUserName + ";" +
         "password=" + Decrypt(xPassword, "hana-sept-mber16") + "; Convert Zero Datetime=True;CharSet=utf8;";
         */
+
+
+        Donor_Helper donor_Helper = new Donor_Helper();
+        public string GetConnectionString()
+        {
+            return conString;
+        }
         public DatabaseConnection()
         {
             string a = Encrypt("", "hana-sept-mber16");
@@ -240,9 +248,25 @@ namespace NellaiBill
                     xGridView.RowHeadersVisible = false;
                 }
             }
-
         }
+       
+        public void LoadGridToWord(string xQry,string xDonorName,string xDonorAddress, List<string> donorNames, List<string> donorAddress)
+        {
+            DataTable table = new DataTable("ip_admission");
+            using (MySqlConnection conn = new MySqlConnection(conString))
+            {
 
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(xQry, conn))
+                {
+                    adapter.Fill(table);
+                }
+            }
+            foreach (DataRow da in table.Rows)
+            {
+                donorNames.Add(da[xDonorName].ToString());
+                donorAddress.Add(da[xDonorAddress].ToString());            
+            }
+        }
         public void LoadComboBoxForReport(string xQry, ComboBox xComboBox, string xValueMember, string xDisplayMember)
         {
             using (MySqlConnection conn = new MySqlConnection(conString))
