@@ -1,21 +1,18 @@
-﻿using Microsoft.Office.Interop.Word;
-using Microsoft.Reporting.WinForms;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using CrystalDecisions.Windows.Forms;
+using Microsoft.Office.Interop.Word;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.Odbc;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NellaiBill.Donor
 {
     public partial class DonorGeneralReport : Form
     {
+        ReportDocument cryRpt = new ReportDocument();
         DatabaseConnection xDb = new DatabaseConnection();
         GlobalClass xGlobalClass = new GlobalClass();
         int xDonorId;
@@ -33,7 +30,6 @@ namespace NellaiBill.Donor
         private void DonorGeneralReport_Load(object sender, EventArgs e)
         {
             dataGridView1.Visible = false;
-            this.runRptViewer();
             xDb.LoadComboBoxForReport("select category_id,category_name from m_category", cmbCategory, "category_id", "category_name");
             LoadGrid();
 
@@ -176,25 +172,57 @@ namespace NellaiBill.Donor
         private void btnImpDateReportLoad_Click(object sender, EventArgs e)
         {
             dataGridView1.Visible = true;
-            reportViewer1.Visible = false;
-            int xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
-            if (xCategoryId != 0)
-            {
-                xFilterQry = "and d.category_id=" + xCategoryId;
-            }
-            else
-            {
-                xFilterQry = "";
-            }
+            crystalReportViewer1.Visible = false;
+            /*  reportViewer1.Visible = false;
+              int xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
+              if (xCategoryId != 0)
+              {
+                  xFilterQry = "and d.category_id=" + xCategoryId;
+              }
+              else
+              {
+                  xFilterQry = "";
+              }*/
             LoadGrid();
         }
 
         private void btnExportToWord_Click(object sender, EventArgs e)
         {
             dataGridView1.Visible = false;
-            reportViewer1.Visible = true;
+            crystalReportViewer1.Visible = true;
+            string path = globalClass.GetReportPath() + "rptDonorAddress.rpt";
+            cryRpt.Load(path);
+            /* //TableLogOnInfos crtableLogoninfos = new TableLogOnInfos();
+             //TableLogOnInfo crtableLogoninfo = new TableLogOnInfo();
+             //ConnectionInfo crConnectionInfo = new ConnectionInfo();
+             //CrystalDecisions.CrystalReports.Engine.Tables CrTables;
+             cryRpt.Load(path);
 
-            this.runRptViewer();
+             foreach (CrystalDecisions.Shared.IConnectionInfo connection in cryRpt.DataSourceConnections)
+             {
+                 connection.IntegratedSecurity = true;
+                 for (int i = 0; i < cryRpt.DataSourceConnections.Count; i++)
+                 {
+                     cryRpt.DataSourceConnections[i].SetConnection("localhost", "nellaibill", "root", "");
+
+                 }
+             }
+             //crConnectionInfo.ServerName = "dsn_32_ansi_nellaibill";
+             //crConnectionInfo.DatabaseName = "nellaibill";
+             //crConnectionInfo.UserID = "root";
+             //crConnectionInfo.Password = "nellaibill";
+             //CrTables = cryRpt.Database.Tables;
+             //foreach (CrystalDecisions.CrystalReports.Engine.Table CrTable in CrTables)
+             //{
+             //    crtableLogoninfo = CrTable.LogOnInfo;
+             //    crtableLogoninfo.ConnectionInfo = crConnectionInfo;
+             //    CrTable.ApplyLogOnInfo(crtableLogoninfo);
+             //}
+            */
+            crystalReportViewer1.ReportSource = cryRpt;
+            crystalReportViewer1.Refresh();
+
+            //crystalReportViewer1.ToolPanelView = ToolPanelViewType.None;
             //xGlobalClass.CreateDocument(donor_Helper.donorNames, donor_Helper.donorAddress);
         }
         private List<DataSet1> getData()
@@ -234,6 +262,7 @@ namespace NellaiBill.Donor
 
         private void runRptViewer()
         {
+            /*
             this.reportViewer1.Reset();
             string appPath = System.Windows.Forms.Application.StartupPath;
             this.reportViewer1.LocalReport.ReportPath = appPath + @"/donor_report1.rdlc";
@@ -242,7 +271,7 @@ namespace NellaiBill.Donor
             this.reportViewer1.LocalReport.DataSources.Add(rds);
             //this.reportViewer1.DataBind();
             this.reportViewer1.LocalReport.Refresh();
-            this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();*/
         }
     }
     public class DataSet1
