@@ -3,6 +3,7 @@ using CrystalDecisions.Shared;
 using CrystalDecisions.Windows.Forms;
 using Microsoft.Office.Interop.Word;
 using MySql.Data.MySqlClient;
+using NellaiBill.Models.Donor;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -29,6 +30,7 @@ namespace NellaiBill.Donor
 
         private void DonorGeneralReport_Load(object sender, EventArgs e)
         {
+            cmbCountry.Text = "All";
             dataGridView1.Visible = false;
             xDb.LoadComboBoxForReport("select category_id,category_name from m_category", cmbCategory, "category_id", "category_name");
             LoadGrid();
@@ -55,6 +57,7 @@ namespace NellaiBill.Donor
         {
             string xQry;
             int xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
+            string xCountryName = cmbCountry.SelectedItem.ToString();
             if (xCategoryId == 0)
             {
                 xFilterQry = " and c.category_id>=0";
@@ -63,6 +66,21 @@ namespace NellaiBill.Donor
             {
                 xFilterQry = " and c.category_id = " + xCategoryId;
             }
+            if (xCountryName == "All")
+            {
+
+            }
+            else
+            {
+                xFilterQry = " and d.country = '" + xCountryName + "'";
+            }
+
+            DonorSettingsModel donorSettingsModelResponse = new DonorSettingsModel();
+            donorSettingsModelResponse = xDb.GetDonorSettingsBasedOnQry(1);
+
+            Donor_Helper donor_Helper = new Donor_Helper();
+            xFilterQry += donor_Helper.GetDonorFilterQry();
+
             if (xFormName == "CategoryReport")
             {
                 xQry = "select p_donor_id as Id," +
@@ -172,6 +190,8 @@ namespace NellaiBill.Donor
         private void btnImpDateReportLoad_Click(object sender, EventArgs e)
         {
             dataGridView1.Visible = true;
+            txtSearch.Visible = true;
+            lblSearch.Visible = true;
             crystalReportViewer1.Visible = false;
             /*  reportViewer1.Visible = false;
               int xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
@@ -183,44 +203,81 @@ namespace NellaiBill.Donor
               {
                   xFilterQry = "";
               }*/
+
             LoadGrid();
+            int xCount = 1;
+            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+            {
+                xCount += 1;
+            }
+            lblTotalCount.Text = xCount.ToString();
         }
 
         private void btnExportToWord_Click(object sender, EventArgs e)
         {
             dataGridView1.Visible = false;
             crystalReportViewer1.Visible = true;
+            txtSearch.Visible = false;
+            lblSearch.Visible = false;
+            int xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
+            string xCountryName = cmbCountry.SelectedItem.ToString();
+            string xFilterPrintViewQry = "";
+            if (xCategoryId == 0)
+            {
+                xFilterPrintViewQry = " and c.category_id>=0";
+            }
+            else
+            {
+                xFilterPrintViewQry = " and c.category_id = " + xCategoryId;
+            }
+            if (xCountryName == "All")
+            {
+
+            }
+            else
+            {
+                xFilterPrintViewQry = " and d.country = '" + xCountryName + "'";
+            }
+
+
+            DonorSettingsModel donorSettingsModelResponse = new DonorSettingsModel();
+            donorSettingsModelResponse = xDb.GetDonorSettingsBasedOnQry(1);
+
+            Donor_Helper donor_Helper = new Donor_Helper();
+            xFilterPrintViewQry += donor_Helper.GetDonorFilterQry();
+
             string path = globalClass.GetReportPath() + "rptDonorAddress.rpt";
             cryRpt.Load(path);
-            /* //TableLogOnInfos crtableLogoninfos = new TableLogOnInfos();
-             //TableLogOnInfo crtableLogoninfo = new TableLogOnInfo();
-             //ConnectionInfo crConnectionInfo = new ConnectionInfo();
-             //CrystalDecisions.CrystalReports.Engine.Tables CrTables;
-             cryRpt.Load(path);
-
-             foreach (CrystalDecisions.Shared.IConnectionInfo connection in cryRpt.DataSourceConnections)
-             {
-                 connection.IntegratedSecurity = true;
-                 for (int i = 0; i < cryRpt.DataSourceConnections.Count; i++)
-                 {
-                     cryRpt.DataSourceConnections[i].SetConnection("localhost", "nellaibill", "root", "");
-
-                 }
-             }
-             //crConnectionInfo.ServerName = "dsn_32_ansi_nellaibill";
-             //crConnectionInfo.DatabaseName = "nellaibill";
-             //crConnectionInfo.UserID = "root";
-             //crConnectionInfo.Password = "nellaibill";
-             //CrTables = cryRpt.Database.Tables;
-             //foreach (CrystalDecisions.CrystalReports.Engine.Table CrTable in CrTables)
-             //{
-             //    crtableLogoninfo = CrTable.LogOnInfo;
-             //    crtableLogoninfo.ConnectionInfo = crConnectionInfo;
-             //    CrTable.ApplyLogOnInfo(crtableLogoninfo);
-             //}
-            */
+            cryRpt.SetParameterValue("xFilterQry", xFilterPrintViewQry);
             crystalReportViewer1.ReportSource = cryRpt;
             crystalReportViewer1.Refresh();
+            /* //TableLogOnInfos crtableLogoninfos = new TableLogOnInfos();
+            //TableLogOnInfo crtableLogoninfo = new TableLogOnInfo();
+            //ConnectionInfo crConnectionInfo = new ConnectionInfo();
+            //CrystalDecisions.CrystalReports.Engine.Tables CrTables;
+            cryRpt.Load(path);
+
+            foreach (CrystalDecisions.Shared.IConnectionInfo connection in cryRpt.DataSourceConnections)
+            {
+                connection.IntegratedSecurity = true;
+                for (int i = 0; i < cryRpt.DataSourceConnections.Count; i++)
+                {
+                    cryRpt.DataSourceConnections[i].SetConnection("localhost", "nellaibill", "root", "");
+
+                }
+            }
+            //crConnectionInfo.ServerName = "dsn_32_ansi_nellaibill";
+            //crConnectionInfo.DatabaseName = "nellaibill";
+            //crConnectionInfo.UserID = "root";
+            //crConnectionInfo.Password = "nellaibill";
+            //CrTables = cryRpt.Database.Tables;
+            //foreach (CrystalDecisions.CrystalReports.Engine.Table CrTable in CrTables)
+            //{
+            //    crtableLogoninfo = CrTable.LogOnInfo;
+            //    crtableLogoninfo.ConnectionInfo = crConnectionInfo;
+            //    CrTable.ApplyLogOnInfo(crtableLogoninfo);
+            //}
+           */
 
             //crystalReportViewer1.ToolPanelView = ToolPanelViewType.None;
             //xGlobalClass.CreateDocument(donor_Helper.donorNames, donor_Helper.donorAddress);
@@ -272,6 +329,13 @@ namespace NellaiBill.Donor
             //this.reportViewer1.DataBind();
             this.reportViewer1.LocalReport.Refresh();
             this.reportViewer1.RefreshReport();*/
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            DonorFilter donorFilter = new DonorFilter();
+            donorFilter.ShowDialog();
+            this.LoadGrid();
         }
     }
     public class DataSet1

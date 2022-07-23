@@ -123,20 +123,8 @@ namespace NellaiBill.Master
             donorSettingsModelResponse = xDb.GetDonorSettingsBasedOnQry(1);
 
             string xFilterQry = "where is_active=1";
-            xFilterQry += donorSettingsModelResponse.DonorAnnual == 1 ? " and donor_annual=" + donorSettingsModelResponse.DonorAnnual : "";
-            xFilterQry += donorSettingsModelResponse.DonorEndowment == 1 ? "  and donor_endowment = " + donorSettingsModelResponse.DonorAnnual : "";
-            xFilterQry += donorSettingsModelResponse.DonorThings == 1 ? "  and donor_things = " + donorSettingsModelResponse.DonorThings : "";
-            xFilterQry += donorSettingsModelResponse.DonorWelfare == 1 ? "  and donor_welfare = " + donorSettingsModelResponse.DonorWelfare : "";
-            xFilterQry += donorSettingsModelResponse.SupportCS == 1 ? "  and support_cs = " + donorSettingsModelResponse.SupportCS : "";
-            xFilterQry += donorSettingsModelResponse.SupportFS == 1 ? "  and support_fs = " + donorSettingsModelResponse.SupportFS : "";
-            xFilterQry += donorSettingsModelResponse.SupportBS == 1 ? "  and support_bs = " + donorSettingsModelResponse.SupportBS : "";
-            xFilterQry += donorSettingsModelResponse.SupportCloth == 1 ? "  and support_cloth = " + donorSettingsModelResponse.SupportCloth : "";
-            xFilterQry += donorSettingsModelResponse.SupportOther == 1 ? "  and support_other = " + donorSettingsModelResponse.SupportOther : "";
-            xFilterQry += donorSettingsModelResponse.SROOC == 1 ? "  and sr_ooc = " + donorSettingsModelResponse.SROOC : "";
-            xFilterQry += donorSettingsModelResponse.SRNTC == 1 ? "  and sr_ntc = " + donorSettingsModelResponse.SRNTC : "";
-            xFilterQry += donorSettingsModelResponse.SRPost == 1 ? "  and sr_post = " + donorSettingsModelResponse.SRPost : "";
-            xFilterQry += donorSettingsModelResponse.SRVisitor == 1 ? "  and sr_visitor = " + donorSettingsModelResponse.SRVisitor : "";
-            xFilterQry += donorSettingsModelResponse.SREmail == 1 ? "  and sr_email = " + donorSettingsModelResponse.SREmail : "";
+            Donor_Helper donor_Helper = new Donor_Helper();
+            xFilterQry += donor_Helper.GetDonorFilterQry();
 
             string xQry = "select p_donor_id as Id," +
                 "donor_name as Name," +
@@ -380,6 +368,19 @@ namespace NellaiBill.Master
             {
                 DataFetch(xDonorId);
             }
+        }
+
+        private void DonorRegistration_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //DialogResult res = MessageBox.Show("Are you sure you want to close the form", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            //if (res == DialogResult.OK)
+            //{
+
+            //}
+            //if (res == DialogResult.Cancel)
+            //{
+            //    return;
+            //}
         }
     }
 }
