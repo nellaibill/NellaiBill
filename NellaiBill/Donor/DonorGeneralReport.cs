@@ -7,6 +7,7 @@ using NellaiBill.Models.Donor;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace NellaiBill.Donor
@@ -31,7 +32,7 @@ namespace NellaiBill.Donor
         private void DonorGeneralReport_Load(object sender, EventArgs e)
         {
             cmbCountry.Text = "All";
-            dataGridView1.Visible = false;
+            GridValidationControls();
             xDb.LoadComboBoxForReport("select category_id,category_name from m_category", cmbCategory, "category_id", "category_name");
             LoadGrid();
 
@@ -185,40 +186,53 @@ namespace NellaiBill.Donor
                 dataGridView1.Columns[4].Width = 300;
                 dataGridView1.Columns[5].Width = 300;
             }
-
+            lblTotalCount.Text = GetDataGridCount().ToString();
         }
-        private void btnImpDateReportLoad_Click(object sender, EventArgs e)
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            DonorFilter donorFilter = new DonorFilter();
+            donorFilter.ShowDialog();
+            this.LoadGrid();
+        }
+
+        private void btnDataGridPrint_Click(object sender, EventArgs e)
+        {
+            printDocument1.Print();
+        }
+
+        private void btnLoadGrid_Click(object sender, EventArgs e)
+        {
+            GridValidationControls();
+            LoadGrid();
+        }
+        private void GridValidationControls()
         {
             dataGridView1.Visible = true;
             txtSearch.Visible = true;
             lblSearch.Visible = true;
             crystalReportViewer1.Visible = false;
-            /*  reportViewer1.Visible = false;
-              int xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
-              if (xCategoryId != 0)
-              {
-                  xFilterQry = "and d.category_id=" + xCategoryId;
-              }
-              else
-              {
-                  xFilterQry = "";
-              }*/
-
-            LoadGrid();
-            int xCount = 1;
-            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
-            {
-                xCount += 1;
-            }
-            lblTotalCount.Text = xCount.ToString();
         }
-
-        private void btnExportToWord_Click(object sender, EventArgs e)
+        private void CrystalReportValidationControls()
         {
             dataGridView1.Visible = false;
             crystalReportViewer1.Visible = true;
             txtSearch.Visible = false;
             lblSearch.Visible = false;
+        }
+        private int  GetDataGridCount()
+        {
+            int xCount = 1;
+            for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
+            {
+                xCount += 1;
+            }
+            return xCount;
+        }
+
+        private void btnAddressPrint_Click(object sender, EventArgs e)
+        {
+            CrystalReportValidationControls();
             int xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
             string xCountryName = cmbCountry.SelectedItem.ToString();
             string xFilterPrintViewQry = "";
@@ -251,99 +265,7 @@ namespace NellaiBill.Donor
             cryRpt.SetParameterValue("xFilterQry", xFilterPrintViewQry);
             crystalReportViewer1.ReportSource = cryRpt;
             crystalReportViewer1.Refresh();
-            /* //TableLogOnInfos crtableLogoninfos = new TableLogOnInfos();
-            //TableLogOnInfo crtableLogoninfo = new TableLogOnInfo();
-            //ConnectionInfo crConnectionInfo = new ConnectionInfo();
-            //CrystalDecisions.CrystalReports.Engine.Tables CrTables;
-            cryRpt.Load(path);
-
-            foreach (CrystalDecisions.Shared.IConnectionInfo connection in cryRpt.DataSourceConnections)
-            {
-                connection.IntegratedSecurity = true;
-                for (int i = 0; i < cryRpt.DataSourceConnections.Count; i++)
-                {
-                    cryRpt.DataSourceConnections[i].SetConnection("localhost", "nellaibill", "root", "");
-
-                }
-            }
-            //crConnectionInfo.ServerName = "dsn_32_ansi_nellaibill";
-            //crConnectionInfo.DatabaseName = "nellaibill";
-            //crConnectionInfo.UserID = "root";
-            //crConnectionInfo.Password = "nellaibill";
-            //CrTables = cryRpt.Database.Tables;
-            //foreach (CrystalDecisions.CrystalReports.Engine.Table CrTable in CrTables)
-            //{
-            //    crtableLogoninfo = CrTable.LogOnInfo;
-            //    crtableLogoninfo.ConnectionInfo = crConnectionInfo;
-            //    CrTable.ApplyLogOnInfo(crtableLogoninfo);
-            //}
-           */
-
-            //crystalReportViewer1.ToolPanelView = ToolPanelViewType.None;
-            //xGlobalClass.CreateDocument(donor_Helper.donorNames, donor_Helper.donorAddress);
-        }
-        private List<DataSet1> getData()
-        {
-            List<DataSet1> datas = new List<DataSet1>();
-
-            DataSet Dataset1 = new DataSet();
-            string xQry = "select " +
-                            "CONCAT(donor_name, '- ' ,address_line1, '-', address_line2) as Address " +
-                            "from lukes_donor_registration as d,m_category c where c.category_id = d.category_id" + xFilterQry + " order by p_donor_id desc";
-            using (MySqlConnection conn = new MySqlConnection(xDb.GetConnectionString()))
-            {
-                using MySqlDataAdapter adapter = new MySqlDataAdapter(xQry, conn);
-                adapter.Fill(Dataset1);
-            }
-
-            int xRowCount = 0;
-            System.Data.DataTable dt = Dataset1.Tables[0];
-            // return dt;
-            foreach (DataRow row in dt.Rows)
-            {
-                DataSet1 data = new DataSet1();
-                data.x = row["Address"].ToString();
-                //xRowCount += 1;
-                //if (xRowCount % 2 == 0)
-                //{
-                //    data.x = row["Address"].ToString();
-                //}
-                //else
-                //{
-                //    data.y = row["Address"].ToString();
-                //}
-                datas.Add(data);
-            }
-            return datas;
-        }
-
-        private void runRptViewer()
-        {
-            /*
-            this.reportViewer1.Reset();
-            string appPath = System.Windows.Forms.Application.StartupPath;
-            this.reportViewer1.LocalReport.ReportPath = appPath + @"/donor_report1.rdlc";
-            ReportDataSource rds = new ReportDataSource("DataSet1", getData());
-            this.reportViewer1.LocalReport.DataSources.Clear();
-            this.reportViewer1.LocalReport.DataSources.Add(rds);
-            //this.reportViewer1.DataBind();
-            this.reportViewer1.LocalReport.Refresh();
-            this.reportViewer1.RefreshReport();*/
-        }
-
-        private void btnFilter_Click(object sender, EventArgs e)
-        {
-            DonorFilter donorFilter = new DonorFilter();
-            donorFilter.ShowDialog();
-            this.LoadGrid();
         }
     }
-    public class DataSet1
-    {
-        public string x
-        {
-            get; set;
-        }
-
-    }
+ 
 }

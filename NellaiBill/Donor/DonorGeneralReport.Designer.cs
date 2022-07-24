@@ -31,11 +31,11 @@ namespace NellaiBill.Donor
         {
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblGeneralReportTitle = new System.Windows.Forms.Label();
-            this.btnImpDateReportLoad = new System.Windows.Forms.Button();
+            this.btnLoadGrid = new System.Windows.Forms.Button();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnPrintView = new System.Windows.Forms.Button();
+            this.btnAddressPrint = new System.Windows.Forms.Button();
             this.cachedrptIpAdmissionReport1 = new NellaiBill.CrystalReports.CachedrptIpAdmissionReport();
             this.cachedrptIpAdmissionReport2 = new NellaiBill.CrystalReports.CachedrptIpAdmissionReport();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -45,6 +45,8 @@ namespace NellaiBill.Donor
             this.lblSearch = new System.Windows.Forms.Label();
             this.btnFilter = new System.Windows.Forms.Button();
             this.lblTotalCount = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.btnDataGridPrint = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -71,18 +73,18 @@ namespace NellaiBill.Donor
             this.lblGeneralReportTitle.TabIndex = 0;
             this.lblGeneralReportTitle.Text = "Report";
             // 
-            // btnImpDateReportLoad
+            // btnLoadGrid
             // 
-            this.btnImpDateReportLoad.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnImpDateReportLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImpDateReportLoad.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnImpDateReportLoad.Location = new System.Drawing.Point(1045, 40);
-            this.btnImpDateReportLoad.Name = "btnImpDateReportLoad";
-            this.btnImpDateReportLoad.Size = new System.Drawing.Size(136, 42);
-            this.btnImpDateReportLoad.TabIndex = 111;
-            this.btnImpDateReportLoad.Text = "LOAD";
-            this.btnImpDateReportLoad.UseVisualStyleBackColor = false;
-            this.btnImpDateReportLoad.Click += new System.EventHandler(this.btnImpDateReportLoad_Click);
+            this.btnLoadGrid.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnLoadGrid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoadGrid.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnLoadGrid.Location = new System.Drawing.Point(986, 40);
+            this.btnLoadGrid.Name = "btnLoadGrid";
+            this.btnLoadGrid.Size = new System.Drawing.Size(94, 42);
+            this.btnLoadGrid.TabIndex = 111;
+            this.btnLoadGrid.Text = "LOAD";
+            this.btnLoadGrid.UseVisualStyleBackColor = false;
+            this.btnLoadGrid.Click += new System.EventHandler(this.btnLoadGrid_Click);
             // 
             // cmbCategory
             // 
@@ -111,18 +113,18 @@ namespace NellaiBill.Donor
             this.txtSearch.TabIndex = 182;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
-            // btnPrintView
+            // btnAddressPrint
             // 
-            this.btnPrintView.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnPrintView.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrintView.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnPrintView.Location = new System.Drawing.Point(1187, 40);
-            this.btnPrintView.Name = "btnPrintView";
-            this.btnPrintView.Size = new System.Drawing.Size(186, 42);
-            this.btnPrintView.TabIndex = 183;
-            this.btnPrintView.Text = "PRINT VIEW";
-            this.btnPrintView.UseVisualStyleBackColor = false;
-            this.btnPrintView.Click += new System.EventHandler(this.btnExportToWord_Click);
+            this.btnAddressPrint.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnAddressPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddressPrint.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnAddressPrint.Location = new System.Drawing.Point(1160, 40);
+            this.btnAddressPrint.Name = "btnAddressPrint";
+            this.btnAddressPrint.Size = new System.Drawing.Size(147, 42);
+            this.btnAddressPrint.TabIndex = 183;
+            this.btnAddressPrint.Text = "AddressPrint";
+            this.btnAddressPrint.UseVisualStyleBackColor = false;
+            this.btnAddressPrint.Click += new System.EventHandler(this.btnAddressPrint_Click);
             // 
             // dataGridView1
             // 
@@ -186,7 +188,7 @@ namespace NellaiBill.Donor
             this.btnFilter.ForeColor = System.Drawing.SystemColors.Window;
             this.btnFilter.Location = new System.Drawing.Point(894, 40);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(136, 42);
+            this.btnFilter.Size = new System.Drawing.Size(86, 42);
             this.btnFilter.TabIndex = 190;
             this.btnFilter.Text = "FILTER";
             this.btnFilter.UseVisualStyleBackColor = false;
@@ -202,24 +204,38 @@ namespace NellaiBill.Donor
             this.lblTotalCount.TabIndex = 191;
             this.lblTotalCount.Text = "0";
             // 
+            // btnDataGridPrint
+            // 
+            this.btnDataGridPrint.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnDataGridPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDataGridPrint.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnDataGridPrint.Location = new System.Drawing.Point(1086, 40);
+            this.btnDataGridPrint.Name = "btnDataGridPrint";
+            this.btnDataGridPrint.Size = new System.Drawing.Size(68, 42);
+            this.btnDataGridPrint.TabIndex = 192;
+            this.btnDataGridPrint.Text = "Print";
+            this.btnDataGridPrint.UseVisualStyleBackColor = false;
+            this.btnDataGridPrint.Click += new System.EventHandler(this.btnDataGridPrint_Click);
+            // 
             // DonorGeneralReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1405, 752);
+            this.Controls.Add(this.btnDataGridPrint);
             this.Controls.Add(this.lblTotalCount);
             this.Controls.Add(this.btnFilter);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.cmbCountry);
             this.Controls.Add(this.crystalReportViewer1);
-            this.Controls.Add(this.btnPrintView);
+            this.Controls.Add(this.btnAddressPrint);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.btnImpDateReportLoad);
+            this.Controls.Add(this.btnLoadGrid);
             this.Name = "DonorGeneralReport";
             this.Text = "DonorGeneralReport";
             this.Load += new System.EventHandler(this.DonorGeneralReport_Load);
@@ -234,11 +250,11 @@ namespace NellaiBill.Donor
         #endregion
         internal System.Windows.Forms.Panel panel3;
         internal System.Windows.Forms.Label lblGeneralReportTitle;
-        private System.Windows.Forms.Button btnImpDateReportLoad;
+        private System.Windows.Forms.Button btnLoadGrid;
         private System.Windows.Forms.ComboBox cmbCategory;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Button btnPrintView;
+        private System.Windows.Forms.Button btnAddressPrint;
         private CrystalReports.CachedrptIpAdmissionReport cachedrptIpAdmissionReport1;
         private CrystalReports.CachedrptIpAdmissionReport cachedrptIpAdmissionReport2;
         public System.Windows.Forms.DataGridView dataGridView1;
@@ -248,5 +264,7 @@ namespace NellaiBill.Donor
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.Label lblTotalCount;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.Button btnDataGridPrint;
     }
 }

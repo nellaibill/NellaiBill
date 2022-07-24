@@ -993,6 +993,7 @@ namespace NellaiBill
                         SRPost = reader.GetInt32("sr_post"),
                         SRVisitor = reader.GetInt32("sr_visitor"),
                         SREmail = reader.GetInt32("sr_email"),
+                        IsActive = reader.GetInt32("is_active"),
                         OtherDetails = reader.GetString("other_details"),
                     };
                 }

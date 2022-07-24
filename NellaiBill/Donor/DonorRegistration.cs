@@ -39,11 +39,11 @@ namespace NellaiBill.Master
                     "reference,related_files,pancard,category_id,notes," +
                     "donor_annual,donor_endowment,donor_things,donor_welfare," +
                     "support_cs,support_fs,support_bs,support_cloth,support_other," +
-                    "sr_ooc,sr_ntc,sr_post,sr_visitor,sr_email) " +
+                    "sr_ooc,sr_ntc,sr_post,sr_visitor,sr_email,is_active) " +
                     " values ( '" + txtName.Text + "'," +
                     "'" + rchHomeAddress.Text + "'," +
                     "'" + rchOfficeAddress.Text + "'," +
-                    "'" + txtState.Text + "'," +
+                    "''," +
                     "'" + cmbCountry.SelectedItem + "'," +
                     "'" + txtMobileNo.Text + "'," +
                     "'" + txtWhatsAppNo.Text + "'," +
@@ -70,7 +70,8 @@ namespace NellaiBill.Master
                     "'" + globalClass.getInteger(chkSRNTC.Checked) + "'," +
                     "'" + globalClass.getInteger(chkSRPost.Checked) + "'," +
                     "'" + globalClass.getInteger(chkSRVisitor.Checked) + "'," +
-                    "'" + globalClass.getInteger(chkSREmail.Checked) + "')";
+                    "'" + globalClass.getInteger(chkSREmail.Checked) + "'," +
+                    "'" + globalClass.getInteger(chkIsActive.Checked) + "')";
             }
             else
             {
@@ -78,7 +79,7 @@ namespace NellaiBill.Master
                     " donor_name = '" + txtName.Text + "', " +
                     " address_line1 = '" + rchHomeAddress.Text + "', " +
                     " address_line2 = '" + rchOfficeAddress.Text + "', " +
-                    " state = '" + txtState.Text + "', " +
+                    " state = '', " +
                     " country = '" + cmbCountry.SelectedItem + "', " +
                     " phone_no1 = '" + txtMobileNo.Text + "', " +
                     " phone_no2 = '" + txtWhatsAppNo.Text + "', " +
@@ -105,7 +106,8 @@ namespace NellaiBill.Master
                     " sr_ntc = " + globalClass.getInteger(chkSRNTC.Checked) + ", " +
                     " sr_post = " + globalClass.getInteger(chkSRPost.Checked) + ", " +
                     " sr_visitor = " + globalClass.getInteger(chkSRVisitor.Checked) + ", " +
-                    " sr_email = " + globalClass.getInteger(chkSREmail.Checked) + " " +
+                    " sr_email = " + globalClass.getInteger(chkSREmail.Checked) + ", " +
+                    " is_active = " + globalClass.getInteger(chkIsActive.Checked) + " " +
                     " where  p_donor_id= " + xDonorId + "";
             }
             xDb.DataProcess(xQry);
@@ -207,7 +209,6 @@ namespace NellaiBill.Master
             txtFileName.Text = donorRegistrationResponse.DonorFileName;
             txtRelatedFiles.Text = donorRegistrationResponse.RelatedFiles;
             rchRemarks.Text = donorRegistrationResponse.Notes;
-            txtState.Text = donorRegistrationResponse.State;
             txtPanCard.Text = donorRegistrationResponse.PanCard;
             cmbCategory.Text = donorRegistrationResponse.CategoryName;
             chkDonorAnnual.Checked = globalClass.getBoolean(donorRegistrationResponse.DonorAnnual);
@@ -224,6 +225,7 @@ namespace NellaiBill.Master
             chkSREmail.Checked = globalClass.getBoolean(donorRegistrationResponse.SREmail);
             chkSRPost.Checked = globalClass.getBoolean(donorRegistrationResponse.SRPost);
             chkSRVisitor.Checked = globalClass.getBoolean(donorRegistrationResponse.SRVisitor);
+            chkIsActive.Checked = globalClass.getBoolean(donorRegistrationResponse.IsActive);
         }
 
         private void mBtnNew_Click(object sender, EventArgs e)
@@ -308,24 +310,6 @@ namespace NellaiBill.Master
             donationDetails.ShowDialog();
         }
 
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Do you want to print?", "Confirmation", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-
-                ReportDocument reportDocument = new ReportDocument();
-                GlobalClass globalClass = new GlobalClass();
-                string path = globalClass.GetReportPath() + "rptDonorInfo.rpt";
-                reportDocument.Load(path);
-                // reportDocument.SetParameterValue("PatientId", xPatientId);
-                reportDocument.PrintToPrinter(1, true, 0, 0);
-            }
-            else if (result == DialogResult.No)
-            {
-                //...
-            }
-        }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -381,6 +365,25 @@ namespace NellaiBill.Master
             //{
             //    return;
             //}
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to print?", "Confirmation", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+
+                ReportDocument reportDocument = new ReportDocument();
+                GlobalClass globalClass = new GlobalClass();
+                string path = globalClass.GetReportPath() + "rptDonorInfo.rpt";
+                reportDocument.Load(path);
+                reportDocument.SetParameterValue("DonorId", xDonorId);
+                reportDocument.PrintToPrinter(1, true, 0, 0);
+            }
+            else if (result == DialogResult.No)
+            {
+                //...
+            }
         }
     }
 }
