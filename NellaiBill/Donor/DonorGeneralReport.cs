@@ -33,7 +33,7 @@ namespace NellaiBill.Donor
         {
             cmbCountry.Text = "All";
             GridValidationControls();
-            xDb.LoadComboBoxForReport("select category_id,category_name from m_category", cmbCategory, "category_id", "category_name");
+           // xDb.LoadComboBoxForReport("select category_id,category_name from m_category", cmbCategory, "category_id", "category_name");
             LoadGrid();
 
         }
@@ -57,16 +57,8 @@ namespace NellaiBill.Donor
         private void LoadGrid()
         {
             string xQry;
-            int xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
+            //int xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
             string xCountryName = cmbCountry.SelectedItem.ToString();
-            if (xCategoryId == 0)
-            {
-                xFilterQry = " and c.category_id>=0";
-            }
-            else
-            {
-                xFilterQry = " and c.category_id = " + xCategoryId;
-            }
             if (xCountryName == "All")
             {
 
@@ -233,17 +225,10 @@ namespace NellaiBill.Donor
         private void btnAddressPrint_Click(object sender, EventArgs e)
         {
             CrystalReportValidationControls();
-            int xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
+          
             string xCountryName = cmbCountry.SelectedItem.ToString();
             string xFilterPrintViewQry = "";
-            if (xCategoryId == 0)
-            {
-                xFilterPrintViewQry = " and c.category_id>=0";
-            }
-            else
-            {
-                xFilterPrintViewQry = " and c.category_id = " + xCategoryId;
-            }
+         
             if (xCountryName == "All")
             {
 

@@ -70,8 +70,7 @@ namespace NellaiBill.Master
                     "'" + globalClass.getInteger(chkSRNTC.Checked) + "'," +
                     "'" + globalClass.getInteger(chkSRPost.Checked) + "'," +
                     "'" + globalClass.getInteger(chkSRVisitor.Checked) + "'," +
-                    "'" + globalClass.getInteger(chkSREmail.Checked) + "'," +
-                    "'" + globalClass.getInteger(chkIsActive.Checked) + "')";
+                    "'" + globalClass.getInteger(chkSREmail.Checked) + "')";
             }
             else
             {
@@ -106,8 +105,7 @@ namespace NellaiBill.Master
                     " sr_ntc = " + globalClass.getInteger(chkSRNTC.Checked) + ", " +
                     " sr_post = " + globalClass.getInteger(chkSRPost.Checked) + ", " +
                     " sr_visitor = " + globalClass.getInteger(chkSRVisitor.Checked) + ", " +
-                    " sr_email = " + globalClass.getInteger(chkSREmail.Checked) + ", " +
-                    " is_active = " + globalClass.getInteger(chkIsActive.Checked) + " " +
+                    " sr_email = " + globalClass.getInteger(chkSREmail.Checked) + " " +
                     " where  p_donor_id= " + xDonorId + "";
             }
             xDb.DataProcess(xQry);
@@ -164,6 +162,7 @@ namespace NellaiBill.Master
             globalClass.ClearFormControls(this.groupBox2);
             globalClass.ClearFormControls(this.groupBox3);
             globalClass.ClearFormControls(this.groupBox4);
+            globalClass.ClearFormControls(this.groupBox6);
             rchRemarks.Clear();
             rchHomeAddress.Clear();
             rchOfficeAddress.Clear();
@@ -225,7 +224,6 @@ namespace NellaiBill.Master
             chkSREmail.Checked = globalClass.getBoolean(donorRegistrationResponse.SREmail);
             chkSRPost.Checked = globalClass.getBoolean(donorRegistrationResponse.SRPost);
             chkSRVisitor.Checked = globalClass.getBoolean(donorRegistrationResponse.SRVisitor);
-            chkIsActive.Checked = globalClass.getBoolean(donorRegistrationResponse.IsActive);
         }
 
         private void mBtnNew_Click(object sender, EventArgs e)
@@ -284,14 +282,6 @@ namespace NellaiBill.Master
 
         }
 
-        private void btnDonorFilter_Click(object sender, EventArgs e)
-        {
-            DonorFilter donorFilter = new DonorFilter();
-            donorFilter.ShowDialog();
-            DataClear();
-            this.LoadGrid();
-        }
-
         private void DonorRegistration_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control == true && e.KeyCode == Keys.N)
@@ -322,36 +312,14 @@ namespace NellaiBill.Master
             otherDetails.ShowDialog();
         }
 
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            DataClear();
-        }
-
         private void btnNext_Click(object sender, EventArgs e)
         {
-            xDonorId = xDonorId + 1;
-            int xMaxDonorId = Convert.ToInt32(xDb.GetMaxId("p_donor_id", "lukes_donor_registration").ToString());
-            if (xDonorId == xMaxDonorId)
-            {
-                MessageBox.Show("You have reached the last donor");
-            }
-            else
-            {
-                DataFetch(xDonorId);
-            }
+
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
-            xDonorId = xDonorId - 1;
-            if (xDonorId == 0)
-            {
-                MessageBox.Show("You have reached the first donor");
-            }
-            else
-            {
-                DataFetch(xDonorId);
-            }
+
         }
 
         private void DonorRegistration_FormClosing(object sender, FormClosingEventArgs e)
@@ -367,7 +335,8 @@ namespace NellaiBill.Master
             //}
         }
 
-        private void btnPrint_Click(object sender, EventArgs e)
+
+        private void pBtnPrint_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you want to print?", "Confirmation", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
@@ -384,6 +353,64 @@ namespace NellaiBill.Master
             {
                 //...
             }
+        }
+
+        private void pBtnFilter_Click(object sender, EventArgs e)
+        {
+            DonorFilter donorFilter = new DonorFilter();
+            donorFilter.ShowDialog();
+            DataClear();
+            this.LoadGrid();
+        }
+
+        private void pBtnNew_Click(object sender, EventArgs e)
+        {
+            DataClear();
+        }
+
+        private void pBtnDelete_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.Yes == MessageBox.Show("Do You Want Delete ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+            {
+                string xQry = "delete from lukes_donor_registration where  p_donor_id= " + xDonorId + "";
+                xDb.DataProcess(xQry);
+                MessageBox.Show("Record Deleted");
+                LoadGrid();
+                DataClear();
+            }
+
+        }
+
+        private void pBtnPrevious_Click(object sender, EventArgs e)
+        {
+            xDonorId = xDonorId - 1;
+            if (xDonorId == 0)
+            {
+                MessageBox.Show("You have reached the first donor");
+            }
+            else
+            {
+                DataFetch(xDonorId);
+            }
+        }
+
+        private void pBtnNext_Click(object sender, EventArgs e)
+        {
+            xDonorId = xDonorId + 1;
+            int xMaxDonorId = Convert.ToInt32(xDb.GetMaxId("p_donor_id", "lukes_donor_registration").ToString());
+            if (xDonorId == xMaxDonorId)
+            {
+                MessageBox.Show("You have reached the last donor");
+            }
+            else
+            {
+                DataFetch(xDonorId);
+            }
+        }
+
+        private void DonorRegistration_Leave(object sender, EventArgs e)
+        {
+            MessageBox.Show("Leaving");
         }
     }
 }

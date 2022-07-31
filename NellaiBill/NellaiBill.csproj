@@ -1530,6 +1530,13 @@
     <Content Include="pharmacy.ico" />
     <Content Include="Common\database_changes.sql" />
     <Content Include="Common\hms_lhs.sql" />
+    <None Include="Resources\symbol_delete.ico" />
+    <None Include="Resources\symbol_print.ico" />
+    <None Include="Resources\symbol_next.ico" />
+    <None Include="Resources\symbol_previous.ico" />
+    <None Include="Resources\symbol_filter.ico" />
+    <None Include="Resources\symbol_new.ico" />
+    <None Include="Resources\symbol_new1.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

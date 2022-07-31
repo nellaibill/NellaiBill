@@ -32,8 +32,6 @@ namespace NellaiBill.Donor
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblGeneralReportTitle = new System.Windows.Forms.Label();
             this.btnLoadGrid = new System.Windows.Forms.Button();
-            this.cmbCategory = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnAddressPrint = new System.Windows.Forms.Button();
             this.cachedrptIpAdmissionReport1 = new NellaiBill.CrystalReports.CachedrptIpAdmissionReport();
@@ -86,28 +84,9 @@ namespace NellaiBill.Donor
             this.btnLoadGrid.UseVisualStyleBackColor = false;
             this.btnLoadGrid.Click += new System.EventHandler(this.btnLoadGrid_Click);
             // 
-            // cmbCategory
-            // 
-            this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(28, 61);
-            this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(133, 21);
-            this.cmbCategory.TabIndex = 179;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(30, 32);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(65, 17);
-            this.label17.TabIndex = 178;
-            this.label17.Text = "Category";
-            // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(365, 62);
+            this.txtSearch.Location = new System.Drawing.Point(33, 66);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(441, 20);
             this.txtSearch.TabIndex = 182;
@@ -152,7 +131,7 @@ namespace NellaiBill.Donor
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(181, 32);
+            this.label13.Location = new System.Drawing.Point(725, 30);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(57, 17);
             this.label13.TabIndex = 189;
@@ -167,7 +146,7 @@ namespace NellaiBill.Donor
             "All",
             "India",
             "OutsideIndia"});
-            this.cmbCountry.Location = new System.Drawing.Point(184, 57);
+            this.cmbCountry.Location = new System.Drawing.Point(728, 55);
             this.cmbCountry.Name = "cmbCountry";
             this.cmbCountry.Size = new System.Drawing.Size(159, 25);
             this.cmbCountry.TabIndex = 188;
@@ -175,7 +154,7 @@ namespace NellaiBill.Donor
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(362, 36);
+            this.lblSearch.Location = new System.Drawing.Point(30, 40);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(41, 13);
             this.lblSearch.TabIndex = 181;
@@ -198,7 +177,7 @@ namespace NellaiBill.Donor
             // 
             this.lblTotalCount.AutoSize = true;
             this.lblTotalCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalCount.Location = new System.Drawing.Point(825, 48);
+            this.lblTotalCount.Location = new System.Drawing.Point(493, 52);
             this.lblTotalCount.Name = "lblTotalCount";
             this.lblTotalCount.Size = new System.Drawing.Size(29, 31);
             this.lblTotalCount.TabIndex = 191;
@@ -232,8 +211,6 @@ namespace NellaiBill.Donor
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.cmbCategory);
-            this.Controls.Add(this.label17);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.btnLoadGrid);
             this.Name = "DonorGeneralReport";
@@ -251,8 +228,6 @@ namespace NellaiBill.Donor
         internal System.Windows.Forms.Panel panel3;
         internal System.Windows.Forms.Label lblGeneralReportTitle;
         private System.Windows.Forms.Button btnLoadGrid;
-        private System.Windows.Forms.ComboBox cmbCategory;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnAddressPrint;
         private CrystalReports.CachedrptIpAdmissionReport cachedrptIpAdmissionReport1;

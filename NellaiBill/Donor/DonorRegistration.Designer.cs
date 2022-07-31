@@ -31,7 +31,6 @@ namespace NellaiBill.Master
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DonorRegistration));
             this.btnSaveUpdate = new System.Windows.Forms.Button();
-            this.btnDonorFilter = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chkDonorWelfare = new System.Windows.Forms.CheckBox();
             this.chkDonorThings = new System.Windows.Forms.CheckBox();
@@ -73,9 +72,6 @@ namespace NellaiBill.Master
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnPrev = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
             this.rchRemarks = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.lblSearch = new System.Windows.Forms.Label();
@@ -89,22 +85,34 @@ namespace NellaiBill.Master
             this.label10 = new System.Windows.Forms.Label();
             this.txtEmailId2 = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnPrint = new System.Windows.Forms.Button();
             this.lblCategory = new System.Windows.Forms.Label();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
-            this.chkIsActive = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.chkOthers = new System.Windows.Forms.CheckBox();
             this.chkChristmas = new System.Windows.Forms.CheckBox();
             this.chkEaster = new System.Windows.Forms.CheckBox();
             this.chkPongal = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.pBtnNew = new System.Windows.Forms.PictureBox();
+            this.pBtnFilter = new System.Windows.Forms.PictureBox();
+            this.pBtnPrint = new System.Windows.Forms.PictureBox();
+            this.pBtnDelete = new System.Windows.Forms.PictureBox();
+            this.pBtnPrevious = new System.Windows.Forms.PictureBox();
+            this.pBtnNext = new System.Windows.Forms.PictureBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBtnNew)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBtnFilter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBtnPrint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBtnDelete)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBtnPrevious)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBtnNext)).BeginInit();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSaveUpdate
@@ -112,26 +120,13 @@ namespace NellaiBill.Master
             this.btnSaveUpdate.BackColor = System.Drawing.Color.DarkMagenta;
             this.btnSaveUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveUpdate.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnSaveUpdate.Location = new System.Drawing.Point(1005, 425);
+            this.btnSaveUpdate.Location = new System.Drawing.Point(713, 385);
             this.btnSaveUpdate.Name = "btnSaveUpdate";
-            this.btnSaveUpdate.Size = new System.Drawing.Size(118, 37);
+            this.btnSaveUpdate.Size = new System.Drawing.Size(71, 33);
             this.btnSaveUpdate.TabIndex = 137;
             this.btnSaveUpdate.Text = "Save";
             this.btnSaveUpdate.UseVisualStyleBackColor = false;
             this.btnSaveUpdate.Click += new System.EventHandler(this.btnSaveUpdate_Click);
-            // 
-            // btnDonorFilter
-            // 
-            this.btnDonorFilter.BackColor = System.Drawing.Color.DarkMagenta;
-            this.btnDonorFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDonorFilter.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDonorFilter.Location = new System.Drawing.Point(1129, 425);
-            this.btnDonorFilter.Name = "btnDonorFilter";
-            this.btnDonorFilter.Size = new System.Drawing.Size(90, 37);
-            this.btnDonorFilter.TabIndex = 139;
-            this.btnDonorFilter.Text = "Filter";
-            this.btnDonorFilter.UseVisualStyleBackColor = false;
-            this.btnDonorFilter.Click += new System.EventHandler(this.btnDonorFilter_Click);
             // 
             // groupBox2
             // 
@@ -140,7 +135,7 @@ namespace NellaiBill.Master
             this.groupBox2.Controls.Add(this.chkDonorEndowment);
             this.groupBox2.Controls.Add(this.chkDonorAnnual);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(433, 66);
+            this.groupBox2.Location = new System.Drawing.Point(435, 23);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
@@ -201,7 +196,7 @@ namespace NellaiBill.Master
             this.groupBox3.Controls.Add(this.chkSupportFS);
             this.groupBox3.Controls.Add(this.chkSupportCS);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(436, 126);
+            this.groupBox3.Location = new System.Drawing.Point(438, 83);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
@@ -273,7 +268,7 @@ namespace NellaiBill.Master
             this.groupBox4.Controls.Add(this.chkSRNTC);
             this.groupBox4.Controls.Add(this.chkSROOC);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(436, 194);
+            this.groupBox4.Location = new System.Drawing.Point(438, 151);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
@@ -341,13 +336,13 @@ namespace NellaiBill.Master
             // 
             this.mbtnImportantDates.Depth = 0;
             this.mbtnImportantDates.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.mbtnImportantDates.Location = new System.Drawing.Point(691, 417);
+            this.mbtnImportantDates.Location = new System.Drawing.Point(444, 385);
             this.mbtnImportantDates.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnImportantDates.Name = "mbtnImportantDates";
             this.mbtnImportantDates.Primary = true;
-            this.mbtnImportantDates.Size = new System.Drawing.Size(135, 40);
+            this.mbtnImportantDates.Size = new System.Drawing.Size(91, 33);
             this.mbtnImportantDates.TabIndex = 170;
-            this.mbtnImportantDates.Text = "Important Dates";
+            this.mbtnImportantDates.Text = "Imp.Dates";
             this.mbtnImportantDates.UseVisualStyleBackColor = true;
             this.mbtnImportantDates.Click += new System.EventHandler(this.mbtnImportantDates_Click);
             // 
@@ -355,11 +350,11 @@ namespace NellaiBill.Master
             // 
             this.mbtnFDDetails.Depth = 0;
             this.mbtnFDDetails.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.mbtnFDDetails.Location = new System.Drawing.Point(832, 417);
+            this.mbtnFDDetails.Location = new System.Drawing.Point(548, 385);
             this.mbtnFDDetails.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnFDDetails.Name = "mbtnFDDetails";
             this.mbtnFDDetails.Primary = true;
-            this.mbtnFDDetails.Size = new System.Drawing.Size(69, 40);
+            this.mbtnFDDetails.Size = new System.Drawing.Size(69, 33);
             this.mbtnFDDetails.TabIndex = 171;
             this.mbtnFDDetails.Text = "FD";
             this.mbtnFDDetails.UseVisualStyleBackColor = true;
@@ -369,11 +364,11 @@ namespace NellaiBill.Master
             // 
             this.mbtnDonationDetails.Depth = 0;
             this.mbtnDonationDetails.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.mbtnDonationDetails.Location = new System.Drawing.Point(912, 417);
+            this.mbtnDonationDetails.Location = new System.Drawing.Point(623, 385);
             this.mbtnDonationDetails.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnDonationDetails.Name = "mbtnDonationDetails";
             this.mbtnDonationDetails.Primary = true;
-            this.mbtnDonationDetails.Size = new System.Drawing.Size(75, 40);
+            this.mbtnDonationDetails.Size = new System.Drawing.Size(75, 33);
             this.mbtnDonationDetails.TabIndex = 172;
             this.mbtnDonationDetails.Text = "Donation";
             this.mbtnDonationDetails.UseVisualStyleBackColor = true;
@@ -382,7 +377,7 @@ namespace NellaiBill.Master
             // txtPanCard
             // 
             this.txtPanCard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPanCard.Location = new System.Drawing.Point(876, 325);
+            this.txtPanCard.Location = new System.Drawing.Point(444, 8);
             this.txtPanCard.MaxLength = 100;
             this.txtPanCard.Name = "txtPanCard";
             this.txtPanCard.Size = new System.Drawing.Size(111, 23);
@@ -392,7 +387,7 @@ namespace NellaiBill.Master
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(807, 328);
+            this.label5.Location = new System.Drawing.Point(356, 11);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 17);
             this.label5.TabIndex = 176;
@@ -417,7 +412,7 @@ namespace NellaiBill.Master
             // txtRelatedFiles
             // 
             this.txtRelatedFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRelatedFiles.Location = new System.Drawing.Point(878, 356);
+            this.txtRelatedFiles.Location = new System.Drawing.Point(446, 39);
             this.txtRelatedFiles.MaxLength = 100;
             this.txtRelatedFiles.Name = "txtRelatedFiles";
             this.txtRelatedFiles.Size = new System.Drawing.Size(109, 23);
@@ -427,7 +422,7 @@ namespace NellaiBill.Master
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(782, 359);
+            this.label14.Location = new System.Drawing.Point(350, 42);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(90, 17);
             this.label14.TabIndex = 166;
@@ -436,17 +431,17 @@ namespace NellaiBill.Master
             // txtReference
             // 
             this.txtReference.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtReference.Location = new System.Drawing.Point(517, 388);
+            this.txtReference.Location = new System.Drawing.Point(85, 71);
             this.txtReference.MaxLength = 1000;
             this.txtReference.Name = "txtReference";
-            this.txtReference.Size = new System.Drawing.Size(265, 23);
+            this.txtReference.Size = new System.Drawing.Size(229, 23);
             this.txtReference.TabIndex = 15;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(442, 388);
+            this.label15.Location = new System.Drawing.Point(10, 71);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(74, 17);
             this.label15.TabIndex = 164;
@@ -455,7 +450,7 @@ namespace NellaiBill.Master
             // txtEmailId1
             // 
             this.txtEmailId1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmailId1.Location = new System.Drawing.Point(517, 328);
+            this.txtEmailId1.Location = new System.Drawing.Point(85, 11);
             this.txtEmailId1.MaxLength = 50;
             this.txtEmailId1.Name = "txtEmailId1";
             this.txtEmailId1.Size = new System.Drawing.Size(265, 23);
@@ -465,7 +460,7 @@ namespace NellaiBill.Master
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(438, 333);
+            this.label12.Location = new System.Drawing.Point(6, 16);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(61, 17);
             this.label12.TabIndex = 160;
@@ -581,50 +576,11 @@ namespace NellaiBill.Master
             this.label4.TabIndex = 14;
             this.label4.Text = "Name";
             // 
-            // btnPrev
-            // 
-            this.btnPrev.BackColor = System.Drawing.Color.DarkMagenta;
-            this.btnPrev.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrev.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnPrev.Location = new System.Drawing.Point(781, 17);
-            this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(83, 37);
-            this.btnPrev.TabIndex = 142;
-            this.btnPrev.Text = "PREV";
-            this.btnPrev.UseVisualStyleBackColor = false;
-            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.BackColor = System.Drawing.Color.DarkMagenta;
-            this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnNext.Location = new System.Drawing.Point(884, 17);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(83, 37);
-            this.btnNext.TabIndex = 143;
-            this.btnNext.Text = "NEXT";
-            this.btnNext.UseVisualStyleBackColor = false;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnNew
-            // 
-            this.btnNew.BackColor = System.Drawing.Color.DarkMagenta;
-            this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNew.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnNew.Location = new System.Drawing.Point(22, 12);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(79, 37);
-            this.btnNew.TabIndex = 144;
-            this.btnNew.Text = "New";
-            this.btnNew.UseVisualStyleBackColor = false;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
             // rchRemarks
             // 
-            this.rchRemarks.Location = new System.Drawing.Point(993, 75);
+            this.rchRemarks.Location = new System.Drawing.Point(998, 63);
             this.rchRemarks.Name = "rchRemarks";
-            this.rchRemarks.Size = new System.Drawing.Size(369, 321);
+            this.rchRemarks.Size = new System.Drawing.Size(369, 299);
             this.rchRemarks.TabIndex = 180;
             this.rchRemarks.Text = "";
             // 
@@ -632,7 +588,7 @@ namespace NellaiBill.Master
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(1002, 55);
+            this.label8.Location = new System.Drawing.Point(1013, 41);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 17);
             this.label8.TabIndex = 181;
@@ -641,7 +597,7 @@ namespace NellaiBill.Master
             // lblSearch
             // 
             this.lblSearch.AutoSize = true;
-            this.lblSearch.Location = new System.Drawing.Point(27, 459);
+            this.lblSearch.Location = new System.Drawing.Point(21, 418);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(41, 13);
             this.lblSearch.TabIndex = 140;
@@ -649,7 +605,7 @@ namespace NellaiBill.Master
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(100, 449);
+            this.txtSearch.Location = new System.Drawing.Point(94, 408);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(324, 20);
             this.txtSearch.TabIndex = 141;
@@ -660,11 +616,11 @@ namespace NellaiBill.Master
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 475);
+            this.dataGridView1.Location = new System.Drawing.Point(24, 434);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1332, 299);
+            this.dataGridView1.Size = new System.Drawing.Size(1332, 340);
             this.dataGridView1.TabIndex = 97;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
@@ -688,7 +644,7 @@ namespace NellaiBill.Master
             this.groupBox1.Controls.Add(this.rchHomeAddress);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.rchOfficeAddress);
-            this.groupBox1.Location = new System.Drawing.Point(22, 55);
+            this.groupBox1.Location = new System.Drawing.Point(24, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(406, 387);
             this.groupBox1.TabIndex = 182;
@@ -746,30 +702,17 @@ namespace NellaiBill.Master
             // txtEmailId2
             // 
             this.txtEmailId2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmailId2.Location = new System.Drawing.Point(517, 356);
+            this.txtEmailId2.Location = new System.Drawing.Point(85, 39);
             this.txtEmailId2.MaxLength = 50;
             this.txtEmailId2.Name = "txtEmailId2";
             this.txtEmailId2.Size = new System.Drawing.Size(265, 23);
             this.txtEmailId2.TabIndex = 12;
             // 
-            // btnPrint
-            // 
-            this.btnPrint.BackColor = System.Drawing.Color.DarkMagenta;
-            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnPrint.Location = new System.Drawing.Point(1225, 425);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(90, 37);
-            this.btnPrint.TabIndex = 187;
-            this.btnPrint.Text = "Print";
-            this.btnPrint.UseVisualStyleBackColor = false;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
             // lblCategory
             // 
             this.lblCategory.AutoSize = true;
             this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategory.Location = new System.Drawing.Point(442, 425);
+            this.lblCategory.Location = new System.Drawing.Point(320, 65);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(65, 17);
             this.lblCategory.TabIndex = 179;
@@ -783,21 +726,10 @@ namespace NellaiBill.Master
             this.cmbCategory.Items.AddRange(new object[] {
             "India",
             "OutsideIndia"});
-            this.cmbCategory.Location = new System.Drawing.Point(517, 425);
+            this.cmbCategory.Location = new System.Drawing.Point(395, 65);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(160, 25);
             this.cmbCategory.TabIndex = 13;
-            // 
-            // chkIsActive
-            // 
-            this.chkIsActive.AutoSize = true;
-            this.chkIsActive.Location = new System.Drawing.Point(799, 390);
-            this.chkIsActive.Margin = new System.Windows.Forms.Padding(2);
-            this.chkIsActive.Name = "chkIsActive";
-            this.chkIsActive.Size = new System.Drawing.Size(56, 17);
-            this.chkIsActive.TabIndex = 7;
-            this.chkIsActive.Text = "Active";
-            this.chkIsActive.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
@@ -806,7 +738,7 @@ namespace NellaiBill.Master
             this.groupBox5.Controls.Add(this.chkEaster);
             this.groupBox5.Controls.Add(this.chkPongal);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(441, 260);
+            this.groupBox5.Location = new System.Drawing.Point(443, 217);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
@@ -863,49 +795,124 @@ namespace NellaiBill.Master
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(438, 362);
+            this.label11.Location = new System.Drawing.Point(6, 45);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(61, 17);
             this.label11.TabIndex = 188;
             this.label11.Text = "EmailId2";
+            // 
+            // pBtnNew
+            // 
+            this.pBtnNew.Image = global::NellaiBill.Properties.Resources.symbol_new1;
+            this.pBtnNew.Location = new System.Drawing.Point(803, 378);
+            this.pBtnNew.Name = "pBtnNew";
+            this.pBtnNew.Size = new System.Drawing.Size(47, 40);
+            this.pBtnNew.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBtnNew.TabIndex = 192;
+            this.pBtnNew.TabStop = false;
+            this.pBtnNew.Click += new System.EventHandler(this.pBtnNew_Click);
+            // 
+            // pBtnFilter
+            // 
+            this.pBtnFilter.Image = global::NellaiBill.Properties.Resources.symbol_filter;
+            this.pBtnFilter.Location = new System.Drawing.Point(1292, 378);
+            this.pBtnFilter.Name = "pBtnFilter";
+            this.pBtnFilter.Size = new System.Drawing.Size(47, 40);
+            this.pBtnFilter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBtnFilter.TabIndex = 191;
+            this.pBtnFilter.TabStop = false;
+            this.pBtnFilter.Click += new System.EventHandler(this.pBtnFilter_Click);
+            // 
+            // pBtnPrint
+            // 
+            this.pBtnPrint.Image = global::NellaiBill.Properties.Resources.symbol_print;
+            this.pBtnPrint.Location = new System.Drawing.Point(1239, 378);
+            this.pBtnPrint.Name = "pBtnPrint";
+            this.pBtnPrint.Size = new System.Drawing.Size(47, 40);
+            this.pBtnPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBtnPrint.TabIndex = 190;
+            this.pBtnPrint.TabStop = false;
+            this.pBtnPrint.Click += new System.EventHandler(this.pBtnPrint_Click);
+            // 
+            // pBtnDelete
+            // 
+            this.pBtnDelete.Image = global::NellaiBill.Properties.Resources.symbol_delete;
+            this.pBtnDelete.Location = new System.Drawing.Point(857, 378);
+            this.pBtnDelete.Name = "pBtnDelete";
+            this.pBtnDelete.Size = new System.Drawing.Size(47, 40);
+            this.pBtnDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBtnDelete.TabIndex = 189;
+            this.pBtnDelete.TabStop = false;
+            this.pBtnDelete.Click += new System.EventHandler(this.pBtnDelete_Click);
+            // 
+            // pBtnPrevious
+            // 
+            this.pBtnPrevious.Image = global::NellaiBill.Properties.Resources.symbol_previous;
+            this.pBtnPrevious.Location = new System.Drawing.Point(1069, 378);
+            this.pBtnPrevious.Name = "pBtnPrevious";
+            this.pBtnPrevious.Size = new System.Drawing.Size(47, 40);
+            this.pBtnPrevious.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBtnPrevious.TabIndex = 193;
+            this.pBtnPrevious.TabStop = false;
+            this.pBtnPrevious.Click += new System.EventHandler(this.pBtnPrevious_Click);
+            // 
+            // pBtnNext
+            // 
+            this.pBtnNext.Image = global::NellaiBill.Properties.Resources.symbol_next;
+            this.pBtnNext.Location = new System.Drawing.Point(1132, 378);
+            this.pBtnNext.Name = "pBtnNext";
+            this.pBtnNext.Size = new System.Drawing.Size(47, 40);
+            this.pBtnNext.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBtnNext.TabIndex = 194;
+            this.pBtnNext.TabStop = false;
+            this.pBtnNext.Click += new System.EventHandler(this.pBtnNext_Click);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label12);
+            this.groupBox6.Controls.Add(this.label15);
+            this.groupBox6.Controls.Add(this.txtReference);
+            this.groupBox6.Controls.Add(this.txtRelatedFiles);
+            this.groupBox6.Controls.Add(this.label5);
+            this.groupBox6.Controls.Add(this.label14);
+            this.groupBox6.Controls.Add(this.txtPanCard);
+            this.groupBox6.Controls.Add(this.label11);
+            this.groupBox6.Controls.Add(this.txtEmailId1);
+            this.groupBox6.Controls.Add(this.lblCategory);
+            this.groupBox6.Controls.Add(this.cmbCategory);
+            this.groupBox6.Controls.Add(this.txtEmailId2);
+            this.groupBox6.Location = new System.Drawing.Point(433, 276);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(559, 105);
+            this.groupBox6.TabIndex = 195;
+            this.groupBox6.TabStop = false;
             // 
             // DonorRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1368, 935);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.pBtnNext);
+            this.Controls.Add(this.pBtnPrevious);
+            this.Controls.Add(this.pBtnNew);
+            this.Controls.Add(this.pBtnFilter);
+            this.Controls.Add(this.pBtnPrint);
+            this.Controls.Add(this.pBtnDelete);
             this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.chkIsActive);
-            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.txtEmailId2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.rchRemarks);
-            this.Controls.Add(this.btnDonorFilter);
             this.Controls.Add(this.mbtnDonationDetails);
             this.Controls.Add(this.mbtnFDDetails);
-            this.Controls.Add(this.btnNew);
             this.Controls.Add(this.mbtnImportantDates);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.btnNext);
-            this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.btnPrev);
-            this.Controls.Add(this.lblCategory);
-            this.Controls.Add(this.txtEmailId1);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.txtPanCard);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnSaveUpdate);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtRelatedFiles);
-            this.Controls.Add(this.txtReference);
-            this.Controls.Add(this.label15);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DonorRegistration";
@@ -913,6 +920,7 @@ namespace NellaiBill.Master
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DonorRegistration_FormClosing);
             this.Load += new System.EventHandler(this.DonorRegistration_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DonorRegistration_KeyDown);
+            this.Leave += new System.EventHandler(this.DonorRegistration_Leave);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -924,6 +932,14 @@ namespace NellaiBill.Master
             this.groupBox1.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBtnNew)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBtnFilter)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBtnPrint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBtnDelete)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBtnPrevious)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pBtnNext)).EndInit();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -932,7 +948,6 @@ namespace NellaiBill.Master
         #endregion
 
         private System.Windows.Forms.Button btnSaveUpdate;
-        private System.Windows.Forms.Button btnDonorFilter;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox chkDonorWelfare;
         private System.Windows.Forms.CheckBox chkDonorThings;
@@ -974,9 +989,6 @@ namespace NellaiBill.Master
         private System.Windows.Forms.RichTextBox rchHomeAddress;
         private System.Windows.Forms.TextBox txtPanCard;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnPrev;
-        private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.RichTextBox rchRemarks;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblSearch;
@@ -990,15 +1002,20 @@ namespace NellaiBill.Master
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtEmailId2;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.ComboBox cmbCategory;
-        private System.Windows.Forms.CheckBox chkIsActive;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.CheckBox chkOthers;
         private System.Windows.Forms.CheckBox chkChristmas;
         private System.Windows.Forms.CheckBox chkEaster;
         private System.Windows.Forms.CheckBox chkPongal;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.PictureBox pBtnDelete;
+        private System.Windows.Forms.PictureBox pBtnPrint;
+        private System.Windows.Forms.PictureBox pBtnFilter;
+        private System.Windows.Forms.PictureBox pBtnNew;
+        private System.Windows.Forms.PictureBox pBtnPrevious;
+        private System.Windows.Forms.PictureBox pBtnNext;
+        private System.Windows.Forms.GroupBox groupBox6;
     }
 }
