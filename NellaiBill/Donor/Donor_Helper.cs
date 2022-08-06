@@ -32,8 +32,11 @@ namespace NellaiBill.Donor
             xFilterQry += donorSettingsModelResponse.SRPost == 1 ? "  and sr_post = " + donorSettingsModelResponse.SRPost : "";
             xFilterQry += donorSettingsModelResponse.SRVisitor == 1 ? "  and sr_visitor = " + donorSettingsModelResponse.SRVisitor : "";
             xFilterQry += donorSettingsModelResponse.SREmail == 1 ? "  and sr_email = " + donorSettingsModelResponse.SREmail : "";
+            xFilterQry += donorSettingsModelResponse.GreetingsPongal == 1 ? "  and greetings_pongal = " + donorSettingsModelResponse.GreetingsPongal : "";
+            xFilterQry += donorSettingsModelResponse.GreetingsEaster == 1 ? "  and greetings_easter = " + donorSettingsModelResponse.GreetingsEaster : "";
+            xFilterQry += donorSettingsModelResponse.GreetingsChristmas == 1 ? "  and greetings_christmas = " + donorSettingsModelResponse.GreetingsChristmas : "";
+            xFilterQry += donorSettingsModelResponse.GreetingsOthers == 1 ? "  and greetings_others = " + donorSettingsModelResponse.GreetingsOthers : "";
             return xFilterQry;
-
         }
     }
 

@@ -45,6 +45,10 @@ namespace NellaiBill.Models
         public int SREmail { get; set; }
         public int IsActive { get; set; }
         public string OtherDetails { get; set; }
+        public int GreetingsPongal { get; set; }
+        public int GreetingsEaster { get; set; }
+        public int GreetingsChristmas { get; set; }
+        public int GreetingsOthers { get; set; }
 
     }
 }

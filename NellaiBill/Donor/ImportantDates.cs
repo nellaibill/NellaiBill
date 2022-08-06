@@ -1,5 +1,7 @@
-﻿using NellaiBill.Models;
+﻿using DGVPrinterHelper;
+using NellaiBill.Models;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace NellaiBill.Donor
@@ -10,6 +12,7 @@ namespace NellaiBill.Donor
         int xFDonorId;
         int xPDonorImpDateId;
         GlobalClass globalClass = new GlobalClass();
+        DonorRegistrationResponseModel donorRegistrationResponse = new DonorRegistrationResponseModel();
         public DonorImportantDates(int xDonorId)
         {
             InitializeComponent();
@@ -62,7 +65,6 @@ namespace NellaiBill.Donor
         }
         private void DataFetch(int xDonorId)
         {
-            DonorRegistrationResponseModel donorRegistrationResponse = new DonorRegistrationResponseModel();
             donorRegistrationResponse = xDb.GetDonorRegistrationBasedOnQry(xDonorId);
             lblImportantDatesTitle.Text = "Important Dates for " + donorRegistrationResponse.Name; 
         }
@@ -103,6 +105,35 @@ namespace NellaiBill.Donor
             cmbOccasion.SelectedItem = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
             rchRemarks.Text= dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
             btnSaveUpdate.Text = "UPDATE";
+        }
+
+        private void pBtnImpDatesPrint_Click(object sender, EventArgs e)
+        {
+            DGVPrinter printer = new DGVPrinter();
+            printer.Title = "FD Details  Report" + donorRegistrationResponse.Name;
+            //printer.SubTitle = "An Easy to Use DataGridView Printing Object";
+            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit |
+                StringFormatFlags.NoClip;
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+            printer.Footer = "";
+            printer.FooterSpacing = 15;
+            // use saved settings
+            /*  if (null != myprintsettings)
+                  printer.PrintDocument.PrinterSettings = myprintsettings;
+              if (null != mypagesettings)
+                  printer.PrintDocument.DefaultPageSettings = mypagesettings;*/
+            if (DialogResult.OK == printer.DisplayPrintDialog())  // replace DisplayPrintDialog() 
+            // with your own print dialog
+            {
+                // save users' settings 
+                //   myprintsettings = printer.PrinterSettings;
+                //      mypagesettings = printer.PageSettings;
+                // print without displaying the printdialog
+                printer.PrintNoDisplay(dataGridView1);
+            }
         }
     }
 }

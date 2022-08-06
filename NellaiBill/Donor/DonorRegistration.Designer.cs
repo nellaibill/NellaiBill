@@ -85,8 +85,6 @@ namespace NellaiBill.Master
             this.label10 = new System.Windows.Forms.Label();
             this.txtEmailId2 = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.lblCategory = new System.Windows.Forms.Label();
-            this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.chkOthers = new System.Windows.Forms.CheckBox();
             this.chkChristmas = new System.Windows.Forms.CheckBox();
@@ -708,29 +706,6 @@ namespace NellaiBill.Master
             this.txtEmailId2.Size = new System.Drawing.Size(265, 23);
             this.txtEmailId2.TabIndex = 12;
             // 
-            // lblCategory
-            // 
-            this.lblCategory.AutoSize = true;
-            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategory.Location = new System.Drawing.Point(320, 65);
-            this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(65, 17);
-            this.lblCategory.TabIndex = 179;
-            this.lblCategory.Text = "Category";
-            // 
-            // cmbCategory
-            // 
-            this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Items.AddRange(new object[] {
-            "India",
-            "OutsideIndia"});
-            this.cmbCategory.Location = new System.Drawing.Point(395, 65);
-            this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(160, 25);
-            this.cmbCategory.TabIndex = 13;
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.chkOthers);
@@ -878,8 +853,6 @@ namespace NellaiBill.Master
             this.groupBox6.Controls.Add(this.txtPanCard);
             this.groupBox6.Controls.Add(this.label11);
             this.groupBox6.Controls.Add(this.txtEmailId1);
-            this.groupBox6.Controls.Add(this.lblCategory);
-            this.groupBox6.Controls.Add(this.cmbCategory);
             this.groupBox6.Controls.Add(this.txtEmailId2);
             this.groupBox6.Location = new System.Drawing.Point(433, 276);
             this.groupBox6.Name = "groupBox6";
@@ -1002,8 +975,6 @@ namespace NellaiBill.Master
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtEmailId2;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label lblCategory;
-        private System.Windows.Forms.ComboBox cmbCategory;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.CheckBox chkOthers;
         private System.Windows.Forms.CheckBox chkChristmas;

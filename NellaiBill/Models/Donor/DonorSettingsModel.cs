@@ -17,5 +17,9 @@
         public int SRPost { get; set; }
         public int SRVisitor { get; set; }
         public int SREmail { get; set; }
+        public int GreetingsPongal { get; set; }
+        public int GreetingsEaster { get; set; }
+        public int GreetingsChristmas { get; set; }
+        public int GreetingsOthers { get; set; }
     }
 }

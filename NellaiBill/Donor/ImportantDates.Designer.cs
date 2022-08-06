@@ -39,15 +39,17 @@ namespace NellaiBill.Donor
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblImportantDatesTitle = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.rchRemarks = new System.Windows.Forms.RichTextBox();
             this.dtImp = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.pBtnImpDatesPrint = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBtnImpDatesPrint)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSaveUpdate
@@ -144,6 +146,7 @@ namespace NellaiBill.Donor
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pBtnImpDatesPrint);
             this.groupBox1.Controls.Add(this.btnCancel);
             this.groupBox1.Controls.Add(this.rchRemarks);
             this.groupBox1.Controls.Add(this.dtImp);
@@ -161,6 +164,18 @@ namespace NellaiBill.Donor
             this.groupBox1.Size = new System.Drawing.Size(883, 204);
             this.groupBox1.TabIndex = 96;
             this.groupBox1.TabStop = false;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.Green;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnCancel.Location = new System.Drawing.Point(465, 127);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(92, 37);
+            this.btnCancel.TabIndex = 98;
+            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // rchRemarks
             // 
@@ -206,17 +221,16 @@ namespace NellaiBill.Donor
             this.panel3.Size = new System.Drawing.Size(887, 33);
             this.panel3.TabIndex = 95;
             // 
-            // btnCancel
+            // pBtnImpDatesPrint
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.Green;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnCancel.Location = new System.Drawing.Point(465, 127);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(92, 37);
-            this.btnCancel.TabIndex = 98;
-            this.btnCancel.Text = "CANCEL";
-            this.btnCancel.UseVisualStyleBackColor = false;
+            this.pBtnImpDatesPrint.Image = global::NellaiBill.Properties.Resources.symbol_print;
+            this.pBtnImpDatesPrint.Location = new System.Drawing.Point(576, 124);
+            this.pBtnImpDatesPrint.Name = "pBtnImpDatesPrint";
+            this.pBtnImpDatesPrint.Size = new System.Drawing.Size(47, 40);
+            this.pBtnImpDatesPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBtnImpDatesPrint.TabIndex = 193;
+            this.pBtnImpDatesPrint.TabStop = false;
+            this.pBtnImpDatesPrint.Click += new System.EventHandler(this.pBtnImpDatesPrint_Click);
             // 
             // DonorImportantDates
             // 
@@ -235,6 +249,7 @@ namespace NellaiBill.Donor
             this.groupBox1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBtnImpDatesPrint)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -257,5 +272,6 @@ namespace NellaiBill.Donor
         private System.Windows.Forms.RichTextBox rchRemarks;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.PictureBox pBtnImpDatesPrint;
     }
 }

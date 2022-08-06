@@ -45,8 +45,12 @@ namespace NellaiBill.Donor
             this.lblTotalCount = new System.Windows.Forms.Label();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.btnDataGridPrint = new System.Windows.Forms.Button();
+            this.radHomeAddress = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radOfficeAddress = new System.Windows.Forms.RadioButton();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -76,7 +80,7 @@ namespace NellaiBill.Donor
             this.btnLoadGrid.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btnLoadGrid.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoadGrid.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnLoadGrid.Location = new System.Drawing.Point(986, 40);
+            this.btnLoadGrid.Location = new System.Drawing.Point(731, 43);
             this.btnLoadGrid.Name = "btnLoadGrid";
             this.btnLoadGrid.Size = new System.Drawing.Size(94, 42);
             this.btnLoadGrid.TabIndex = 111;
@@ -88,7 +92,7 @@ namespace NellaiBill.Donor
             // 
             this.txtSearch.Location = new System.Drawing.Point(33, 66);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(441, 20);
+            this.txtSearch.Size = new System.Drawing.Size(275, 20);
             this.txtSearch.TabIndex = 182;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -97,11 +101,11 @@ namespace NellaiBill.Donor
             this.btnAddressPrint.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btnAddressPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddressPrint.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnAddressPrint.Location = new System.Drawing.Point(1160, 40);
+            this.btnAddressPrint.Location = new System.Drawing.Point(122, 21);
             this.btnAddressPrint.Name = "btnAddressPrint";
-            this.btnAddressPrint.Size = new System.Drawing.Size(147, 42);
+            this.btnAddressPrint.Size = new System.Drawing.Size(78, 34);
             this.btnAddressPrint.TabIndex = 183;
-            this.btnAddressPrint.Text = "AddressPrint";
+            this.btnAddressPrint.Text = "Print";
             this.btnAddressPrint.UseVisualStyleBackColor = false;
             this.btnAddressPrint.Click += new System.EventHandler(this.btnAddressPrint_Click);
             // 
@@ -131,7 +135,7 @@ namespace NellaiBill.Donor
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(725, 30);
+            this.label13.Location = new System.Drawing.Point(470, 33);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(57, 17);
             this.label13.TabIndex = 189;
@@ -146,7 +150,7 @@ namespace NellaiBill.Donor
             "All",
             "India",
             "OutsideIndia"});
-            this.cmbCountry.Location = new System.Drawing.Point(728, 55);
+            this.cmbCountry.Location = new System.Drawing.Point(473, 58);
             this.cmbCountry.Name = "cmbCountry";
             this.cmbCountry.Size = new System.Drawing.Size(159, 25);
             this.cmbCountry.TabIndex = 188;
@@ -165,7 +169,7 @@ namespace NellaiBill.Donor
             this.btnFilter.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btnFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFilter.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnFilter.Location = new System.Drawing.Point(894, 40);
+            this.btnFilter.Location = new System.Drawing.Point(639, 43);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(86, 42);
             this.btnFilter.TabIndex = 190;
@@ -177,7 +181,7 @@ namespace NellaiBill.Donor
             // 
             this.lblTotalCount.AutoSize = true;
             this.lblTotalCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalCount.Location = new System.Drawing.Point(493, 52);
+            this.lblTotalCount.Location = new System.Drawing.Point(353, 48);
             this.lblTotalCount.Name = "lblTotalCount";
             this.lblTotalCount.Size = new System.Drawing.Size(29, 31);
             this.lblTotalCount.TabIndex = 191;
@@ -188,7 +192,7 @@ namespace NellaiBill.Donor
             this.btnDataGridPrint.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btnDataGridPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDataGridPrint.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDataGridPrint.Location = new System.Drawing.Point(1086, 40);
+            this.btnDataGridPrint.Location = new System.Drawing.Point(831, 43);
             this.btnDataGridPrint.Name = "btnDataGridPrint";
             this.btnDataGridPrint.Size = new System.Drawing.Size(68, 42);
             this.btnDataGridPrint.TabIndex = 192;
@@ -196,18 +200,53 @@ namespace NellaiBill.Donor
             this.btnDataGridPrint.UseVisualStyleBackColor = false;
             this.btnDataGridPrint.Click += new System.EventHandler(this.btnDataGridPrint_Click);
             // 
+            // radHomeAddress
+            // 
+            this.radHomeAddress.AutoSize = true;
+            this.radHomeAddress.Checked = true;
+            this.radHomeAddress.Location = new System.Drawing.Point(6, 15);
+            this.radHomeAddress.Name = "radHomeAddress";
+            this.radHomeAddress.Size = new System.Drawing.Size(94, 17);
+            this.radHomeAddress.TabIndex = 193;
+            this.radHomeAddress.TabStop = true;
+            this.radHomeAddress.Text = "Home Address";
+            this.radHomeAddress.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radOfficeAddress);
+            this.groupBox1.Controls.Add(this.radHomeAddress);
+            this.groupBox1.Controls.Add(this.btnAddressPrint);
+            this.groupBox1.Location = new System.Drawing.Point(926, 31);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(207, 60);
+            this.groupBox1.TabIndex = 194;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Address Print";
+            // 
+            // radOfficeAddress
+            // 
+            this.radOfficeAddress.AutoSize = true;
+            this.radOfficeAddress.Location = new System.Drawing.Point(6, 38);
+            this.radOfficeAddress.Name = "radOfficeAddress";
+            this.radOfficeAddress.Size = new System.Drawing.Size(94, 17);
+            this.radOfficeAddress.TabIndex = 194;
+            this.radOfficeAddress.TabStop = true;
+            this.radOfficeAddress.Text = "Office Address";
+            this.radOfficeAddress.UseVisualStyleBackColor = true;
+            // 
             // DonorGeneralReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1405, 752);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnDataGridPrint);
             this.Controls.Add(this.lblTotalCount);
             this.Controls.Add(this.btnFilter);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.cmbCountry);
             this.Controls.Add(this.crystalReportViewer1);
-            this.Controls.Add(this.btnAddressPrint);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.dataGridView1);
@@ -219,6 +258,8 @@ namespace NellaiBill.Donor
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,5 +282,8 @@ namespace NellaiBill.Donor
         private System.Windows.Forms.Label lblTotalCount;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.Button btnDataGridPrint;
+        private System.Windows.Forms.RadioButton radHomeAddress;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton radOfficeAddress;
     }
 }

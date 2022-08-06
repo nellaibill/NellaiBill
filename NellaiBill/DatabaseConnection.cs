@@ -993,6 +993,10 @@ namespace NellaiBill
                         SRPost = reader.GetInt32("sr_post"),
                         SRVisitor = reader.GetInt32("sr_visitor"),
                         SREmail = reader.GetInt32("sr_email"),
+                        GreetingsPongal = reader.GetInt32("greetings_pongal"),
+                        GreetingsEaster = reader.GetInt32("greetings_easter"),
+                        GreetingsChristmas = reader.GetInt32("greetings_christmas"),
+                        GreetingsOthers = reader.GetInt32("greetings_others"),
                         IsActive = reader.GetInt32("is_active"),
                         OtherDetails = reader.GetString("other_details"),
                     };
@@ -1032,6 +1036,10 @@ namespace NellaiBill
                         SRPost = reader.GetInt32("sr_post"),
                         SRVisitor = reader.GetInt32("sr_visitor"),
                         SREmail = reader.GetInt32("sr_email"),
+                        GreetingsPongal = reader.GetInt32("greetings_pongal"),
+                        GreetingsEaster = reader.GetInt32("greetings_easter"),
+                        GreetingsChristmas = reader.GetInt32("greetings_christmas"),
+                        GreetingsOthers = reader.GetInt32("greetings_others"),
                     };
                 }
                 connection.Close();

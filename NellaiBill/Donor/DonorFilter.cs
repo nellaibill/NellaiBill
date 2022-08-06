@@ -1,13 +1,5 @@
-﻿using NellaiBill.Master;
-using NellaiBill.Models.Donor;
+﻿using NellaiBill.Models.Donor;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NellaiBill.Donor
@@ -38,7 +30,11 @@ namespace NellaiBill.Donor
                     " sr_ntc = " + globalClass.getInteger(chkSRNTC.Checked) + ", " +
                     " sr_post = " + globalClass.getInteger(chkSRPost.Checked) + ", " +
                     " sr_visitor = " + globalClass.getInteger(chkSRVisitor.Checked) + ", " +
-                    " sr_email = " + globalClass.getInteger(chkSREmail.Checked) + " " +
+                    " sr_email = " + globalClass.getInteger(chkSREmail.Checked) + ", " +
+                    " greetings_pongal = " + globalClass.getInteger(chkPongal.Checked) + ", " +
+                    " greetings_easter = " + globalClass.getInteger(chkEaster.Checked) + ", " +
+                    " greetings_christmas = " + globalClass.getInteger(chkChristmas.Checked) + ", " +
+                    " greetings_others = " + globalClass.getInteger(chkOthers.Checked) + " " +
                     " where  p_donor_settings_id= 1";
             xDb.DataProcess(xQry);
             MessageBox.Show("Saved/Updated");
@@ -72,6 +68,10 @@ namespace NellaiBill.Donor
             chkSREmail.Checked = globalClass.getBoolean(donorSettingsModelResponse.SREmail);
             chkSRPost.Checked = globalClass.getBoolean(donorSettingsModelResponse.SRPost);
             chkSRVisitor.Checked = globalClass.getBoolean(donorSettingsModelResponse.SRVisitor);
+            chkPongal.Checked = globalClass.getBoolean(donorSettingsModelResponse.GreetingsPongal);
+            chkEaster.Checked = globalClass.getBoolean(donorSettingsModelResponse.GreetingsEaster);
+            chkChristmas.Checked = globalClass.getBoolean(donorSettingsModelResponse.GreetingsChristmas);
+            chkOthers.Checked = globalClass.getBoolean(donorSettingsModelResponse.GreetingsOthers);
         }
 
         private void btnSelectAllCheckBox_Click(object sender, EventArgs e)
@@ -90,6 +90,10 @@ namespace NellaiBill.Donor
             chkSREmail.Checked = true;
             chkSRPost.Checked = true;
             chkSRVisitor.Checked = true;
+            chkPongal.Checked = true;
+            chkEaster.Checked = true;
+            chkChristmas.Checked = true;
+            chkOthers.Checked = true;
         }
 
         private void btnDeSelectAllCheckBox_Click(object sender, EventArgs e)
@@ -108,6 +112,10 @@ namespace NellaiBill.Donor
             chkSREmail.Checked = false;
             chkSRPost.Checked = false;
             chkSRVisitor.Checked = false;
+            chkPongal.Checked = false;
+            chkEaster.Checked = false;
+            chkChristmas.Checked = false;
+            chkOthers.Checked = false;
         }
 
     }

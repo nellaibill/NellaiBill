@@ -56,6 +56,7 @@ namespace NellaiBill.Donor
 
         private void LoadGrid()
         {
+            xFilterQry = "";
             string xQry;
             //int xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
             string xCountryName = cmbCountry.SelectedItem.ToString();
@@ -77,7 +78,6 @@ namespace NellaiBill.Donor
             if (xFormName == "CategoryReport")
             {
                 xQry = "select p_donor_id as Id," +
-                            "c.category_name as CategoryName," +
                             "donor_name as Name," +
                             "CONCAT(address_line1, '-', address_line2) as Address," +
                             "state as State," +
@@ -244,9 +244,17 @@ namespace NellaiBill.Donor
 
             Donor_Helper donor_Helper = new Donor_Helper();
             xFilterPrintViewQry += donor_Helper.GetDonorFilterQry();
+            string xPath = globalClass.GetReportPath() + "rptDonorAddress.rpt";
+            if (radHomeAddress.Checked)
+            {
+                xPath = globalClass.GetReportPath() + "rptDonorAddress.rpt";
+            }
 
-            string path = globalClass.GetReportPath() + "rptDonorAddress.rpt";
-            cryRpt.Load(path);
+            if (radOfficeAddress.Checked)
+            {
+                xPath = globalClass.GetReportPath() + "rptDonorOfficeAddress.rpt";
+            }
+            cryRpt.Load(xPath);
             cryRpt.SetParameterValue("xFilterQry", xFilterPrintViewQry);
             crystalReportViewer1.ReportSource = cryRpt;
             crystalReportViewer1.Refresh();

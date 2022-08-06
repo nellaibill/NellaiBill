@@ -93,9 +93,7 @@
             this.purchaseReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.stockDetailsBetweenDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scheduleHReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.donorRegistrationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.donorCategoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.donorRegistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.donorReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoryReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panCardReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -195,7 +193,7 @@
             this.toolStripPurchaseMenu,
             this.toolStripSalesMenu,
             this.toolStripReportsMenu,
-            this.homeToolStripMenuItem,
+            this.donorRegistrationToolStripMenuItem,
             this.donorReportToolStripMenuItem,
             this.toolStripBackUp,
             this.toolStripMinimize,
@@ -666,29 +664,13 @@
             this.scheduleHReportToolStripMenuItem.Text = "ScheduleHReport";
             this.scheduleHReportToolStripMenuItem.Click += new System.EventHandler(this.scheduleHReportToolStripMenuItem_Click);
             // 
-            // homeToolStripMenuItem
+            // donorRegistrationToolStripMenuItem
             // 
-            this.homeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.donorRegistrationToolStripMenuItem1,
-            this.donorCategoryToolStripMenuItem});
-            this.homeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(68, 25);
-            this.homeToolStripMenuItem.Text = "Home";
-            // 
-            // donorRegistrationToolStripMenuItem1
-            // 
-            this.donorRegistrationToolStripMenuItem1.Name = "donorRegistrationToolStripMenuItem1";
-            this.donorRegistrationToolStripMenuItem1.Size = new System.Drawing.Size(226, 26);
-            this.donorRegistrationToolStripMenuItem1.Text = "Donor-Registration";
-            this.donorRegistrationToolStripMenuItem1.Click += new System.EventHandler(this.donorRegistrationToolStripMenuItem1_Click);
-            // 
-            // donorCategoryToolStripMenuItem
-            // 
-            this.donorCategoryToolStripMenuItem.Name = "donorCategoryToolStripMenuItem";
-            this.donorCategoryToolStripMenuItem.Size = new System.Drawing.Size(226, 26);
-            this.donorCategoryToolStripMenuItem.Text = "Donor-Category";
-            this.donorCategoryToolStripMenuItem.Click += new System.EventHandler(this.donorCategoryToolStripMenuItem_Click);
+            this.donorRegistrationToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.donorRegistrationToolStripMenuItem.Name = "donorRegistrationToolStripMenuItem";
+            this.donorRegistrationToolStripMenuItem.Size = new System.Drawing.Size(163, 25);
+            this.donorRegistrationToolStripMenuItem.Text = "DonorRegistration";
+            this.donorRegistrationToolStripMenuItem.Click += new System.EventHandler(this.donorRegistrationToolStripMenuItem_Click);
             // 
             // donorReportToolStripMenuItem
             // 
@@ -707,7 +689,7 @@
             // 
             this.categoryReportToolStripMenuItem.Name = "categoryReportToolStripMenuItem";
             this.categoryReportToolStripMenuItem.Size = new System.Drawing.Size(268, 26);
-            this.categoryReportToolStripMenuItem.Text = "Category-Report";
+            this.categoryReportToolStripMenuItem.Text = "General-Report";
             this.categoryReportToolStripMenuItem.Click += new System.EventHandler(this.categoryReportToolStripMenuItem_Click);
             // 
             // panCardReportToolStripMenuItem
@@ -978,9 +960,7 @@
         internal System.Windows.Forms.ToolStripMenuItem LogoutToolStripMenuItem;
         internal System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel3;
         private System.Windows.Forms.ToolStripMenuItem donorReportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem donorRegistrationToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem donorCategoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem donorRegistrationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categoryReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem panCardReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem impDatesReportToolStripMenuItem;

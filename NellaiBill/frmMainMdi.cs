@@ -1,8 +1,5 @@
-﻿using MySql.Data;
-using MySql.Data.MySqlClient;
-using NellaiBill.Accounts;
+﻿using NellaiBill.Accounts;
 using NellaiBill.Common;
-using NellaiBill.Don;
 using NellaiBill.Donor;
 using NellaiBill.Master;
 using NellaiBill.Models;
@@ -12,13 +9,6 @@ using NellaiBill.Transaction.IP;
 using NellaiBill.Transaction.LAB;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NellaiBill
@@ -47,7 +37,7 @@ namespace NellaiBill
                 toolStripSalesMenu.Visible = false;
                 toolStripReportsMenu.Visible = false;
                 stockAdjustmentToolStripMenuItem.Visible = false;
-                CommonFormControls(new DonorRegistration());
+                CommonFormControls(new DonorGeneralReport("CategoryReport"));
             }
             else if (configResponseModel.IsHms == "NO")
             {
@@ -461,7 +451,9 @@ namespace NellaiBill
 
         private void donorRegistrationToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            CommonFormControls(new DonorRegistration());
+            //CommonFormControls(new DonorRegistration());
+            DonorRegistration donorRegistration = new DonorRegistration();
+            donorRegistration.ShowDialog();
         }
 
         private void donorCategoryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -492,6 +484,12 @@ namespace NellaiBill
         private void donationDetailsReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CommonFormControls(new DonorGeneralReport("DonationDetailsReport"));
+        }
+
+        private void donorRegistrationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DonorRegistration donorRegistration = new DonorRegistration();
+            donorRegistration.ShowDialog();
         }
     }
 }

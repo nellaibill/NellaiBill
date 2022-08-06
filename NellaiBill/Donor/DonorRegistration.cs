@@ -29,7 +29,7 @@ namespace NellaiBill.Master
                 return;
             }
             string xDeleteString = "";
-            int xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
+            int xCategoryId = 1;// Int32.Parse(cmbCategory.SelectedValue.ToString());
             if (btnSaveUpdate.Text == "SAVE")
             {
 
@@ -39,7 +39,7 @@ namespace NellaiBill.Master
                     "reference,related_files,pancard,category_id,notes," +
                     "donor_annual,donor_endowment,donor_things,donor_welfare," +
                     "support_cs,support_fs,support_bs,support_cloth,support_other," +
-                    "sr_ooc,sr_ntc,sr_post,sr_visitor,sr_email,is_active) " +
+                    "sr_ooc,sr_ntc,sr_post,sr_visitor,sr_email) " +
                     " values ( '" + txtName.Text + "'," +
                     "'" + rchHomeAddress.Text + "'," +
                     "'" + rchOfficeAddress.Text + "'," +
@@ -70,7 +70,11 @@ namespace NellaiBill.Master
                     "'" + globalClass.getInteger(chkSRNTC.Checked) + "'," +
                     "'" + globalClass.getInteger(chkSRPost.Checked) + "'," +
                     "'" + globalClass.getInteger(chkSRVisitor.Checked) + "'," +
-                    "'" + globalClass.getInteger(chkSREmail.Checked) + "')";
+                    "'" + globalClass.getInteger(chkSREmail.Checked) + "'," +
+                    "'" + globalClass.getInteger(chkPongal.Checked) + "'," +
+                    "'" + globalClass.getInteger(chkEaster.Checked) + "'," +
+                    "'" + globalClass.getInteger(chkChristmas.Checked) + "'," +
+                    "'" + globalClass.getInteger(chkOthers.Checked) + "')";
             }
             else
             {
@@ -105,7 +109,11 @@ namespace NellaiBill.Master
                     " sr_ntc = " + globalClass.getInteger(chkSRNTC.Checked) + ", " +
                     " sr_post = " + globalClass.getInteger(chkSRPost.Checked) + ", " +
                     " sr_visitor = " + globalClass.getInteger(chkSRVisitor.Checked) + ", " +
-                    " sr_email = " + globalClass.getInteger(chkSREmail.Checked) + " " +
+                    " sr_email = " + globalClass.getInteger(chkSREmail.Checked) + ", " +
+                    " greetings_pongal = " + globalClass.getInteger(chkPongal.Checked) + ", " +
+                    " greetings_easter = " + globalClass.getInteger(chkEaster.Checked) + ", " +
+                    " greetings_christmas = " + globalClass.getInteger(chkChristmas.Checked) + ", " +
+                    " greetings_others = " + globalClass.getInteger(chkOthers.Checked) + " " +
                     " where  p_donor_id= " + xDonorId + "";
             }
             xDb.DataProcess(xQry);
@@ -176,7 +184,7 @@ namespace NellaiBill.Master
 
         private void DonorRegistration_Load(object sender, EventArgs e)
         {
-            xDb.LoadComboBox("select category_id,category_name from m_category", cmbCategory, "category_id", "category_name");
+           // xDb.LoadComboBox("select category_id,category_name from m_category", cmbCategory, "category_id", "category_name");
             DataClear();
             LoadGrid();
         }
@@ -209,7 +217,7 @@ namespace NellaiBill.Master
             txtRelatedFiles.Text = donorRegistrationResponse.RelatedFiles;
             rchRemarks.Text = donorRegistrationResponse.Notes;
             txtPanCard.Text = donorRegistrationResponse.PanCard;
-            cmbCategory.Text = donorRegistrationResponse.CategoryName;
+            //cmbCategory.Text = donorRegistrationResponse.CategoryName;
             chkDonorAnnual.Checked = globalClass.getBoolean(donorRegistrationResponse.DonorAnnual);
             chkDonorEndowment.Checked = globalClass.getBoolean(donorRegistrationResponse.DonorEndowment);
             chkDonorThings.Checked = globalClass.getBoolean(donorRegistrationResponse.DonorThings);
@@ -224,6 +232,10 @@ namespace NellaiBill.Master
             chkSREmail.Checked = globalClass.getBoolean(donorRegistrationResponse.SREmail);
             chkSRPost.Checked = globalClass.getBoolean(donorRegistrationResponse.SRPost);
             chkSRVisitor.Checked = globalClass.getBoolean(donorRegistrationResponse.SRVisitor);
+            chkPongal.Checked = globalClass.getBoolean(donorRegistrationResponse.GreetingsPongal);
+            chkEaster.Checked = globalClass.getBoolean(donorRegistrationResponse.GreetingsEaster);
+            chkChristmas.Checked = globalClass.getBoolean(donorRegistrationResponse.GreetingsChristmas);
+            chkOthers.Checked = globalClass.getBoolean(donorRegistrationResponse.GreetingsOthers);
         }
 
         private void mBtnNew_Click(object sender, EventArgs e)
@@ -324,15 +336,23 @@ namespace NellaiBill.Master
 
         private void DonorRegistration_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //DialogResult res = MessageBox.Show("Are you sure you want to close the form", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            //if (res == DialogResult.OK)
-            //{
+            //In case windows is trying to shut down, don't hold the process up
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
 
-            //}
-            //if (res == DialogResult.Cancel)
-            //{
-            //    return;
-            //}
+            if (this.DialogResult == DialogResult.Cancel)
+            {
+                // Assume that X has been clicked and act accordingly.
+                // Confirm user wants to close
+                switch (MessageBox.Show(this, "Are you sure?", "Do you want to close", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    //Stay on this form
+                    case DialogResult.No:
+                        e.Cancel = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
 
@@ -410,7 +430,7 @@ namespace NellaiBill.Master
 
         private void DonorRegistration_Leave(object sender, EventArgs e)
         {
-            MessageBox.Show("Leaving");
+           // MessageBox.Show("Leaving");
         }
     }
 }

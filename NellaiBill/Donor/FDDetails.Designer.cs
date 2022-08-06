@@ -39,16 +39,18 @@ namespace NellaiBill.Donor
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtAmount = new System.Windows.Forms.NumericUpDown();
             this.txtPurpose = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.rchRemarks = new System.Windows.Forms.RichTextBox();
             this.dtpFDDate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pBtnFDDetailsPrint = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBtnFDDetailsPrint)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSaveUpdate
@@ -72,7 +74,6 @@ namespace NellaiBill.Donor
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 33;
             this.label1.Text = "Purpose";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtBank
             // 
@@ -130,6 +131,7 @@ namespace NellaiBill.Donor
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pBtnFDDetailsPrint);
             this.groupBox1.Controls.Add(this.btnSaveUpdate);
             this.groupBox1.Controls.Add(this.txtAmount);
             this.groupBox1.Controls.Add(this.txtPurpose);
@@ -152,7 +154,7 @@ namespace NellaiBill.Donor
             // txtAmount
             // 
             this.txtAmount.Location = new System.Drawing.Point(180, 41);
-            this.txtAmount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAmount.Margin = new System.Windows.Forms.Padding(2);
             this.txtAmount.Maximum = new decimal(new int[] {
             1410065407,
             2,
@@ -172,6 +174,19 @@ namespace NellaiBill.Donor
             this.txtPurpose.TabIndex = 4;
             this.txtPurpose.TextChanged += new System.EventHandler(this.txtPurpose_TextChanged);
             // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.Green;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnCancel.Location = new System.Drawing.Point(343, 142);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(92, 37);
+            this.btnCancel.TabIndex = 7;
+            this.btnCancel.Text = "CANCEL";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // rchRemarks
             // 
             this.rchRemarks.Location = new System.Drawing.Point(17, 102);
@@ -184,7 +199,7 @@ namespace NellaiBill.Donor
             // dtpFDDate
             // 
             this.dtpFDDate.Location = new System.Drawing.Point(16, 40);
-            this.dtpFDDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpFDDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpFDDate.Name = "dtpFDDate";
             this.dtpFDDate.Size = new System.Drawing.Size(151, 20);
             this.dtpFDDate.TabIndex = 1;
@@ -210,19 +225,6 @@ namespace NellaiBill.Donor
             this.label2.Text = "Date";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.Green;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnCancel.Location = new System.Drawing.Point(343, 142);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(92, 37);
-            this.btnCancel.TabIndex = 7;
-            this.btnCancel.Text = "CANCEL";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DarkMagenta;
@@ -234,6 +236,17 @@ namespace NellaiBill.Donor
             this.panel3.TabIndex = 100;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
+            // pBtnFDDetailsPrint
+            // 
+            this.pBtnFDDetailsPrint.Image = global::NellaiBill.Properties.Resources.symbol_print;
+            this.pBtnFDDetailsPrint.Location = new System.Drawing.Point(472, 139);
+            this.pBtnFDDetailsPrint.Name = "pBtnFDDetailsPrint";
+            this.pBtnFDDetailsPrint.Size = new System.Drawing.Size(47, 40);
+            this.pBtnFDDetailsPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pBtnFDDetailsPrint.TabIndex = 192;
+            this.pBtnFDDetailsPrint.TabStop = false;
+            this.pBtnFDDetailsPrint.Click += new System.EventHandler(this.pBtnFDDetailsPrint_Click);
+            // 
             // FDDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -242,7 +255,7 @@ namespace NellaiBill.Donor
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel3);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FDDetails";
             this.Text = "FDDetails";
             this.Load += new System.EventHandler(this.FDDetails_Load);
@@ -252,6 +265,7 @@ namespace NellaiBill.Donor
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pBtnFDDetailsPrint)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -274,5 +288,6 @@ namespace NellaiBill.Donor
         internal System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtPurpose;
         private System.Windows.Forms.NumericUpDown txtAmount;
+        private System.Windows.Forms.PictureBox pBtnFDDetailsPrint;
     }
 }
