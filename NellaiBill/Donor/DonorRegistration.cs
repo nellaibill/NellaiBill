@@ -39,7 +39,7 @@ namespace NellaiBill.Master
                     "reference,related_files,pancard,category_id,notes," +
                     "donor_annual,donor_endowment,donor_things,donor_welfare," +
                     "support_cs,support_fs,support_bs,support_cloth,support_other," +
-                    "sr_ooc,sr_ntc,sr_post,sr_visitor,sr_email) " +
+                    "sr_ooc,sr_ntc,sr_post,sr_visitor,sr_email,greetings_pongal,greetings_easter,greetings_christmas,greetings_others) " +
                     " values ( '" + txtName.Text + "'," +
                     "'" + rchHomeAddress.Text + "'," +
                     "'" + rchOfficeAddress.Text + "'," +

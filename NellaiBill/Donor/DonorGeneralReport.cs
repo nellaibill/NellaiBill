@@ -214,7 +214,7 @@ namespace NellaiBill.Donor
         }
         private int  GetDataGridCount()
         {
-            int xCount = 1;
+            int xCount = 0;
             for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
             {
                 xCount += 1;

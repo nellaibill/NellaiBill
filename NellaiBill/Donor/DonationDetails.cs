@@ -112,7 +112,7 @@ namespace NellaiBill.Donor
         private void pBtnDonationDetailsPrint_Click(object sender, EventArgs e)
         {
             DGVPrinter printer = new DGVPrinter();
-            printer.Title = "Donation Details  Report" + donorRegistrationResponse.Name;
+            printer.Title = "Donation Report " + donorRegistrationResponse.Name;
             //printer.SubTitle = "An Easy to Use DataGridView Printing Object";
             printer.SubTitleFormatFlags = StringFormatFlags.LineLimit |
                 StringFormatFlags.NoClip;
