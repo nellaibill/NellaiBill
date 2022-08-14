@@ -79,12 +79,12 @@ namespace NellaiBill.Donor
             {
                 xQry = "select p_donor_id as Id," +
                             "donor_name as Name," +
-                            "CONCAT(address_line1, '-', address_line2) as Address," +
+                            "CONCAT(address_line1, '/', address_line2) as Address," +
                             "state as State," +
                             "country as Country," +
-                            "CONCAT(phone_no1, '-', phone_no2) as PhoneNo," +
-                            "CONCAT(landline_no1, '-', landline_no2) as LandLineNo," +
-                            "CONCAT(email_id1, '-', email_id2) as EmailId," +
+                            "CONCAT(phone_no1, '/', phone_no2) as PhoneNo," +
+                            "CONCAT(landline_no1, '/', landline_no2) as LandLineNo," +
+                            "CONCAT(email_id1, '/', email_id2) as EmailId," +
                             "donor_file_name as DonorFileName, " +
                             "reference as Reference, " +
                             "related_files as RelatedFiles " +
@@ -115,12 +115,12 @@ namespace NellaiBill.Donor
                                       "c.category_name as CategoryName," +
                                       "donor_name as Name," +
                                       "pancard as PanCard," +
-                                      "CONCAT(address_line1, '-', address_line2) as Address," +
+                                      "CONCAT(address_line1, '/', address_line2) as Address," +
                                       "state as State," +
                                       "country as Country," +
-                                      "CONCAT(phone_no1, '-', phone_no2) as PhoneNo," +
-                                      "CONCAT(landline_no1, '-', landline_no2) as LandLineNo," +
-                                      "CONCAT(email_id1, '-', email_id2) as EmailId," +
+                                      "CONCAT(phone_no1, '/', phone_no2) as PhoneNo," +
+                                      "CONCAT(landline_no1, '/', landline_no2) as LandLineNo," +
+                                      "CONCAT(email_id1, '/', email_id2) as EmailId," +
                                       "donor_file_name as DonorFileName, " +
                                       "reference as Reference, " +
                                       "related_files as RelatedFiles " +

@@ -28,7 +28,21 @@ namespace NellaiBill
             lblUserType.Text = xUserName;
             categoryToolStripMenuItem.Visible = false;
             ConfigResponseModel configResponseModel = xDb.GetConfig();
-            if (configResponseModel.IsDonor == "YES"  && configResponseModel.IsHms == "NO" && configResponseModel.IsAccounts == "NO")
+            // if (true)
+            // {
+            //     donorRegistrationToolStripMenuItem.Visible = false;
+            //     donorReportToolStripMenuItem.Visible = false;
+            //     toolStripMasterMenu.Visible = true;
+            //     toolStripAccountsMenu.Visible = true;
+            //     toolStripHMSMenu.Visible = false;
+            //     toolStripPurchaseMenu.Visible = true;
+            //     toolStripSalesMenu.Visible = true;
+            //     toolStripReportsMenu.Visible = true;
+            //     stockAdjustmentToolStripMenuItem.Visible = true;
+            //     //CommonFormControls(new DonorGeneralReport("CategoryReport"));
+            // }
+            //else
+            if (configResponseModel.IsDonor == "YES" && configResponseModel.IsHms == "NO" && configResponseModel.IsAccounts == "NO")
             {
                 toolStripMasterMenu.Visible = false;
                 toolStripAccountsMenu.Visible = false;
@@ -49,7 +63,7 @@ namespace NellaiBill
                 caseTypeMasterToolStripMenuItem.Visible = false;
                 roomMasterToolStripMenuItem.Visible = false;
                 iPFeesMasterToolStripMenuItem.Visible = false;
-                
+
                 toolStripHMSMenu.Visible = false;
                 oPSummaryReportToolStripMenuItem.Visible = false;
                 scanSummaryToolStripMenuItem.Visible = false;
@@ -59,7 +73,7 @@ namespace NellaiBill
                 ecgXraySummaryReportToolStripMenuItem.Visible = false;
                 patientInformationReportToolStripMenuItem.Visible = false;
                 userMasterToolStripMenuItem.Visible = false;
-               // stockAdjustmentToolStripMenuItem.Visible = false;
+                // stockAdjustmentToolStripMenuItem.Visible = false;
                 toolStripSeparator1.Visible = false;
                 toolStripSeparator2.Visible = false;
                 CommonFormControls(new SalesEntry());
@@ -128,14 +142,14 @@ namespace NellaiBill
             xForm.TopLevel = false;
             xForm.ControlBox = false;
             xForm.Dock = DockStyle.Fill;
-           // xForm.BackColor = Color.Aqua;
+            // xForm.BackColor = Color.Aqua;
             xForm.FormBorderStyle = FormBorderStyle.None;
 
             /*I assume this code is in your ParentForm and so 'this' points to ParentForm that contains ContainerPanel*/
             this.ContainerPanel.Controls.Add(xForm);
             xForm.WindowState = FormWindowState.Maximized;
             xForm.AutoScroll = true;
-           // xForm.MdiParent = this;
+            // xForm.MdiParent = this;
             xForm.Show();
         }
         private void companyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -207,7 +221,7 @@ namespace NellaiBill
         {
             CommonFormControls(new ScanFeesMaster());
         }
-     
+
         private void iPFeesMasterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CommonFormControls(new IPFeesMaster());
@@ -292,7 +306,7 @@ namespace NellaiBill
             CommonFormControls(new StockReport());
         }
 
-       
+
         private void patientInformationReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CommonFormControls(new PatientList());
@@ -314,9 +328,9 @@ namespace NellaiBill
         }
         private void auditorDiagnosisSummaryReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-         CommonFormControls(new DiagnosisDateWiseSummaryReport());  
+            CommonFormControls(new DiagnosisDateWiseSummaryReport());
         }
-  
+
         private void iPConsolidatedReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CommonFormControls(new IpInvoiceReport());
@@ -336,7 +350,7 @@ namespace NellaiBill
         {
             CommonFormControls(new LabSummaryReport());
         }
-       
+
         private void iPDISCHARGESUMMARYToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CommonFormControls(new IPDischargeSummary());
@@ -347,7 +361,7 @@ namespace NellaiBill
             CommonFormControls(new Backup());
         }
 
-        
+
 
         private void stockAdjustmentToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
@@ -390,7 +404,7 @@ namespace NellaiBill
         private void MSWordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("winword.exe");
-            
+
         }
 
         private void TaskManagerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -493,4 +507,3 @@ namespace NellaiBill
         }
     }
 }
-                               

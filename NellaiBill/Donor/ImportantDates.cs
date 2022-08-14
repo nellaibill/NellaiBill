@@ -61,7 +61,7 @@ namespace NellaiBill.Donor
             xDb.DataProcess(xQry);
             MessageBox.Show("Saved/Updated");
             LoadGrid();
-            DataClear();
+            //DataClear(); //Commented out to persist the data
         }
         private void DataFetch(int xDonorId)
         {
