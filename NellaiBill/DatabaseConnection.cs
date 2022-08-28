@@ -975,6 +975,7 @@ namespace NellaiBill
                         DonorFileName = reader.GetString("donor_file_name"),
                         Reference = reader.GetString("reference"),
                         Notes = reader.GetString("notes"),
+                        SpecialDetails = reader.GetString("special_details"),
                         RelatedFiles = reader.GetString("related_files"),
                         CategoryId = reader.GetInt32("category_id"),
                         CategoryName = GetCategoryFromCategoryId(reader.GetInt32("category_id")),

@@ -23,6 +23,7 @@ namespace NellaiBill.Models
         public string DonorFileName { get; set; }
         public string Reference { get; set; }
         public string Notes { get; set; }
+        public string SpecialDetails { get; set; }
         public string RelatedFiles { get; set; }
 
         public int CategoryId { get; set; }

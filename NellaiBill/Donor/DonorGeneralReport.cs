@@ -80,7 +80,6 @@ namespace NellaiBill.Donor
                 xQry = "select p_donor_id as Id," +
                             "donor_name as Name," +
                             "CONCAT(address_line1, '/', address_line2) as Address," +
-                            "state as State," +
                             "country as Country," +
                             "CONCAT(phone_no1, '/', phone_no2) as PhoneNo," +
                             "CONCAT(landline_no1, '/', landline_no2) as LandLineNo," +
@@ -107,7 +106,6 @@ namespace NellaiBill.Donor
                 dataGridView1.Columns[7].Width = 250;
                 dataGridView1.Columns[8].Width = 250;
                 dataGridView1.Columns[9].Width = 250;
-                dataGridView1.Columns[10].Width = 250;
             }
             else if (xFormName == "PanCardReport")
             {
@@ -116,7 +114,6 @@ namespace NellaiBill.Donor
                                       "donor_name as Name," +
                                       "pancard as PanCard," +
                                       "CONCAT(address_line1, '/', address_line2) as Address," +
-                                      "state as State," +
                                       "country as Country," +
                                       "CONCAT(phone_no1, '/', phone_no2) as PhoneNo," +
                                       "CONCAT(landline_no1, '/', landline_no2) as LandLineNo," +
@@ -142,7 +139,6 @@ namespace NellaiBill.Donor
                 dataGridView1.Columns[7].Width = 250;
                 dataGridView1.Columns[8].Width = 250;
                 dataGridView1.Columns[9].Width = 250;
-                dataGridView1.Columns[10].Width = 250;
             }
             else if (xFormName == "FDReport")
             {

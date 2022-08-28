@@ -32,11 +32,10 @@ namespace NellaiBill.Master
             int xCategoryId = 1;// Int32.Parse(cmbCategory.SelectedValue.ToString());
             if (btnSaveUpdate.Text == "SAVE")
             {
-
                 xQry = "insert into lukes_donor_registration (`donor_name`, `address_line1`, `address_line2`," +
                     "state,country,phone_no1,phone_no2,landline_no1,landline_no2," +
                     "donor_file_name,email_id1,email_id2," +
-                    "reference,related_files,pancard,category_id,notes," +
+                    "reference,related_files,pancard,category_id,notes,special_details," +
                     "donor_annual,donor_endowment,donor_things,donor_welfare," +
                     "support_cs,support_fs,support_bs,support_cloth,support_other," +
                     "sr_ooc,sr_ntc,sr_post,sr_visitor,sr_email,greetings_pongal,greetings_easter,greetings_christmas,greetings_others) " +
@@ -57,6 +56,7 @@ namespace NellaiBill.Master
                     "'" + txtPanCard.Text + "'," +
                     "" + xCategoryId + "," +
                     "'" + rchRemarks.Text + "'," +
+                    "'" + txtSpecialDetails.Text + "'," +
                     "'" + globalClass.getInteger(chkDonorAnnual.Checked) + "'," +
                     "'" + globalClass.getInteger(chkDonorEndowment.Checked) + "'," +
                     "'" + globalClass.getInteger(chkDonorThings.Checked) + "'," +
@@ -75,6 +75,11 @@ namespace NellaiBill.Master
                     "'" + globalClass.getInteger(chkEaster.Checked) + "'," +
                     "'" + globalClass.getInteger(chkChristmas.Checked) + "'," +
                     "'" + globalClass.getInteger(chkOthers.Checked) + "')";
+
+                xDb.DataProcess(xQry);
+                MessageBox.Show("Saved");
+                LoadGrid();
+                DataClear();
             }
             else
             {
@@ -96,6 +101,7 @@ namespace NellaiBill.Master
                     " pancard = '" + txtPanCard.Text + "', " +
                     " category_id = " + xCategoryId + ", " +
                     " notes = '" + rchRemarks.Text + "', " +
+                    " special_details = '" + txtSpecialDetails.Text + "', " +
                     " donor_annual = " + globalClass.getInteger(chkDonorAnnual.Checked) + ", " +
                     " donor_endowment = " + globalClass.getInteger(chkDonorEndowment.Checked) + ", " +
                     " donor_things = " + globalClass.getInteger(chkDonorThings.Checked) + ", " +
@@ -115,11 +121,9 @@ namespace NellaiBill.Master
                     " greetings_christmas = " + globalClass.getInteger(chkChristmas.Checked) + ", " +
                     " greetings_others = " + globalClass.getInteger(chkOthers.Checked) + " " +
                     " where  p_donor_id= " + xDonorId + "";
+                xDb.DataProcess(xQry);
+                MessageBox.Show("Updated");
             }
-            xDb.DataProcess(xQry);
-            MessageBox.Show("Saved/Updated");
-            LoadGrid();
-            DataClear();
         }
         public void RefreshGrid()
         {
@@ -139,7 +143,7 @@ namespace NellaiBill.Master
                 "CONCAT(address_line1) as HomeAddress," +
                 "CONCAT(address_line2) as OfficeAddress," +
                 "notes as  Notes," +
-                "CONCAT(state, '-', country) as StateCountry," +
+                "CONCAT(country) as Country," +
                 "CONCAT(phone_no1, '-', phone_no2) as PhoneNo," +
                 "CONCAT(landline_no1, '-', landline_no2) as LandlineNo," +
                 "CONCAT(email_id1, '-', email_id2) as EmailId," +
@@ -216,6 +220,7 @@ namespace NellaiBill.Master
             txtFileName.Text = donorRegistrationResponse.DonorFileName;
             txtRelatedFiles.Text = donorRegistrationResponse.RelatedFiles;
             rchRemarks.Text = donorRegistrationResponse.Notes;
+            txtSpecialDetails.Text = donorRegistrationResponse.SpecialDetails;
             txtPanCard.Text = donorRegistrationResponse.PanCard;
             //cmbCategory.Text = donorRegistrationResponse.CategoryName;
             chkDonorAnnual.Checked = globalClass.getBoolean(donorRegistrationResponse.DonorAnnual);
@@ -248,7 +253,6 @@ namespace NellaiBill.Master
             string xFilterSearch = "Name Like '%" + txtSearch.Text
                  + "%' OR HomeAddress LIKE '%" + txtSearch.Text
                  + "%' OR OfficeAddress LIKE '%" + txtSearch.Text
-                 + "%' OR StateCountry LIKE '%" + txtSearch.Text
                  + "%' OR PhoneNo LIKE '%" + txtSearch.Text
                  + "%' OR EmailId LIKE '%" + txtSearch.Text
                  + "%' OR DonorFileName LIKE '%" + txtSearch.Text
@@ -258,8 +262,6 @@ namespace NellaiBill.Master
                  + "%' OR RelatedFiles LIKE '%" + txtSearch.Text + "%'";
             (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format(xFilterSearch);
         }
-
-
 
         private void mbtnImportantDates_Click(object sender, EventArgs e)
         {
