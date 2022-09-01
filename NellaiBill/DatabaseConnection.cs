@@ -206,6 +206,29 @@ namespace NellaiBill
             return false;
         }
 
+        public bool CheckDonorMobileNoExists(string xMobileNo)
+        {
+            try
+            {
+                connection = new MySqlConnection(conString);
+                string xQry = "SELECT * FROM `lukes_donor_registration` WHERE phone_no1='" + xMobileNo + "'";
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+                MySqlDataReader reader = comm.ExecuteReader();
+                while (reader.Read())
+                {
+                    return true;
+                }
+                connection.Close();
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Some Error Occured " + ex.Message);
+            }
+            return false;
+        }
 
         public void LoadDatabaseConfig()
         {
@@ -249,8 +272,8 @@ namespace NellaiBill
                 }
             }
         }
-       
-        public void LoadGridToWord(string xQry,string xDonorName,string xDonorAddress, List<string> donorNames, List<string> donorAddress)
+
+        public void LoadGridToWord(string xQry, string xDonorName, string xDonorAddress, List<string> donorNames, List<string> donorAddress)
         {
             DataTable table = new DataTable("ip_admission");
             using (MySqlConnection conn = new MySqlConnection(conString))
@@ -264,7 +287,7 @@ namespace NellaiBill
             foreach (DataRow da in table.Rows)
             {
                 donorNames.Add(da[xDonorName].ToString());
-                donorAddress.Add(da[xDonorAddress].ToString());            
+                donorAddress.Add(da[xDonorAddress].ToString());
             }
         }
         public void LoadComboBoxForReport(string xQry, ComboBox xComboBox, string xValueMember, string xDisplayMember)

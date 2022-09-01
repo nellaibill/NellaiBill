@@ -32,6 +32,12 @@ namespace NellaiBill.Master
             int xCategoryId = 1;// Int32.Parse(cmbCategory.SelectedValue.ToString());
             if (btnSaveUpdate.Text == "SAVE")
             {
+                if (xDb.CheckDonorMobileNoExists(txtMobileNo.Text))
+                {
+                    MessageBox.Show("Mobile Number Already Exists");
+                    txtMobileNo.Focus();
+                    return;
+                }
                 xQry = "insert into lukes_donor_registration (`donor_name`, `address_line1`, `address_line2`," +
                     "state,country,phone_no1,phone_no2,landline_no1,landline_no2," +
                     "donor_file_name,email_id1,email_id2," +
@@ -39,24 +45,24 @@ namespace NellaiBill.Master
                     "donor_annual,donor_endowment,donor_things,donor_welfare," +
                     "support_cs,support_fs,support_bs,support_cloth,support_other," +
                     "sr_ooc,sr_ntc,sr_post,sr_visitor,sr_email,greetings_pongal,greetings_easter,greetings_christmas,greetings_others) " +
-                    " values ( '" + txtName.Text + "'," +
-                    "'" + rchHomeAddress.Text + "'," +
-                    "'" + rchOfficeAddress.Text + "'," +
+                    " values ( '" + txtName.Text.Replace("'", "''") + "'," +
+                    "'" + rchHomeAddress.Text.Replace("'", "''") + "'," +
+                    "'" + rchOfficeAddress.Text.Replace("'", "''") + "'," +
                     "''," +
                     "'" + cmbCountry.SelectedItem + "'," +
                     "'" + txtMobileNo.Text + "'," +
                     "'" + txtWhatsAppNo.Text + "'," +
                     "'" + txtLandLineNo1.Text + "'," +
                     "'" + txtLandLineNo2.Text + "'," +
-                    "'" + txtFileName.Text + "'," +
-                    "'" + txtEmailId1.Text + "'," +
-                    "'" + txtEmailId2.Text + "'," +
-                    "'" + txtReference.Text + "'," +
-                    "'" + txtRelatedFiles.Text + "'," +
-                    "'" + txtPanCard.Text + "'," +
+                    "'" + txtFileName.Text.Replace("'", "''") + "'," +
+                    "'" + txtEmailId1.Text.Replace("'", "''") + "'," +
+                    "'" + txtEmailId2.Text.Replace("'", "''") + "'," +
+                    "'" + txtReference.Text.Replace("'", "''") + "'," +
+                    "'" + txtRelatedFiles.Text.Replace("'", "''") + "'," +
+                    "'" + txtPanCard.Text.Replace("'", "''") + "'," +
                     "" + xCategoryId + "," +
-                    "'" + rchRemarks.Text + "'," +
-                    "'" + txtSpecialDetails.Text + "'," +
+                    "'" + rchRemarks.Text.Replace("'", "''") + "'," +
+                    "'" + txtSpecialDetails.Text.Replace("'", "''") + "'," +
                     "'" + globalClass.getInteger(chkDonorAnnual.Checked) + "'," +
                     "'" + globalClass.getInteger(chkDonorEndowment.Checked) + "'," +
                     "'" + globalClass.getInteger(chkDonorThings.Checked) + "'," +
@@ -84,24 +90,24 @@ namespace NellaiBill.Master
             else
             {
                 xQry = "update lukes_donor_registration set " +
-                    " donor_name = '" + txtName.Text + "', " +
-                    " address_line1 = '" + rchHomeAddress.Text + "', " +
-                    " address_line2 = '" + rchOfficeAddress.Text + "', " +
+                    " donor_name = '" + txtName.Text.Replace("'", "''") + "', " +
+                    " address_line1 = '" + rchHomeAddress.Text.Replace("'", "''") + "', " +
+                    " address_line2 = '" + rchOfficeAddress.Text.Replace("'", "''") + "', " +
                     " state = '', " +
                     " country = '" + cmbCountry.SelectedItem + "', " +
                     " phone_no1 = '" + txtMobileNo.Text + "', " +
                     " phone_no2 = '" + txtWhatsAppNo.Text + "', " +
                     " landline_no1 = '" + txtLandLineNo1.Text + "', " +
                     " landline_no2 = '" + txtLandLineNo2.Text + "', " +
-                    " donor_file_name = '" + txtFileName.Text + "', " +
-                    " email_id1 = '" + txtEmailId1.Text + "', " +
-                    " email_id2 = '" + txtEmailId2.Text + "', " +
-                    " reference = '" + txtReference.Text + "', " +
-                    " related_files = '" + txtRelatedFiles.Text + "', " +
-                    " pancard = '" + txtPanCard.Text + "', " +
+                    " donor_file_name = '" + txtFileName.Text.Replace("'", "''") + "', " +
+                    " email_id1 = '" + txtEmailId1.Text.Replace("'", "''") + "', " +
+                    " email_id2 = '" + txtEmailId2.Text.Replace("'", "''") + "', " +
+                    " reference = '" + txtReference.Text.Replace("'", "''") + "', " +
+                    " related_files = '" + txtRelatedFiles.Text.Replace("'", "''") + "', " +
+                    " pancard = '" + txtPanCard.Text.Replace("'", "''") + "', " +
                     " category_id = " + xCategoryId + ", " +
-                    " notes = '" + rchRemarks.Text + "', " +
-                    " special_details = '" + txtSpecialDetails.Text + "', " +
+                    " notes = '" + rchRemarks.Text.Replace("'", "''") + "', " +
+                    " special_details = '" + txtSpecialDetails.Text.Replace("'", "''") + "', " +
                     " donor_annual = " + globalClass.getInteger(chkDonorAnnual.Checked) + ", " +
                     " donor_endowment = " + globalClass.getInteger(chkDonorEndowment.Checked) + ", " +
                     " donor_things = " + globalClass.getInteger(chkDonorThings.Checked) + ", " +
@@ -188,7 +194,7 @@ namespace NellaiBill.Master
 
         private void DonorRegistration_Load(object sender, EventArgs e)
         {
-           // xDb.LoadComboBox("select category_id,category_name from m_category", cmbCategory, "category_id", "category_name");
+            // xDb.LoadComboBox("select category_id,category_name from m_category", cmbCategory, "category_id", "category_name");
             DataClear();
             LoadGrid();
         }
@@ -432,7 +438,7 @@ namespace NellaiBill.Master
 
         private void DonorRegistration_Leave(object sender, EventArgs e)
         {
-           // MessageBox.Show("Leaving");
+            // MessageBox.Show("Leaving");
         }
     }
 }
