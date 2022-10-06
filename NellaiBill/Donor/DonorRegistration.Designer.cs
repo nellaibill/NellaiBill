@@ -100,6 +100,7 @@ namespace NellaiBill.Master
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtSpecialDetails = new System.Windows.Forms.TextBox();
+            this.btnSearchClear = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -491,7 +492,7 @@ namespace NellaiBill.Master
             // 
             this.txtMobileNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMobileNo.Location = new System.Drawing.Point(122, 58);
-            this.txtMobileNo.MaxLength = 20;
+            this.txtMobileNo.MaxLength = 22;
             this.txtMobileNo.Name = "txtMobileNo";
             this.txtMobileNo.Size = new System.Drawing.Size(282, 23);
             this.txtMobileNo.TabIndex = 2;
@@ -511,7 +512,7 @@ namespace NellaiBill.Master
             // 
             this.txtWhatsAppNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWhatsAppNo.Location = new System.Drawing.Point(121, 87);
-            this.txtWhatsAppNo.MaxLength = 20;
+            this.txtWhatsAppNo.MaxLength = 22;
             this.txtWhatsAppNo.Name = "txtWhatsAppNo";
             this.txtWhatsAppNo.Size = new System.Drawing.Size(282, 23);
             this.txtWhatsAppNo.TabIndex = 3;
@@ -610,7 +611,7 @@ namespace NellaiBill.Master
             // 
             this.txtSearch.Location = new System.Drawing.Point(94, 442);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(324, 20);
+            this.txtSearch.Size = new System.Drawing.Size(299, 20);
             this.txtSearch.TabIndex = 141;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -886,11 +887,22 @@ namespace NellaiBill.Master
             this.txtSpecialDetails.Size = new System.Drawing.Size(427, 23);
             this.txtSpecialDetails.TabIndex = 189;
             // 
+            // btnSearchClear
+            // 
+            this.btnSearchClear.Location = new System.Drawing.Point(392, 440);
+            this.btnSearchClear.Name = "btnSearchClear";
+            this.btnSearchClear.Size = new System.Drawing.Size(38, 23);
+            this.btnSearchClear.TabIndex = 196;
+            this.btnSearchClear.Text = "X";
+            this.btnSearchClear.UseVisualStyleBackColor = true;
+            this.btnSearchClear.Click += new System.EventHandler(this.btnSearchClear_Click);
+            // 
             // DonorRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1368, 749);
+            this.Controls.Add(this.btnSearchClear);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.pBtnNext);
             this.Controls.Add(this.pBtnPrevious);
@@ -1016,5 +1028,6 @@ namespace NellaiBill.Master
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtSpecialDetails;
+        private System.Windows.Forms.Button btnSearchClear;
     }
 }

@@ -208,6 +208,10 @@ namespace NellaiBill
 
         public bool CheckDonorMobileNoExists(string xMobileNo)
         {
+            if (xMobileNo == "")
+            {
+                return false;
+            }
             try
             {
                 connection = new MySqlConnection(conString);

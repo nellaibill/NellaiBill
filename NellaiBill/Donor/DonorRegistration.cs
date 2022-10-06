@@ -440,6 +440,12 @@ namespace NellaiBill.Master
         {
             // MessageBox.Show("Leaving");
         }
+
+        private void btnSearchClear_Click(object sender, EventArgs e)
+        {
+            txtSearch.Text = "";
+            txtSearch.Focus();
+        }
     }
 }
 
