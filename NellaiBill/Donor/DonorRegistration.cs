@@ -146,6 +146,7 @@ namespace NellaiBill.Master
 
             string xQry = "select p_donor_id as Id," +
                 "donor_name as Name," +
+                "donor_file_name as DonorFileName, " +
                 "CONCAT(address_line1) as HomeAddress," +
                 "CONCAT(address_line2) as OfficeAddress," +
                 "notes as  Notes," +
@@ -153,7 +154,6 @@ namespace NellaiBill.Master
                 "CONCAT(phone_no1, '-', phone_no2) as PhoneNo," +
                 "CONCAT(landline_no1, '-', landline_no2) as LandlineNo," +
                 "CONCAT(email_id1, '-', email_id2) as EmailId," +
-                "donor_file_name as DonorFileName, " +
                 "reference as Reference, " +
                 "pancard as PanCard, " +
                 "related_files as RelatedFiles " +
@@ -165,13 +165,13 @@ namespace NellaiBill.Master
             dataGridView1.ScrollBars = ScrollBars.Both;
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns["Name"].Frozen = true;
-            dataGridView1.Columns["Name"].Width = 150;
-            dataGridView1.Columns[2].Width = 250;
-            dataGridView1.Columns[3].Width = 250;
-            dataGridView1.Columns[4].Width = 250;
-            dataGridView1.Columns[5].Width = 250;
-            dataGridView1.Columns[6].Width = 250;
-            dataGridView1.Columns[7].Width = 250;
+            dataGridView1.Columns["Name"].Width = 100;
+            dataGridView1.Columns[2].Width = 100;
+            dataGridView1.Columns[3].Width = 100;
+            dataGridView1.Columns[4].Width = 100;
+            dataGridView1.Columns[5].Width = 100;
+            dataGridView1.Columns[6].Width = 100;
+            dataGridView1.Columns[7].Width = 100;
         }
 
         private void DataClear()
