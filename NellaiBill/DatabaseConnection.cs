@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using NellaiBill.Donor;
 using NellaiBill.Models;
+using NellaiBill.Models.Don;
 using NellaiBill.Models.Donor;
 using System;
 using System.Collections.Generic;
@@ -1034,6 +1035,42 @@ namespace NellaiBill
             return donorRegistrationResponseModel;
         }
 
+        public DonRegistrationResponseModal GetDonRegistrationBasedOnQry(int xGetId)
+        {
+            string xQry = "select * " +
+                    " from candidates where   id  = '" + xGetId + "'";
+            DonRegistrationResponseModal donRegistrationResponseModal = new DonRegistrationResponseModal();
+            using (connection = new MySqlConnection(conString))
+            {
+                connection.Open();
+                MySqlCommand comm = new MySqlCommand(xQry, connection);
+
+                MySqlDataReader reader = comm.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    donRegistrationResponseModal = new DonRegistrationResponseModal()
+                    {
+                        Id = reader.GetInt32("id"),
+                        Name = reader.GetString("candidate_name"),
+                        Gender = reader.GetString("gender"),
+                        Age = reader.GetString("age"),
+                        DoorNo = reader.GetString("addr_door_no"),
+                        AddressLine1 = reader.GetString("addr_line1"),
+                        AddressLine2 = reader.GetString("addr_line2"),
+                        City = reader.GetInt32("city_id"),
+                        District = reader.GetInt32("district_id"),
+                        PinCode = reader.GetInt32("pincode_id"),
+                        Assembly = reader.GetInt32("assembly_id"),
+                        Ward = reader.GetInt32("ward_id"),
+                        Subward = reader.GetInt32("subward_id"),
+                        EpicNumber = reader.GetString("epic_number"),
+                    };
+                }
+                connection.Close();
+            }
+            return donRegistrationResponseModal;
+        }
         public DonorSettingsModel GetDonorSettingsBasedOnQry(int xDonorSettingsId)
         {
             string xQry = "select * " +

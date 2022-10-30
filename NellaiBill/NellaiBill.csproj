@@ -571,6 +571,12 @@
     <Compile Include="Don\CustomerDetails.Designer.cs">
       <DependentUpon>CustomerDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Don\DonVoterRegistration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Don\DonVoterRegistration.Designer.cs">
+      <DependentUpon>DonVoterRegistration.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalClass.cs" />
     <Compile Include="Master\CaseTypeMaster.cs">
       <SubType>Form</SubType>
@@ -694,6 +700,7 @@
     <Compile Include="Models\Donor\DoctorResponseModel.cs" />
     <Compile Include="Models\Donor\DonorRegistrationResponseModel.cs" />
     <Compile Include="Models\Donor\DonorSettingsModel.cs" />
+    <Compile Include="Models\Don\DonRegistrationResponseModal.cs" />
     <Compile Include="Models\IPDetailModel.cs" />
     <Compile Include="Models\IpInvoiceDetailModel.cs" />
     <Compile Include="Models\IpInvoiceModel.cs" />
@@ -1262,6 +1269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Don\CustomerDetails.resx">
       <DependentUpon>CustomerDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Don\DonVoterRegistration.resx">
+      <DependentUpon>DonVoterRegistration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMainMdi.resx">
       <DependentUpon>frmMainMdi.cs</DependentUpon>

@@ -1,4 +1,5 @@
 ﻿using NellaiBill.Common;
+using NellaiBill.Don;
 using NellaiBill.Transaction;
 using System;
 using System.Net.NetworkInformation;
@@ -20,7 +21,8 @@ namespace NellaiBill.Master
            // if((txtUserName.Text=="admin") && (txtPassword.Text=="admin"))
             {
                 LoginInfo.UserID = txtUserName.Text;
-                frm_main_mdi nextForm = new frm_main_mdi();
+                //frm_main_mdi nextForm = new frm_main_mdi();
+                DonVoterRegistration nextForm = new DonVoterRegistration();
                 this.Hide();
                 nextForm.ShowDialog();
                 this.Close();
