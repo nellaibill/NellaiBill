@@ -596,6 +596,12 @@
     <Compile Include="Master\Customer.Designer.cs">
       <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Master\DBManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Master\DBManager.Designer.cs">
+      <DependentUpon>DBManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Master\DoctorRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1291,6 +1297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Master\Customer.resx">
       <DependentUpon>Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Master\DBManager.resx">
+      <DependentUpon>DBManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Master\DoctorRegistration.resx">
       <DependentUpon>DoctorRegistration.cs</DependentUpon>

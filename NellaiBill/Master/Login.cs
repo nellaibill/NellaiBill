@@ -21,8 +21,8 @@ namespace NellaiBill.Master
            // if((txtUserName.Text=="admin") && (txtPassword.Text=="admin"))
             {
                 LoginInfo.UserID = txtUserName.Text;
-                //frm_main_mdi nextForm = new frm_main_mdi();
-                DonVoterRegistration nextForm = new DonVoterRegistration();
+                frm_main_mdi nextForm = new frm_main_mdi();
+                //DonVoterRegistration nextForm = new DonVoterRegistration();
                 this.Hide();
                 nextForm.ShowDialog();
                 this.Close();
@@ -96,6 +96,10 @@ namespace NellaiBill.Master
             frmchangepw.ShowDialog();
         }
 
-     
+        private void linkDBManagerSettings_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            DBManager frmDBManager = new DBManager();
+            frmDBManager.ShowDialog();
+        }
     }
 }

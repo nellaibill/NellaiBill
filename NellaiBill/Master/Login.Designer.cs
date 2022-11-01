@@ -38,6 +38,7 @@
             this.linkForgetPassword = new System.Windows.Forms.LinkLabel();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.linkDBManagerSettings = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,6 +82,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.linkDBManagerSettings);
             this.groupBox1.Controls.Add(this.linkChangePassword);
             this.groupBox1.Controls.Add(this.linkForgetPassword);
             this.groupBox1.Controls.Add(this.lblUserName);
@@ -102,7 +104,7 @@
             this.linkChangePassword.AutoSize = true;
             this.linkChangePassword.BackColor = System.Drawing.Color.Transparent;
             this.linkChangePassword.LinkColor = System.Drawing.Color.Black;
-            this.linkChangePassword.Location = new System.Drawing.Point(151, 297);
+            this.linkChangePassword.Location = new System.Drawing.Point(284, 254);
             this.linkChangePassword.Name = "linkChangePassword";
             this.linkChangePassword.Size = new System.Drawing.Size(122, 17);
             this.linkChangePassword.TabIndex = 6;
@@ -147,6 +149,19 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // linkDBManagerSettings
+            // 
+            this.linkDBManagerSettings.AutoSize = true;
+            this.linkDBManagerSettings.BackColor = System.Drawing.Color.Transparent;
+            this.linkDBManagerSettings.LinkColor = System.Drawing.Color.Black;
+            this.linkDBManagerSettings.Location = new System.Drawing.Point(151, 298);
+            this.linkDBManagerSettings.Name = "linkDBManagerSettings";
+            this.linkDBManagerSettings.Size = new System.Drawing.Size(58, 17);
+            this.linkDBManagerSettings.TabIndex = 7;
+            this.linkDBManagerSettings.TabStop = true;
+            this.linkDBManagerSettings.Text = "Settings";
+            this.linkDBManagerSettings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkDBManagerSettings_LinkClicked);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,5 +191,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.LinkLabel linkForgetPassword;
         private System.Windows.Forms.LinkLabel linkChangePassword;
+        private System.Windows.Forms.LinkLabel linkDBManagerSettings;
     }
 }
