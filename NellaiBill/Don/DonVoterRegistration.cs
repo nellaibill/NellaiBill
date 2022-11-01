@@ -1,4 +1,5 @@
-﻿using NellaiBill.Models.Don;
+﻿using NellaiBill.Common;
+using NellaiBill.Models.Don;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,12 +25,12 @@ namespace NellaiBill.Don
         private void DonVoterRegistration_Load(object sender, EventArgs e)
         {
             LoadGrid();
-            xDb.LoadComboBox("select city_id,city_name from city order by city_name ", cmbCity, "city_id", "city_name");
-            xDb.LoadComboBox("select district_id,district_name from district order by district_name ", cmbDistrict, "district_id", "district_name");
-            xDb.LoadComboBox("select pincode_id,pincode_number from pincode order by pincode_number ", cmbPincode, "pincode_id", "pincode_number");
-            xDb.LoadComboBox("select assembly_id,assembly_name from assembly order by assembly_name ", cmbAssembly, "assembly_id", "assembly_name");
-            xDb.LoadComboBox("select ward_id,ward_name from ward order by ward_name ", cmbWard, "ward_id", "ward_name");
-            xDb.LoadComboBox("select subward_id,subward_name from subward order by subward_name ", cmbSubWard, "subward_id", "subward_name");
+            xDb.LoadComboBoxV2("city", cmbCity);
+            xDb.LoadComboBoxV2("district", cmbDistrict);
+            xDb.LoadComboBoxV2("pincode", cmbPincode);
+            xDb.LoadComboBoxV2("assembly", cmbAssembly);
+            xDb.LoadComboBoxV2("ward", cmbWard);
+            xDb.LoadComboBoxV2("subward", cmbSubWard);
 
             foreach (DataGridViewColumn col in dataGridView1.Columns)
             {
@@ -42,7 +43,7 @@ namespace NellaiBill.Don
             DonRegistrationResponseModal donRegistrationResponseModal = new DonRegistrationResponseModal();
             donRegistrationResponseModal = xDb.GetDonRegistrationBasedOnQry(xCandidateId);
             txtFamilyHeadName.Text = donRegistrationResponseModal.Name;
-            cmbGender.SelectedText = donRegistrationResponseModal.Gender;
+            cmbGender.SelectedItem = donRegistrationResponseModal.Gender;
             txtAge.Text = donRegistrationResponseModal.Age;
             txtDoorNo.Text = donRegistrationResponseModal.DoorNo;
             txtAddressLine1.Text = donRegistrationResponseModal.AddressLine1;
@@ -57,7 +58,7 @@ namespace NellaiBill.Don
         }
         public void LoadGrid()
         {
-            string xQry = "select id,candidate_name,epic_number,mobile_number,gender,age,city_name,district_name,pincode_number,ward_name,subward_name" +
+            string xQry = "select id,candidate_name,epic_number,mobile_number,gender,age,city_name,district_name,pincode_number as pincode,ward_name,subward_name" +
                 " from candidates ca, city c, district d, pincode p, assembly a, ward w, subward sw where ca.city_id = c.city_id " +
                 " and ca.district_id = d.district_id " +
                 " and ca.pincode_id = p.pincode_id " +
@@ -75,9 +76,9 @@ namespace NellaiBill.Don
             dataGridView1.Columns[2].Width = 150;
             dataGridView1.Columns[3].Width = 100;
             dataGridView1.Columns[4].Width = 100;
-            dataGridView1.Columns[5].Width = 150;
-            dataGridView1.Columns[6].Width = 150;
-            dataGridView1.Columns[7].Width = 150;
+            dataGridView1.Columns[5].Width = 50;
+            dataGridView1.Columns[6].Width = 100;
+            dataGridView1.Columns[7].Width = 100;
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -88,7 +89,7 @@ namespace NellaiBill.Don
                  + "%' OR gender LIKE '%" + txtSearch.Text
                  + "%' OR city_name LIKE '%" + txtSearch.Text
                  + "%' OR district_name LIKE '%" + txtSearch.Text
-                 + "%' OR pincode_number LIKE '%" + txtSearch.Text
+                // + "%' OR pincode_number LIKE '%" + txtSearch.Text
                  + "%' OR ward_name LIKE '%" + txtSearch.Text
                  + "%' OR subward_name LIKE '%" + txtSearch.Text + "%'";
             (dataGridView1.DataSource as DataTable).DefaultView.RowFilter = string.Format(xFilterSearch);
@@ -211,6 +212,29 @@ namespace NellaiBill.Don
             xCandidateId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             DataFetch(xCandidateId);
             btnSaveUpdate.Text = "Update";
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            DataClear();
+        }
+
+        private void btnCity_Click(object sender, EventArgs e)
+        {
+            GlobalMasterForm globalMasterForm = new GlobalMasterForm("city", "city_id", "city_name");
+            globalMasterForm.ShowDialog();
+        }
+
+        private void btnWard_Click(object sender, EventArgs e)
+        {
+            GlobalMasterForm globalMasterForm = new GlobalMasterForm("ward", "ward_id", "ward_name", "ward_no");
+            globalMasterForm.ShowDialog();
+        }
+
+        private void btnSubWard_Click(object sender, EventArgs e)
+        {
+            GlobalMasterForm globalMasterForm = new GlobalMasterForm("subward", "subward_id", "subward_name", "ward_id", "ward");
+            globalMasterForm.ShowDialog();
         }
     }
 }

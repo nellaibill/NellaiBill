@@ -9,6 +9,7 @@ using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
@@ -345,6 +346,37 @@ namespace NellaiBill
 
                     xComboBox.ValueMember = xValueMember;
                     xComboBox.DisplayMember = xDisplayMember;
+                    xComboBox.DataSource = dt;
+
+                }
+            }
+        }
+        public void LoadComboBoxV2(string xTableName, ComboBox xComboBox)
+        {
+            DropdownTableMappingModel dropdownTableMappingModel = GetDropdownTableMappingModelBasedOnTableName(xTableName);
+            using (MySqlConnection conn = new MySqlConnection(conString))
+            {
+                string xQry = "select " + dropdownTableMappingModel.Id + ", " + dropdownTableMappingModel.Value + " from " + xTableName + " order by " + dropdownTableMappingModel.Value;
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(xQry, conn))
+                {
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    if (dropdownTableMappingModel.Value == "group_name" || xComboBox.Name == "cmbTest")
+                    {
+
+                    }
+                    else
+                    {
+                        DataRow row = dt.NewRow();
+                        row[0] = 0;
+                        row[1] = "Please select";
+                        dt.Rows.InsertAt(row, 0);
+                    }
+
+                    xComboBox.ValueMember = dropdownTableMappingModel.Id;
+                    xComboBox.DisplayMember = dropdownTableMappingModel.Value;
                     xComboBox.DataSource = dt;
 
                 }
@@ -1110,6 +1142,27 @@ namespace NellaiBill
                 connection.Close();
             }
             return donorSettingsModel;
+        }
+
+        public DropdownTableMappingModel GetDropdownTableMappingModelBasedOnTableName(string xTableName)
+        {
+            List<DropdownTableMappingModel> authors = new List<DropdownTableMappingModel>
+                    {
+                        new DropdownTableMappingModel { TableName = "city", Id = "city_id", Value = "city_name" },
+                        new DropdownTableMappingModel { TableName = "district", Id = "district_id", Value = "district_name" },
+                        new DropdownTableMappingModel { TableName = "pincode", Id = "pincode_id", Value = "pincode_number" },
+                        new DropdownTableMappingModel { TableName = "assembly", Id = "assembly_id", Value = "assembly_name" },
+                        new DropdownTableMappingModel { TableName = "ward", Id = "ward_id", Value = "ward_name" },
+                        new DropdownTableMappingModel { TableName = "subward", Id = "subward_id", Value = "subward_name" }
+                    };
+            var results = authors.Where(o => o.TableName == xTableName).ToList();
+            DropdownTableMappingModel dropdownTableMappingModel = new DropdownTableMappingModel
+            {
+                TableName = results[0].TableName,
+                Id = results[0].Id,
+                Value = results[0].Value,
+            };
+            return dropdownTableMappingModel;
         }
     }
 

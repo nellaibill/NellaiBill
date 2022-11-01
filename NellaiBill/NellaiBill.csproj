@@ -244,6 +244,12 @@
     <Compile Include="Common\DeveloperDashboard.Designer.cs">
       <DependentUpon>DeveloperDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Common\GlobalMasterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\GlobalMasterForm.Designer.cs">
+      <DependentUpon>GlobalMasterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Common\LoginInfo.cs" />
     <Compile Include="Common\SystemInfo.cs">
       <SubType>Form</SubType>
@@ -701,6 +707,7 @@
     <Compile Include="Models\Donor\DonorRegistrationResponseModel.cs" />
     <Compile Include="Models\Donor\DonorSettingsModel.cs" />
     <Compile Include="Models\Don\DonRegistrationResponseModal.cs" />
+    <Compile Include="Models\DropdownTableMappingModel.cs" />
     <Compile Include="Models\IPDetailModel.cs" />
     <Compile Include="Models\IpInvoiceDetailModel.cs" />
     <Compile Include="Models\IpInvoiceModel.cs" />
@@ -1049,6 +1056,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Common\DeveloperDashboard.resx">
       <DependentUpon>DeveloperDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\GlobalMasterForm.resx">
+      <DependentUpon>GlobalMasterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Common\SystemInfo.resx">
       <DependentUpon>SystemInfo.cs</DependentUpon>
