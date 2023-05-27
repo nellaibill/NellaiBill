@@ -39,6 +39,7 @@ namespace NellaiBill.Master
             this.txtImportPath = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBrowseImport = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,15 +96,16 @@ namespace NellaiBill.Master
             // 
             // btnImport
             // 
-            this.btnImport.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnImport.BackColor = System.Drawing.Color.Red;
             this.btnImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImport.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnImport.Location = new System.Drawing.Point(763, 98);
+            this.btnImport.Location = new System.Drawing.Point(763, 302);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(99, 31);
             this.btnImport.TabIndex = 51;
             this.btnImport.Text = "Import";
             this.btnImport.UseVisualStyleBackColor = false;
+            this.btnImport.Visible = false;
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // btnExport
@@ -121,38 +123,55 @@ namespace NellaiBill.Master
             // 
             // txtImportPath
             // 
-            this.txtImportPath.Location = new System.Drawing.Point(108, 105);
+            this.txtImportPath.Location = new System.Drawing.Point(108, 309);
             this.txtImportPath.Name = "txtImportPath";
             this.txtImportPath.Size = new System.Drawing.Size(527, 20);
             this.txtImportPath.TabIndex = 54;
+            this.txtImportPath.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(66, 108);
+            this.label1.Location = new System.Drawing.Point(66, 312);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 53;
             this.label1.Text = "PATH";
+            this.label1.Visible = false;
             // 
             // btnBrowseImport
             // 
             this.btnBrowseImport.BackColor = System.Drawing.Color.DarkMagenta;
             this.btnBrowseImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBrowseImport.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnBrowseImport.Location = new System.Drawing.Point(651, 98);
+            this.btnBrowseImport.Location = new System.Drawing.Point(651, 302);
             this.btnBrowseImport.Name = "btnBrowseImport";
             this.btnBrowseImport.Size = new System.Drawing.Size(99, 31);
             this.btnBrowseImport.TabIndex = 55;
             this.btnBrowseImport.Text = "Browse";
             this.btnBrowseImport.UseVisualStyleBackColor = false;
+            this.btnBrowseImport.Visible = false;
             this.btnBrowseImport.Click += new System.EventHandler(this.btnBrowseImport_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Location = new System.Drawing.Point(65, 263);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(732, 24);
+            this.label2.TabIndex = 56;
+            this.label2.Text = "Please be careful before you click on  Import button it will change the database " +
+    "records";
+            this.label2.Visible = false;
             // 
             // DBManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(892, 225);
+            this.ClientSize = new System.Drawing.Size(892, 437);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnBrowseImport);
             this.Controls.Add(this.txtImportPath);
             this.Controls.Add(this.label1);
@@ -164,6 +183,7 @@ namespace NellaiBill.Master
             this.Controls.Add(this.panel3);
             this.Name = "DBManager";
             this.Text = "DBManager";
+            this.Load += new System.EventHandler(this.DBManager_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -183,5 +203,6 @@ namespace NellaiBill.Master
         private System.Windows.Forms.TextBox txtImportPath;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBrowseImport;
+        private System.Windows.Forms.Label label2;
     }
 }

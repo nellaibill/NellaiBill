@@ -42,7 +42,6 @@ namespace NellaiBill.Donor
         {
             string xFilterSearch = "Name Like '%" + txtSearch.Text
             + "%' OR Address LIKE '%" + txtSearch.Text
-            + "%' OR State LIKE '%" + txtSearch.Text
             + "%' OR Country LIKE '%" + txtSearch.Text
             + "%' OR PhoneNo LIKE '%" + txtSearch.Text
             + "%' OR LandLineNo LIKE '%" + txtSearch.Text

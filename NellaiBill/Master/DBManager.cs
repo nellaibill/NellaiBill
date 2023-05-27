@@ -3,6 +3,7 @@ using NellaiBill.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -35,6 +36,7 @@ namespace NellaiBill.Master
         {
             string xRestoreFilePath = txtImportPath.Text;
             xDb.DataProcess("SET GLOBAL max_allowed_packet = 16777216"); //16 MB https://stackoverflow.com/questions/6973939/mysql-database-error-packets-larger-than-max-allowed-packet-are-not-allowed-d
+            xDb.DataProcess("DROP TABLE `account_group`, `backup`, `config`, `lukes_donor_donation_details`, `lukes_donor_fd_details`, `lukes_donor_important_dates`, `lukes_donor_registration`, `lukes_donor_settings`, `m_category`, `m_doctor`, `m_user`, `setup_companyinfo`;");
             WaitSomeTime();
             using (MySqlConnection conn = new MySqlConnection(xDb.conString))
             {
@@ -110,6 +112,10 @@ namespace NellaiBill.Master
                 folderPath = openFileDialog.FileName;
             }
             txtImportPath.Text = folderPath; ;
+        }
+
+        private void DBManager_Load(object sender, EventArgs e)
+        {
         }
     }
 }

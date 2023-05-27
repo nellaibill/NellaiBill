@@ -3,6 +3,7 @@ using NellaiBill.Donor;
 using NellaiBill.Models;
 using NellaiBill.Models.Donor;
 using System;
+using System.Configuration;
 using System.Data;
 using System.Windows.Forms;
 
@@ -17,6 +18,9 @@ namespace NellaiBill.Master
         public DonorRegistration()
         {
             InitializeComponent();
+            btnSaveUpdate.Visible = ConfigurationManager.AppSettings["IsMainServer"].ToString() == "Yes" ? true : false;
+            pBtnNew.Visible = ConfigurationManager.AppSettings["IsMainServer"].ToString() == "Yes" ? true : false;
+            pBtnDelete.Visible = ConfigurationManager.AppSettings["IsMainServer"].ToString() == "Yes" ? true : false;
         }
 
         private void btnSaveUpdate_Click(object sender, EventArgs e)
@@ -165,13 +169,13 @@ namespace NellaiBill.Master
             dataGridView1.ScrollBars = ScrollBars.Both;
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns["Name"].Frozen = true;
-            dataGridView1.Columns["Name"].Width = 100;
-            dataGridView1.Columns[2].Width = 100;
-            dataGridView1.Columns[3].Width = 100;
-            dataGridView1.Columns[4].Width = 100;
-            dataGridView1.Columns[5].Width = 100;
-            dataGridView1.Columns[6].Width = 100;
-            dataGridView1.Columns[7].Width = 100;
+            dataGridView1.Columns["Name"].Width = 200;
+            dataGridView1.Columns["DonorFileName"].Width = 150;
+            dataGridView1.Columns["HomeAddress"].Width = 200;
+            dataGridView1.Columns["OfficeAddress"].Width = 200;
+            dataGridView1.Columns["Notes"].Width = 200;
+            dataGridView1.Columns["Country"].Width = 100;
+            dataGridView1.Columns["PhoneNo"].Width = 200;
         }
 
         private void DataClear()
@@ -283,12 +287,12 @@ namespace NellaiBill.Master
 
         private void txtMobileNo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            globalClass.AcceptOnlyNumeric(e);
+            //globalClass.AcceptOnlyNumeric(e); //Removed  to addd + Symbol
         }
 
         private void txtWhatsAppNo_KeyPress(object sender, KeyPressEventArgs e)
         {
-            globalClass.AcceptOnlyNumeric(e);
+            //globalClass.AcceptOnlyNumeric(e); //Removed  to addd + Symbol
         }
 
         private void txtLandlineNo1_KeyPress(object sender, KeyPressEventArgs e)

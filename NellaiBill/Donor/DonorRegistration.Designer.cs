@@ -535,7 +535,7 @@ namespace NellaiBill.Master
             this.cmbCountry.FormattingEnabled = true;
             this.cmbCountry.Items.AddRange(new object[] {
             "India",
-            "OutsideIndia"});
+            "Outside India"});
             this.cmbCountry.Location = new System.Drawing.Point(124, 316);
             this.cmbCountry.Name = "cmbCountry";
             this.cmbCountry.Size = new System.Drawing.Size(159, 25);

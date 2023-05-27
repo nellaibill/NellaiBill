@@ -1,0 +1,12 @@
+{
+  "ward": {
+    "TableName": "ward",
+    "Id": "ward_id",
+    "Value": "ward_name"
+  },
+  "subward": {
+    "TableName": "",
+    "Id": "",
+    "Value": ""
+  }
+}

@@ -1,6 +1,7 @@
 ﻿using DGVPrinterHelper;
 using NellaiBill.Models;
 using System;
+using System.Configuration;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -18,6 +19,7 @@ namespace NellaiBill.Donor
             InitializeComponent();
             xFDonorId = xDonorId;
             DataFetch(xDonorId);
+            btnSaveUpdate.Visible = ConfigurationManager.AppSettings["IsMainServer"].ToString() == "Yes" ? true : false;
         }
 
         private void DonorImportantDates_Load(object sender, EventArgs e)
