@@ -17,7 +17,8 @@ namespace NellaiBill.Master
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if(xDb.CountRecord("select * from m_user where username='" + txtUserName.Text+ "' and password='"+txtPassword.Text+"'")>=1)
+            string xQry = "select * from m_user where username='" + txtUserName.Text + "' and password='" + txtPassword.Text + "'";
+            if (xDb.CountRecord(xQry) >=1)
            // if((txtUserName.Text=="admin") && (txtPassword.Text=="admin"))
             {
                 LoginInfo.UserID = txtUserName.Text;

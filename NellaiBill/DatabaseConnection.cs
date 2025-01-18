@@ -26,7 +26,7 @@ namespace NellaiBill
         public string xReportPath = "";
         int xGBatch = 0;
         public MySqlConnection connection;
-        public string conString = @"Data Source=" + xHostName + ";port=" + xPort + ";Initial Catalog=" + xDatabaseName + ";Convert Zero Datetime=True;CharSet=utf8;User Id=" + xUserName + ";password=" + xPassword + "";
+        public string conString = @"Data Source=" + xHostName + ";port=" + xPort + ";Initial Catalog=" + xDatabaseName + ";Convert Zero Datetime=True;;CharSet=utf8mb4;;User Id=" + xUserName + ";password=" + xPassword + "";
         //public string conString = @"Data Source=localhost;port=3306;Initial Catalog=don_data_entry;Convert Zero Datetime=True;CharSet=utf8;User Id=root;password=";
         // public string conString = @"Data Source=ns1069.ifastnet.com;port=3306;Initial Catalog=hellotam_nellaibill;User Id=hellotam_saleem;password=hellotamila;Convert Zero Datetime=True;CharSet=utf8;";
         /*public string conString =
