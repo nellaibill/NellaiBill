@@ -1296,6 +1296,7 @@
       <DependentUpon>App.config</DependentUpon>
       <IsTransformFile>true</IsTransformFile>
     </None>
+    <None Include="CrystalReports\wholesale.rpt" />
     <None Include="NellaiBill_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\MySql.Data.MySqlClient.MySqlBulkLoader.datasource" />

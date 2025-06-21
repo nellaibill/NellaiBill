@@ -43,8 +43,8 @@ namespace NellaiBill.Master
             dataGridView1.Columns[3].Visible = false;
             dataGridView1.Columns[11].Visible = false;
             dataGridView1.Columns[12].Visible = false;
-            dataGridView1.Columns[13].Visible = false;
-            dataGridView1.Columns[14].Visible = false;
+           dataGridView1.Columns[13].Visible = false;
+           dataGridView1.Columns[14].Visible = false;
             xCategoryId = Int32.Parse(cmbCategory.SelectedValue.ToString());
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Tahoma", 10, FontStyle.Bold);
             cmbCategory.SelectedIndex = 1;
@@ -101,11 +101,11 @@ namespace NellaiBill.Master
                 " i.product_code as ProductCode, " +
                 " i.hsn_code as hsn_code," +
                 " i.gst as Gst, " +
-                " i.mrp as Mrp," +
-                " i.salt_name as SALT," +
+                " i.mrp as Mrp, " +
+               " i.salt_name as SALT," +
                  " i.scheduleh as SCHEDULEH," +
                  " i.schedulehP as SCHEDULEH_PLUS," +
-                 " i.norcatic as NORCATIC" +
+                " i.norcatic as NORCATIC" +
                 " from m_category c,m_group g, " +
                 " m_product i " +
                 " where c.category_id = i.category_id " +

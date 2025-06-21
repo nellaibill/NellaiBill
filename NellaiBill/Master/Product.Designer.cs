@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -92,20 +92,20 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 236);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.HotPink;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.HotPink;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Size = new System.Drawing.Size(1142, 407);
             this.dataGridView1.TabIndex = 18;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
@@ -189,6 +189,7 @@
             this.chboxNorcatic.Size = new System.Drawing.Size(15, 14);
             this.chboxNorcatic.TabIndex = 56;
             this.chboxNorcatic.UseVisualStyleBackColor = true;
+            this.chboxNorcatic.Visible = false;
             this.chboxNorcatic.CheckedChanged += new System.EventHandler(this.chboxNorcatic_CheckedChanged);
             // 
             // chboxScheduleHp
@@ -199,6 +200,7 @@
             this.chboxScheduleHp.Size = new System.Drawing.Size(15, 14);
             this.chboxScheduleHp.TabIndex = 56;
             this.chboxScheduleHp.UseVisualStyleBackColor = true;
+            this.chboxScheduleHp.Visible = false;
             this.chboxScheduleHp.CheckedChanged += new System.EventHandler(this.chboxScheduleHp_CheckedChanged);
             // 
             // chboxScheduleH
@@ -209,6 +211,7 @@
             this.chboxScheduleH.Size = new System.Drawing.Size(15, 14);
             this.chboxScheduleH.TabIndex = 56;
             this.chboxScheduleH.UseVisualStyleBackColor = true;
+            this.chboxScheduleH.Visible = false;
             this.chboxScheduleH.CheckedChanged += new System.EventHandler(this.chboxScheduleH_CheckedChanged);
             // 
             // lblMrp
@@ -273,6 +276,7 @@
             this.lblNorcatic.Size = new System.Drawing.Size(79, 24);
             this.lblNorcatic.TabIndex = 48;
             this.lblNorcatic.Text = "Norcatic";
+            this.lblNorcatic.Visible = false;
             // 
             // label4
             // 
@@ -293,6 +297,7 @@
             this.lblSchHPlus.Size = new System.Drawing.Size(126, 24);
             this.lblSchHPlus.TabIndex = 48;
             this.lblSchHPlus.Text = "Schedule H +";
+            this.lblSchHPlus.Visible = false;
             // 
             // cmbTax
             // 
@@ -317,6 +322,7 @@
             this.lbSchH.Size = new System.Drawing.Size(110, 24);
             this.lbSchH.TabIndex = 48;
             this.lbSchH.Text = "Schedule H";
+            this.lbSchH.Visible = false;
             // 
             // lbSalt
             // 
@@ -327,6 +333,7 @@
             this.lbSalt.Size = new System.Drawing.Size(40, 24);
             this.lbSalt.TabIndex = 48;
             this.lbSalt.Text = "Salt";
+            this.lbSalt.Visible = false;
             // 
             // lblHsnCode
             // 
@@ -344,6 +351,7 @@
             this.txtSalt.Name = "txtSalt";
             this.txtSalt.Size = new System.Drawing.Size(91, 20);
             this.txtSalt.TabIndex = 7;
+            this.txtSalt.Visible = false;
             // 
             // txtHsnCode
             // 
